@@ -1,0 +1,17 @@
+{
+  "experiment_name": "pipeline_test",
+  "method_name": "splatfacto",
+  "checkpoint": "outputs/scenes/pipeline_test/pipeline_test/splatfacto/2026-11-01_075750/nerfstudio_models/step-000029999.ckpt",
+  "results": {
+    "psnr": 30.760608673095703,
+    "psnr_std": 2.1599271297454834,
+    "ssim": 0.9508407115936279,
+    "ssim_std": 0.013290941715240479,
+    "lpips": 0.10294574499130249,
+    "lpips_std": 0.01901155523955822,
+    "num_rays_per_sec": 89466440.0,
+    "num_rays_per_sec_std": 32760600.0,
+    "fps": 97.28832244873047,
+    "fps_std": 35.62479782104492
+  }
+}

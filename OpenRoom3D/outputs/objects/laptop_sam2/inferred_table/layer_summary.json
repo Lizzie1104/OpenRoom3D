@@ -1,0 +1,15 @@
+{
+  "status": "inferred background, not reconstructed; not observed by any photo where inferred=true",
+  "gaussians": 9488,
+  "inferred_gaussians": 7751,
+  "hole_texels": 27535,
+  "refilled_texels": 31012,
+  "cross_validation_psnr": {
+    "trials": 12,
+    "hole_scale": 0.5,
+    "filled": 33.06880267461141,
+    "smooth_only": 33.23488744099935,
+    "global_mean": 27.434229214986164
+  },
+  "checkpoint_modified": false
+}

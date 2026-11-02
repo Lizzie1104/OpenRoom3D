@@ -1,0 +1,12 @@
+{
+  "size": [
+    480,
+    482
+  ],
+  "observed_fraction": 0.5704227178423237,
+  "footprint_texels": 18350,
+  "footprint_unobserved_texels": 17279,
+  "footprint_observed_fraction": 0.058365122615803816,
+  "cleared_gaussians": 13018,
+  "texture_source": "source photos only, no inpainting"
+}

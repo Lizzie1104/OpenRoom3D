@@ -1,0 +1,52 @@
+[project]
+name = "feature_splatting"
+version = "0.0.3"
+description = "Feature Splatting"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { file = "LICENSE" }
+keywords = ["gaussian splatting", "feature fields", "physics simulation", "3D segmentation"]
+authors = [
+    { name = "Ri-Zhao Qiu" },
+]
+
+dependencies = [
+    "einops",
+    "ftfy",
+    "gdown",
+    "matplotlib",
+    "nerfstudio",
+    "numpy",
+    "gsplat>=1.0.0",
+    "pillow",
+    "regex",
+    "torchtyping",
+    "tqdm",
+    "segment-anything @ git+https://github.com/facebookresearch/segment-anything.git@dca509fe793f601edb92606367a655c15ac00fdf",
+    "MobileSAMV2 @ git+https://github.com/RogerQi/MobileSAMV2.git@1033d775585e8f6b91d447b4d200ba78fdfadfd6",
+    "maskclip_onnx @ git+https://github.com/RogerQi/maskclip_onnx.git@284f8581e8e6003aefd5caeac3bdcf0ea770d081",
+    "taichi",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "isort",
+]
+
+[tool.black]
+line-length = 120
+
+[project.urls]
+"Homepage" = "https://feature-splatting.github.io"
+"Source" = "https://github.com/vuer-ai/feature-splatting"
+
+[project.entry-points."nerfstudio.method_configs"]
+feature-splatting = "feature_splatting.feature_splatting_config:feature_splatting_method"
+
+[tool.setuptools.packages]
+find = { include = ["feature_splatting", "feature_splatting.*"] }
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

@@ -1,0 +1,7 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Laptop selection comparison</title>
+<style>body{max-width:75rem;margin:2rem auto;padding:0 1rem;font:1rem/1.5 system-ui}img{max-width:100%}th,td{padding:.35rem .8rem;text-align:left}</style>
+<main><h1>Laptop selection across held-out views</h1><p>Each row shows the photograph, text-and-cluster baseline, multiview selection and scene after removal.</p>
+<img src="heldout_compare_labeled.jpg" alt="Three held-out views shown before and after selection">
+<h2>Background after removal</h2><p>The last column uses an inferred tabletop. About 98.5% of the footprint was unobserved. The model extrapolates nearby surface colors. Some seams and palm-rest holes remain.</p>
+<img src="composite_compare.jpg" alt="Original scene, removed object and inferred tabletop">
+<h2>Agreement with propagated masks</h2><table><tr><th>Metric</th><th>Baseline</th><th>Multiview</th></tr><tr><td>IoU</td><td>0.734</td><td>0.811</td></tr><tr><td>Capture</td><td>0.784</td><td>0.844</td></tr><tr><td>Coverage</td><td>0.892</td><td>0.900</td></tr><tr><td>Off-mask weight</td><td>0.217</td><td>0.132</td></tr></table><p>These comparisons use ten held-out frames and SAM 2 masks. Human ground truth was unavailable.</p></main></html>

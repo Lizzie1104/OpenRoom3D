@@ -1,0 +1,45 @@
+/home/work/.local/share/openroom3d/train/lib/python3.12/site-packages/nerfstudio/field_components/activations.py:32: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd(cast_inputs=torch.float32)
+/home/work/.local/share/openroom3d/train/lib/python3.12/site-packages/nerfstudio/field_components/activations.py:38: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @custom_bwd
+[Taichi] version 1.7.3, llvm 15.0.4, commit 5ec301be, linux, python 3.12.3
+[10:22:19] use color only optimization with sigmoid activation                                         splatfacto.py:266
+Loading latest checkpoint from load_dir
+✅ Done loading checkpoint from outputs/desk02/feature-splatting/2026-09-22_202843/nerfstudio_models/step-000029999.ckpt
+original softmax: object laptop {'kind': 'present', 'ge_05': 69340, 'ge_08': 10967, 'fraction_ge_05': 0.3118829471903997, 'average_precision': 0.4150982327060753} {'count': 8558, 'fold_iou': 0.771, 'iou': 0.761, 'captured': 0.524, 'coverage': 0.847, 'outside': 0.143} 0.7
+original softmax: object notebook computer {'kind': 'synonym', 'ge_05': 27509, 'ge_08': 5815, 'fraction_ge_05': 0.12373216028642495, 'average_precision': 0.3761387378380827} {} None
+original softmax: object banana {'kind': 'absent', 'ge_05': 9, 'ge_08': 0, 'fraction_ge_05': 4.0480913249402905e-05, 'average_precision': 0.036338241956238575} {} None
+original softmax: object television {'kind': 'absent, similar', 'ge_05': 195, 'ge_08': 0, 'fraction_ge_05': 0.000877086453737063, 'average_precision': 0.05686465392855258} {} None
+original softmax: canonical laptop {'kind': 'present', 'ge_05': 16301, 'ge_08': 2354, 'fraction_ge_05': 0.07331992965316853, 'average_precision': 0.4027444997763702} {'count': 9418, 'fold_iou': 0.773, 'iou': 0.765, 'captured': 0.576, 'coverage': 0.863, 'outside': 0.158} 0.4
+original softmax: canonical notebook computer {'kind': 'synonym', 'ge_05': 8323, 'ge_08': 931, 'fraction_ge_05': 0.03743584899719782, 'average_precision': 0.36399644189219826} {} None
+original softmax: canonical banana {'kind': 'absent', 'ge_05': 0, 'ge_08': 0, 'fraction_ge_05': 0.0, 'average_precision': 0.03459140574058077} {} None
+original softmax: canonical television {'kind': 'absent, similar', 'ge_05': 0, 'ge_08': 0, 'fraction_ge_05': 0.0, 'average_precision': 0.061141691152604} {} None
+original pairwise-min: canonical laptop {'kind': 'present', 'ge_05': 68911, 'ge_08': 10850, 'fraction_ge_05': 0.3099533569921782, 'average_precision': 0.41762537141366074} {'count': 8557, 'fold_iou': 0.771, 'iou': 0.761, 'captured': 0.525, 'coverage': 0.847, 'outside': 0.142} 0.7
+original pairwise-min: canonical notebook computer {'kind': 'synonym', 'ge_05': 27351, 'ge_08': 5791, 'fraction_ge_05': 0.12302149536493544, 'average_precision': 0.3769833143070495} {} None
+original pairwise-min: canonical banana {'kind': 'absent', 'ge_05': 2, 'ge_08': 0, 'fraction_ge_05': 8.995758499867313e-06, 'average_precision': 0.03641544466010248} {} None
+original pairwise-min: canonical television {'kind': 'absent, similar', 'ge_05': 185, 'ge_08': 0, 'fraction_ge_05': 0.0008321076612377264, 'average_precision': 0.057700013601027236} {} None
+original pairwise-min: canonical + scene laptop {'kind': 'present', 'ge_05': 28971, 'ge_08': 5288, 'fraction_ge_05': 0.13030805974982795, 'average_precision': 0.49116048538245144} {'count': 8829, 'fold_iou': 0.786, 'iou': 0.775, 'captured': 0.549, 'coverage': 0.854, 'outside': 0.135} 0.6
+original pairwise-min: canonical + scene notebook computer {'kind': 'synonym', 'ge_05': 12488, 'ge_08': 1794, 'fraction_ge_05': 0.0561695160731715, 'average_precision': 0.4883807149491566} {} None
+original pairwise-min: canonical + scene banana {'kind': 'absent', 'ge_05': 0, 'ge_08': 0, 'fraction_ge_05': 0.0, 'average_precision': 0.05041757202332178} {} None
+original pairwise-min: canonical + scene television {'kind': 'absent, similar', 'ge_05': 16, 'ge_08': 0, 'fraction_ge_05': 7.19660679989385e-05, 'average_precision': 0.06552872086548744} {} None
+[10:24:00] use color only optimization with sigmoid activation                                         splatfacto.py:266
+Loading latest checkpoint from load_dir
+✅ Done loading checkpoint from 
+outputs/retrain_semantic_2026-11-02/feature_scalereg_sh0/feature-splatting/2026-11-02_093524/nerfstudio_models/step-0000
+29999.ckpt
+joint softmax: object laptop {'kind': 'present', 'ge_05': 93172, 'ge_08': 31405, 'fraction_ge_05': 0.5240152077568558, 'average_precision': 0.3503286649631394} {'count': 8033, 'fold_iou': 0.759, 'iou': 0.749, 'captured': 0.51, 'coverage': 0.832, 'outside': 0.149} 0.8
+joint softmax: object notebook computer {'kind': 'synonym', 'ge_05': 57513, 'ge_08': 22521, 'fraction_ge_05': 0.32346291422015255, 'average_precision': 0.3053369443859689} {} None
+joint softmax: object banana {'kind': 'absent', 'ge_05': 0, 'ge_08': 0, 'fraction_ge_05': 0.0, 'average_precision': 0.03974481690109267} {} None
+joint softmax: object television {'kind': 'absent, similar', 'ge_05': 1636, 'ge_08': 0, 'fraction_ge_05': 0.009201142831432363, 'average_precision': 0.0990697108507029} {} None
+joint softmax: canonical laptop {'kind': 'present', 'ge_05': 39592, 'ge_08': 9906, 'fraction_ge_05': 0.22267215585701108, 'average_precision': 0.3473233533187371} {'count': 9012, 'fold_iou': 0.764, 'iou': 0.755, 'captured': 0.589, 'coverage': 0.85, 'outside': 0.158} 0.5
+joint softmax: canonical notebook computer {'kind': 'synonym', 'ge_05': 28146, 'ge_08': 8039, 'fraction_ge_05': 0.1582979010595937, 'average_precision': 0.3000013658753277} {} None
+joint softmax: canonical banana {'kind': 'absent', 'ge_05': 0, 'ge_08': 0, 'fraction_ge_05': 0.0, 'average_precision': 0.03882794689529838} {} None
+joint softmax: canonical television {'kind': 'absent, similar', 'ge_05': 0, 'ge_08': 0, 'fraction_ge_05': 0.0, 'average_precision': 0.09686847805001224} {} None
+joint pairwise-min: canonical laptop {'kind': 'present', 'ge_05': 92084, 'ge_08': 30503, 'fraction_ge_05': 0.5178961103237273, 'average_precision': 0.3572535952609271} {'count': 8015, 'fold_iou': 0.759, 'iou': 0.749, 'captured': 0.509, 'coverage': 0.832, 'outside': 0.148} 0.8
+joint pairwise-min: canonical notebook computer {'kind': 'synonym', 'ge_05': 56692, 'ge_08': 22121, 'fraction_ge_05': 0.31884547029313176, 'average_precision': 0.30876280196435185} {} None
+joint pairwise-min: canonical banana {'kind': 'absent', 'ge_05': 0, 'ge_08': 0, 'fraction_ge_05': 0.0, 'average_precision': 0.0399897880293034} {} None
+joint pairwise-min: canonical television {'kind': 'absent, similar', 'ge_05': 1570, 'ge_08': 0, 'fraction_ge_05': 0.008829947582731546, 'average_precision': 0.10057949023963161} {} None
+joint pairwise-min: canonical + scene laptop {'kind': 'present', 'ge_05': 51434, 'ge_08': 14319, 'fraction_ge_05': 0.28927358214663335, 'average_precision': 0.32776461029505255} {'count': 8411, 'fold_iou': 0.767, 'iou': 0.757, 'captured': 0.542, 'coverage': 0.837, 'outside': 0.145} 0.7
+joint pairwise-min: canonical + scene notebook computer {'kind': 'synonym', 'ge_05': 32987, 'ge_08': 9558, 'fraction_ge_05': 0.18552451013475513, 'average_precision': 0.31641188336903836} {} None
+joint pairwise-min: canonical + scene banana {'kind': 'absent', 'ge_05': 0, 'ge_08': 0, 'fraction_ge_05': 0.0, 'average_precision': 0.05642595219660566} {} None
+joint pairwise-min: canonical + scene television {'kind': 'absent, similar', 'ge_05': 3, 'ge_08': 0, 'fraction_ge_05': 1.6872511304582573e-05, 'average_precision': 0.07219045973524912} {} None

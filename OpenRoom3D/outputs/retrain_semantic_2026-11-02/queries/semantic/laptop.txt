@@ -1,0 +1,8 @@
+query=laptop
+negative=object
+threshold=0.5
+temperature=0.05
+num_gaussians=177804
+selected=93172
+checkpoint=outputs/retrain_semantic_2026-11-02/feature_scalereg_sh0/feature-splatting/2026-11-02_093524/nerfstudio_models/step-000029999.ckpt
+step=29999

@@ -1,0 +1,22 @@
+# Files over GitHub's size limit: restore with scripts/fetch_assets.py (see docs/large_files.json).
+*.ckpt
+*.pt
+*.pth
+*.safetensors
+*.part
+
+# Raw media and local application state.
+data/raw/
+*.mp4
+*.mov
+*.mkv
+outputs/application/*
+
+# Caches and local environments.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.venv-viewer/
+.venv-train/
+.venv-video/

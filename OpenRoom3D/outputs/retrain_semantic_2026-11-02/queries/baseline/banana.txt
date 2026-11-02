@@ -1,0 +1,8 @@
+query=banana
+negative=object
+threshold=0.5
+temperature=0.05
+num_gaussians=222327
+selected=9
+checkpoint=outputs/desk02/feature-splatting/2026-09-22_202843/nerfstudio_models/step-000029999.ckpt
+step=29999

@@ -1,0 +1,619 @@
+{
+  "reference_frame": 39,
+  "box_prompt": [
+    447.2053745071131,
+    80.31793908080263,
+    1065.7113703864773,
+    709.7345799671367
+  ],
+  "sam2_config": "configs/sam2.1/sam2.1_hiera_l.yaml",
+  "mask_source": "SAM 2 inference; not ground truth",
+  "frames": [
+    {
+      "index": 0,
+      "name": "images/frame_00001.png",
+      "split": "train",
+      "mask_fraction": 0.04939236111111111
+    },
+    {
+      "index": 1,
+      "name": "images/frame_00002.png",
+      "split": "train",
+      "mask_fraction": 0.043824869791666665
+    },
+    {
+      "index": 2,
+      "name": "images/frame_00003.png",
+      "split": "train",
+      "mask_fraction": 0.041559244791666665
+    },
+    {
+      "index": 3,
+      "name": "images/frame_00004.png",
+      "split": "train",
+      "mask_fraction": 0.04132269965277778
+    },
+    {
+      "index": 4,
+      "name": "images/frame_00005.png",
+      "split": "train",
+      "mask_fraction": 0.03990993923611111
+    },
+    {
+      "index": 5,
+      "name": "images/frame_00006.png",
+      "split": "train",
+      "mask_fraction": 0.038319227430555554
+    },
+    {
+      "index": 6,
+      "name": "images/frame_00007.png",
+      "split": "train",
+      "mask_fraction": 0.03563802083333333
+    },
+    {
+      "index": 7,
+      "name": "images/frame_00008.png",
+      "split": "train",
+      "mask_fraction": 0.04021158854166667
+    },
+    {
+      "index": 8,
+      "name": "images/frame_00009.png",
+      "split": "train",
+      "mask_fraction": 0.04387478298611111
+    },
+    {
+      "index": 9,
+      "name": "images/frame_00010.png",
+      "split": "eval",
+      "mask_fraction": 0.04543185763888889
+    },
+    {
+      "index": 10,
+      "name": "images/frame_00011.png",
+      "split": "train",
+      "mask_fraction": 0.05102756076388889
+    },
+    {
+      "index": 11,
+      "name": "images/frame_00012.png",
+      "split": "train",
+      "mask_fraction": 0.058223741319444446
+    },
+    {
+      "index": 12,
+      "name": "images/frame_00013.png",
+      "split": "train",
+      "mask_fraction": 0.06780056423611111
+    },
+    {
+      "index": 13,
+      "name": "images/frame_00014.png",
+      "split": "train",
+      "mask_fraction": 0.07269205729166667
+    },
+    {
+      "index": 14,
+      "name": "images/frame_00015.png",
+      "split": "train",
+      "mask_fraction": 0.07233181423611111
+    },
+    {
+      "index": 15,
+      "name": "images/frame_00016.png",
+      "split": "train",
+      "mask_fraction": 0.075126953125
+    },
+    {
+      "index": 16,
+      "name": "images/frame_00017.png",
+      "split": "train",
+      "mask_fraction": 0.07744574652777778
+    },
+    {
+      "index": 17,
+      "name": "images/frame_00018.png",
+      "split": "train",
+      "mask_fraction": 0.08637912326388889
+    },
+    {
+      "index": 18,
+      "name": "images/frame_00019.png",
+      "split": "train",
+      "mask_fraction": 0.09166666666666666
+    },
+    {
+      "index": 19,
+      "name": "images/frame_00020.png",
+      "split": "eval",
+      "mask_fraction": 0.10407118055555556
+    },
+    {
+      "index": 20,
+      "name": "images/frame_00021.png",
+      "split": "train",
+      "mask_fraction": 0.114599609375
+    },
+    {
+      "index": 21,
+      "name": "images/frame_00022.png",
+      "split": "train",
+      "mask_fraction": 0.12504448784722222
+    },
+    {
+      "index": 22,
+      "name": "images/frame_00023.png",
+      "split": "train",
+      "mask_fraction": 0.13240668402777778
+    },
+    {
+      "index": 23,
+      "name": "images/frame_00024.png",
+      "split": "train",
+      "mask_fraction": 0.1266970486111111
+    },
+    {
+      "index": 24,
+      "name": "images/frame_00025.png",
+      "split": "train",
+      "mask_fraction": 0.11671223958333334
+    },
+    {
+      "index": 25,
+      "name": "images/frame_00026.png",
+      "split": "train",
+      "mask_fraction": 0.115048828125
+    },
+    {
+      "index": 26,
+      "name": "images/frame_00027.png",
+      "split": "train",
+      "mask_fraction": 0.111552734375
+    },
+    {
+      "index": 27,
+      "name": "images/frame_00028.png",
+      "split": "train",
+      "mask_fraction": 0.11390733506944445
+    },
+    {
+      "index": 28,
+      "name": "images/frame_00029.png",
+      "split": "train",
+      "mask_fraction": 0.12313368055555556
+    },
+    {
+      "index": 29,
+      "name": "images/frame_00030.png",
+      "split": "eval",
+      "mask_fraction": 0.13169487847222222
+    },
+    {
+      "index": 30,
+      "name": "images/frame_00031.png",
+      "split": "train",
+      "mask_fraction": 0.129326171875
+    },
+    {
+      "index": 31,
+      "name": "images/frame_00032.png",
+      "split": "train",
+      "mask_fraction": 0.12055881076388889
+    },
+    {
+      "index": 32,
+      "name": "images/frame_00033.png",
+      "split": "train",
+      "mask_fraction": 0.11782769097222222
+    },
+    {
+      "index": 33,
+      "name": "images/frame_00034.png",
+      "split": "train",
+      "mask_fraction": 0.12154296875
+    },
+    {
+      "index": 34,
+      "name": "images/frame_00035.png",
+      "split": "train",
+      "mask_fraction": 0.12465603298611111
+    },
+    {
+      "index": 35,
+      "name": "images/frame_00036.png",
+      "split": "train",
+      "mask_fraction": 0.13042860243055557
+    },
+    {
+      "index": 36,
+      "name": "images/frame_00037.png",
+      "split": "train",
+      "mask_fraction": 0.14991753472222222
+    },
+    {
+      "index": 37,
+      "name": "images/frame_00038.png",
+      "split": "train",
+      "mask_fraction": 0.17598198784722222
+    },
+    {
+      "index": 38,
+      "name": "images/frame_00039.png",
+      "split": "train",
+      "mask_fraction": 0.21996202256944444
+    },
+    {
+      "index": 39,
+      "name": "images/frame_00040.png",
+      "split": "eval",
+      "mask_fraction": 0.24394965277777778
+    },
+    {
+      "index": 40,
+      "name": "images/frame_00041.png",
+      "split": "train",
+      "mask_fraction": 0.306171875
+    },
+    {
+      "index": 41,
+      "name": "images/frame_00042.png",
+      "split": "train",
+      "mask_fraction": 0.3337174479166667
+    },
+    {
+      "index": 42,
+      "name": "images/frame_00043.png",
+      "split": "train",
+      "mask_fraction": 0.2755219184027778
+    },
+    {
+      "index": 43,
+      "name": "images/frame_00044.png",
+      "split": "train",
+      "mask_fraction": 0.24200846354166666
+    },
+    {
+      "index": 44,
+      "name": "images/frame_00045.png",
+      "split": "train",
+      "mask_fraction": 0.23231662326388888
+    },
+    {
+      "index": 45,
+      "name": "images/frame_00046.png",
+      "split": "train",
+      "mask_fraction": 0.21933268229166666
+    },
+    {
+      "index": 46,
+      "name": "images/frame_00047.png",
+      "split": "train",
+      "mask_fraction": 0.18529405381944444
+    },
+    {
+      "index": 47,
+      "name": "images/frame_00048.png",
+      "split": "train",
+      "mask_fraction": 0.16308159722222224
+    },
+    {
+      "index": 48,
+      "name": "images/frame_00049.png",
+      "split": "train",
+      "mask_fraction": 0.13656901041666666
+    },
+    {
+      "index": 49,
+      "name": "images/frame_00050.png",
+      "split": "eval",
+      "mask_fraction": 0.08557725694444444
+    },
+    {
+      "index": 50,
+      "name": "images/frame_00051.png",
+      "split": "train",
+      "mask_fraction": 0.028389756944444445
+    },
+    {
+      "index": 51,
+      "name": "images/frame_00052.png",
+      "split": "train",
+      "mask_fraction": 0.009021267361111111
+    },
+    {
+      "index": 52,
+      "name": "images/frame_00053.png",
+      "split": "train",
+      "mask_fraction": 3.146701388888889e-05
+    },
+    {
+      "index": 53,
+      "name": "images/frame_00054.png",
+      "split": "train",
+      "mask_fraction": 0.013014322916666666
+    },
+    {
+      "index": 54,
+      "name": "images/frame_00055.png",
+      "split": "train",
+      "mask_fraction": 0.031652560763888886
+    },
+    {
+      "index": 55,
+      "name": "images/frame_00056.png",
+      "split": "train",
+      "mask_fraction": 0.026967230902777778
+    },
+    {
+      "index": 56,
+      "name": "images/frame_00057.png",
+      "split": "train",
+      "mask_fraction": 0.0036317274305555556
+    },
+    {
+      "index": 57,
+      "name": "images/frame_00058.png",
+      "split": "train",
+      "mask_fraction": 0.0
+    },
+    {
+      "index": 58,
+      "name": "images/frame_00059.png",
+      "split": "train",
+      "mask_fraction": 0.0153125
+    },
+    {
+      "index": 59,
+      "name": "images/frame_00060.png",
+      "split": "eval",
+      "mask_fraction": 0.054130859375
+    },
+    {
+      "index": 60,
+      "name": "images/frame_00061.png",
+      "split": "train",
+      "mask_fraction": 0.054429253472222223
+    },
+    {
+      "index": 61,
+      "name": "images/frame_00062.png",
+      "split": "train",
+      "mask_fraction": 0.04960069444444445
+    },
+    {
+      "index": 62,
+      "name": "images/frame_00063.png",
+      "split": "train",
+      "mask_fraction": 0.04701822916666667
+    },
+    {
+      "index": 63,
+      "name": "images/frame_00064.png",
+      "split": "train",
+      "mask_fraction": 0.045011935763888886
+    },
+    {
+      "index": 64,
+      "name": "images/frame_00065.png",
+      "split": "train",
+      "mask_fraction": 0.04042751736111111
+    },
+    {
+      "index": 65,
+      "name": "images/frame_00066.png",
+      "split": "train",
+      "mask_fraction": 0.035874565972222223
+    },
+    {
+      "index": 66,
+      "name": "images/frame_00067.png",
+      "split": "train",
+      "mask_fraction": 0.031616753472222224
+    },
+    {
+      "index": 67,
+      "name": "images/frame_00068.png",
+      "split": "train",
+      "mask_fraction": 0.027650824652777777
+    },
+    {
+      "index": 68,
+      "name": "images/frame_00069.png",
+      "split": "train",
+      "mask_fraction": 0.024412977430555555
+    },
+    {
+      "index": 69,
+      "name": "images/frame_00070.png",
+      "split": "eval",
+      "mask_fraction": 0.023764105902777777
+    },
+    {
+      "index": 70,
+      "name": "images/frame_00071.png",
+      "split": "train",
+      "mask_fraction": 0.022609592013888888
+    },
+    {
+      "index": 71,
+      "name": "images/frame_00072.png",
+      "split": "train",
+      "mask_fraction": 0.020658637152777777
+    },
+    {
+      "index": 72,
+      "name": "images/frame_00073.png",
+      "split": "train",
+      "mask_fraction": 0.01918402777777778
+    },
+    {
+      "index": 73,
+      "name": "images/frame_00074.png",
+      "split": "train",
+      "mask_fraction": 0.02014105902777778
+    },
+    {
+      "index": 74,
+      "name": "images/frame_00075.png",
+      "split": "train",
+      "mask_fraction": 0.02036892361111111
+    },
+    {
+      "index": 75,
+      "name": "images/frame_00076.png",
+      "split": "train",
+      "mask_fraction": 0.018718532986111112
+    },
+    {
+      "index": 76,
+      "name": "images/frame_00077.png",
+      "split": "train",
+      "mask_fraction": 0.015314670138888889
+    },
+    {
+      "index": 77,
+      "name": "images/frame_00078.png",
+      "split": "train",
+      "mask_fraction": 0.011677517361111112
+    },
+    {
+      "index": 78,
+      "name": "images/frame_00079.png",
+      "split": "train",
+      "mask_fraction": 0.010042317708333333
+    },
+    {
+      "index": 79,
+      "name": "images/frame_00080.png",
+      "split": "eval",
+      "mask_fraction": 0.010098741319444444
+    },
+    {
+      "index": 80,
+      "name": "images/frame_00081.png",
+      "split": "train",
+      "mask_fraction": 0.010430772569444444
+    },
+    {
+      "index": 81,
+      "name": "images/frame_00082.png",
+      "split": "train",
+      "mask_fraction": 0.012376302083333334
+    },
+    {
+      "index": 82,
+      "name": "images/frame_00083.png",
+      "split": "train",
+      "mask_fraction": 0.012952473958333334
+    },
+    {
+      "index": 83,
+      "name": "images/frame_00084.png",
+      "split": "train",
+      "mask_fraction": 0.013701171875
+    },
+    {
+      "index": 84,
+      "name": "images/frame_00085.png",
+      "split": "train",
+      "mask_fraction": 0.013902994791666666
+    },
+    {
+      "index": 85,
+      "name": "images/frame_00086.png",
+      "split": "train",
+      "mask_fraction": 0.014055989583333333
+    },
+    {
+      "index": 86,
+      "name": "images/frame_00087.png",
+      "split": "train",
+      "mask_fraction": 0.01455078125
+    },
+    {
+      "index": 87,
+      "name": "images/frame_00088.png",
+      "split": "train",
+      "mask_fraction": 0.015397135416666667
+    },
+    {
+      "index": 88,
+      "name": "images/frame_00089.png",
+      "split": "train",
+      "mask_fraction": 0.017701822916666665
+    },
+    {
+      "index": 89,
+      "name": "images/frame_00090.png",
+      "split": "eval",
+      "mask_fraction": 0.02009223090277778
+    },
+    {
+      "index": 90,
+      "name": "images/frame_00091.png",
+      "split": "train",
+      "mask_fraction": 0.022000868055555556
+    },
+    {
+      "index": 91,
+      "name": "images/frame_00092.png",
+      "split": "train",
+      "mask_fraction": 0.023916015625
+    },
+    {
+      "index": 92,
+      "name": "images/frame_00093.png",
+      "split": "train",
+      "mask_fraction": 0.02510959201388889
+    },
+    {
+      "index": 93,
+      "name": "images/frame_00094.png",
+      "split": "train",
+      "mask_fraction": 0.02760525173611111
+    },
+    {
+      "index": 94,
+      "name": "images/frame_00095.png",
+      "split": "train",
+      "mask_fraction": 0.03201388888888889
+    },
+    {
+      "index": 95,
+      "name": "images/frame_00096.png",
+      "split": "train",
+      "mask_fraction": 0.038038194444444444
+    },
+    {
+      "index": 96,
+      "name": "images/frame_00097.png",
+      "split": "train",
+      "mask_fraction": 0.045771484375
+    },
+    {
+      "index": 97,
+      "name": "images/frame_00098.png",
+      "split": "train",
+      "mask_fraction": 0.048667534722222225
+    },
+    {
+      "index": 98,
+      "name": "images/frame_00099.png",
+      "split": "train",
+      "mask_fraction": 0.05064344618055556
+    },
+    {
+      "index": 99,
+      "name": "images/frame_00100.png",
+      "split": "eval",
+      "mask_fraction": 0.051298828125
+    },
+    {
+      "index": 100,
+      "name": "images/frame_00101.png",
+      "split": "train",
+      "mask_fraction": 0.05187174479166667
+    }
+  ]
+}

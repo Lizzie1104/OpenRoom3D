@@ -1,0 +1,78 @@
+{
+  "pose_type": "geometry-derived local object pose",
+  "coordinate_system": "normalized reconstruction units; not meters",
+  "centroid": [
+    0.20240128713841318,
+    -0.09955494445132851,
+    -0.2986466559034784
+  ],
+  "rotation_matrix_columns": [
+    [
+      0.8110381445273963,
+      0.2403428881884076,
+      -0.5333408143193363
+    ],
+    [
+      -0.5572926250336749,
+      0.5946614335678111,
+      -0.579484865643747
+    ],
+    [
+      0.1778821469530708,
+      0.7672112326630329,
+      0.6162344247695317
+    ]
+  ],
+  "homogeneous_transform": [
+    [
+      0.8110381445273963,
+      0.2403428881884076,
+      -0.5333408143193363,
+      0.20240128713841318
+    ],
+    [
+      -0.5572926250336749,
+      0.5946614335678111,
+      -0.579484865643747,
+      -0.09955494445132851
+    ],
+    [
+      0.1778821469530708,
+      0.7672112326630329,
+      0.6162344247695317,
+      -0.2986466559034784
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "principal_variances": [
+    0.008094912430569447,
+    0.007484874229020675,
+    0.000655402702655481
+  ],
+  "obb_center": [
+    0.19169330328593298,
+    -0.09292959230077628,
+    -0.30014601128937207
+  ],
+  "obb_extent": [
+    0.3367728168635825,
+    0.36662599045003563,
+    0.15065456725282367
+  ],
+  "num_points": 13341,
+  "pose_support_points": 13341,
+  "axis_sign_convention": "dominant component positive for first two axes, right handed third axis",
+  "relative_eigenvalue_gaps": [
+    0.07536069188902378,
+    0.8436745406379603
+  ],
+  "orientation_ambiguous": true,
+  "pca_direction_ambiguity": true,
+  "source": "outputs/retrain_2026-11-01/selection_control/obj_laptop.npz",
+  "semantic_verification": "SAM 2 inferred masks; render review required"
+}

@@ -1,0 +1,16 @@
+{
+  "experiment_name": "feature_scalereg_sh0",
+  "checkpoint": "outputs/retrain_semantic_2026-11-02/feature_scalereg_sh0/feature-splatting/2026-11-02_093524/nerfstudio_models/step-000029999.ckpt",
+  "results": {
+    "psnr": 30.334341049194336,
+    "psnr_std": 1.8827646970748901,
+    "ssim": 0.9507182836532593,
+    "ssim_std": 0.013683575205504894,
+    "lpips": 0.09415066987276077,
+    "lpips_std": 0.021222634240984917,
+    "num_rays_per_sec": 48305668.0,
+    "num_rays_per_sec_std": 17512586.0,
+    "fps": 52.5289421081543,
+    "fps_std": 19.043678283691406
+  }
+}

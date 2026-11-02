@@ -1,0 +1,135 @@
+{
+  "selected_method": "sam2 ownership>=0.85 hull>=0.95",
+  "held_out_frames": [
+    9,
+    19,
+    29,
+    39,
+    49,
+    59,
+    69,
+    79,
+    89,
+    99
+  ],
+  "methods": {
+    "text>=0.5": {
+      "count": 63506,
+      "iou": 0.0822724785655737,
+      "captured": 0.8541725218296051,
+      "coverage": 0.9989335656166076,
+      "outside": 0.9156575858592987
+    },
+    "text>=0.5 + largest DBSCAN": {
+      "count": 11892,
+      "iou": 0.7265731394290924,
+      "captured": 0.7264981627464294,
+      "coverage": 0.8707155823707581,
+      "outside": 0.2078406624495983
+    },
+    "text>=0.8": {
+      "count": 8761,
+      "iou": 0.2611609287559986,
+      "captured": 0.38344831168651583,
+      "coverage": 0.924224317073822,
+      "outside": 0.7484275043010712
+    },
+    "text>=0.8 + largest DBSCAN": {
+      "count": 4255,
+      "iou": 0.5278975665569305,
+      "captured": 0.19957854524254798,
+      "coverage": 0.5478919893503189,
+      "outside": 0.08169834297150373
+    },
+    "sam2 ownership>=0.5": {
+      "count": 13825,
+      "iou": 0.38508136868476867,
+      "captured": 0.9570366203784942,
+      "coverage": 0.986259400844574,
+      "outside": 0.617879082262516
+    },
+    "sam2 ownership>=0.5 hull>=0.95": {
+      "count": 12734,
+      "iou": 0.8091158211231232,
+      "captured": 0.8644518733024598,
+      "coverage": 0.8895680010318756,
+      "outside": 0.11853888370096684
+    },
+    "sam2 ownership>=0.5 hull>=0.95 radius<=0.02": {
+      "count": 12876,
+      "iou": 0.7721446633338929,
+      "captured": 0.8813876748085022,
+      "coverage": 0.9089881718158722,
+      "outside": 0.17512280866503716
+    },
+    "sam2 ownership>=0.5 hull>=0.95 radius<=0.04": {
+      "count": 12997,
+      "iou": 0.7193702161312103,
+      "captured": 0.8997402250766754,
+      "coverage": 0.9318638265132904,
+      "outside": 0.2512893110513687
+    },
+    "sam2 ownership>=0.5 hull>=0.95 radius<=0.08": {
+      "count": 13185,
+      "iou": 0.6247475355863571,
+      "captured": 0.9205760478973388,
+      "coverage": 0.9487122654914856,
+      "outside": 0.356636580824852
+    },
+    "sam2 ownership>=0.85": {
+      "count": 12893,
+      "iou": 0.4334842339158058,
+      "captured": 0.9111396789550781,
+      "coverage": 0.9767357707023621,
+      "outside": 0.56956238001585
+    },
+    "sam2 ownership>=0.85 hull>=0.95": {
+      "count": 12181,
+      "iou": 0.8299906492233277,
+      "captured": 0.8334462165832519,
+      "coverage": 0.8788988649845123,
+      "outside": 0.08183109201490879
+    },
+    "sam2 ownership>=0.85 hull>=0.95 radius<=0.02": {
+      "count": 12249,
+      "iou": 0.818553751707077,
+      "captured": 0.8446768879890442,
+      "coverage": 0.898179292678833,
+      "outside": 0.12142643444240094
+    },
+    "sam2 ownership>=0.85 hull>=0.95 radius<=0.04": {
+      "count": 12325,
+      "iou": 0.7737939059734344,
+      "captured": 0.8555386662483215,
+      "coverage": 0.9177611589431762,
+      "outside": 0.18746827021241189
+    },
+    "sam2 ownership>=0.85 hull>=0.95 radius<=0.08": {
+      "count": 12455,
+      "iou": 0.6671680331230163,
+      "captured": 0.8762426495552063,
+      "coverage": 0.9394986927509308,
+      "outside": 0.31167261600494384
+    }
+  },
+  "selection_rule": "highest IoU on every 9th training frame",
+  "train_fold_iou": {
+    "text>=0.5": 0.08174013227901676,
+    "text>=0.5 + largest DBSCAN": 0.7271884463050149,
+    "text>=0.8": 0.24747748808427292,
+    "text>=0.8 + largest DBSCAN": 0.548303717916662,
+    "sam2 ownership>=0.5": 0.358141534707763,
+    "sam2 ownership>=0.5 hull>=0.95": 0.8167219378731467,
+    "sam2 ownership>=0.5 hull>=0.95 radius<=0.02": 0.7695925289934332,
+    "sam2 ownership>=0.5 hull>=0.95 radius<=0.04": 0.7049520124088634,
+    "sam2 ownership>=0.5 hull>=0.95 radius<=0.08": 0.6009842347015034,
+    "sam2 ownership>=0.85": 0.403029818426479,
+    "sam2 ownership>=0.85 hull>=0.95": 0.8371731584722345,
+    "sam2 ownership>=0.85 hull>=0.95 radius<=0.02": 0.8201293511824175,
+    "sam2 ownership>=0.85 hull>=0.95 radius<=0.04": 0.7647304155609824,
+    "sam2 ownership>=0.85 hull>=0.95 radius<=0.08": 0.6449601975354281
+  },
+  "metric_note": "agreement with SAM 2 masks on held-out frames, not ground truth",
+  "gaussian_parameters_modified": false,
+  "checkpoint_modified": false
+}

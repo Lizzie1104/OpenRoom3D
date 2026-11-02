@@ -1,0 +1,78 @@
+{
+  "pose_type": "geometry-derived local object pose",
+  "coordinate_system": "normalized reconstruction units; not meters",
+  "centroid": [
+    0.1969351381337639,
+    -0.10305796032415117,
+    -0.3029392481428712
+  ],
+  "rotation_matrix_columns": [
+    [
+      0.7858560307520667,
+      0.31530689841870274,
+      -0.5319885889191462
+    ],
+    [
+      -0.6083411912573621,
+      0.5487577990559742,
+      -0.5733985289437149
+    ],
+    [
+      0.11113637545907462,
+      0.7742392639131783,
+      0.6230588000060657
+    ]
+  ],
+  "homogeneous_transform": [
+    [
+      0.7858560307520667,
+      0.31530689841870274,
+      -0.5319885889191462,
+      0.1969351381337639
+    ],
+    [
+      -0.6083411912573621,
+      0.5487577990559742,
+      -0.5733985289437149,
+      -0.10305796032415117
+    ],
+    [
+      0.11113637545907462,
+      0.7742392639131783,
+      0.6230588000060657,
+      -0.3029392481428712
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "principal_variances": [
+    0.00846558946843652,
+    0.007784277714256176,
+    0.0007175483279246494
+  ],
+  "obb_center": [
+    0.19133477692378653,
+    -0.09291584188798141,
+    -0.29835512858413227
+  ],
+  "obb_extent": [
+    0.3161697863843572,
+    0.3494411163375998,
+    0.14687780302953696
+  ],
+  "num_points": 11952,
+  "pose_support_points": 11952,
+  "axis_sign_convention": "dominant component positive for first two axes, right handed third axis",
+  "relative_eigenvalue_gaps": [
+    0.08048013156326286,
+    0.8347592819944122
+  ],
+  "orientation_ambiguous": true,
+  "pca_direction_ambiguity": true,
+  "source": "/workspace/3D VISION/OpenRoom3D/outputs/retrain_semantic_2026-11-02/selection/obj_laptop.npz",
+  "semantic_verification": "SAM 2 inferred masks; render review required"
+}

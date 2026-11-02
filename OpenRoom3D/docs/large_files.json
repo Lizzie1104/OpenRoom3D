@@ -1,0 +1,83 @@
+{
+  "release_tag": "assets-2026-11-02",
+  "note": "Paths are relative to OpenRoom3D/. Release assets come from this repository's GitHub Release; pretrained weights come from their official hosts. scripts/fetch_assets.py downloads and verifies both.",
+  "release": [
+    {
+      "path": "outputs/desk02/feature-splatting/2026-09-22_202843/nerfstudio_models/step-000029999.ckpt",
+      "asset": "outputs--desk02--feature-splatting--2026-09-22_202843--nerfstudio_models--step-000029999.ckpt",
+      "bytes": 82853634,
+      "sha256": "9fcb54bd91425dc7f3cb307c628db39d088243761ede043042c42887fd9a6ff9"
+    },
+    {
+      "path": "outputs/retrain_2026-11-01/control/splatfacto/2026-11-01_060303/nerfstudio_models/step-000029999.ckpt",
+      "asset": "outputs--retrain_2026-11-01--control--splatfacto--2026-11-01_060303--nerfstudio_models--step-000029999.ckpt",
+      "bytes": 152042221,
+      "sha256": "37ed78453afa5cc304c75181103ae89454e9cc8683eedc8bd101ced5a661bd2b"
+    },
+    {
+      "path": "outputs/retrain_2026-11-01/control_sh0/splatfacto/2026-11-01_061727/nerfstudio_models/step-000029999.ckpt",
+      "asset": "outputs--retrain_2026-11-01--control_sh0--splatfacto--2026-11-01_061727--nerfstudio_models--step-000029999.ckpt",
+      "bytes": 46652397,
+      "sha256": "f3b6427375a59fe8d3a331994834314860cffdb2ceff3d9fce9baaa1f8b4419a"
+    },
+    {
+      "path": "outputs/retrain_2026-11-01/scalereg/splatfacto/2026-11-01_060933/nerfstudio_models/step-000029999.ckpt",
+      "asset": "outputs--retrain_2026-11-01--scalereg--splatfacto--2026-11-01_060933--nerfstudio_models--step-000029999.ckpt",
+      "bytes": 135403117,
+      "sha256": "16f438a51796f7d31f21162a045d1cd075807b064bd8a1b8f658c29644911d7a"
+    },
+    {
+      "path": "outputs/retrain_2026-11-01/scalereg_sh0/splatfacto/2026-11-01_062342/nerfstudio_models/step-000029999.ckpt",
+      "asset": "outputs--retrain_2026-11-01--scalereg_sh0--splatfacto--2026-11-01_062342--nerfstudio_models--step-000029999.ckpt",
+      "bytes": 39783789,
+      "sha256": "c583f966c5ee6a33a23932ebb5016e6e9ee7a239601a8da5c6019f09bf6efe15"
+    },
+    {
+      "path": "outputs/retrain_semantic_2026-11-02/feature_scalereg_sh0/feature-splatting/2026-11-02_093524/nerfstudio_models/step-000029999.ckpt",
+      "asset": "outputs--retrain_semantic_2026-11-02--feature_scalereg_sh0--feature-splatting--2026-11-02_093524--nerfstudio_models--step-000029999.ckpt",
+      "bytes": 68428893,
+      "sha256": "963675267a9d2bfda433ccec074a1b8ee11fd2523aadc609f3fcb3326212562d"
+    },
+    {
+      "path": "outputs/scenes/pipeline_test/pipeline_test/splatfacto/2026-11-01_075750/nerfstudio_models/step-000029999.ckpt",
+      "asset": "outputs--scenes--pipeline_test--pipeline_test--splatfacto--2026-11-01_075750--nerfstudio_models--step-000029999.ckpt",
+      "bytes": 39339309,
+      "sha256": "b25627a5de1b954ad3690dbea0668099bcb7dbdeb5e90a1bd63b5012ce9013f5"
+    },
+    {
+      "path": "outputs/smoke_train/desk02_20261101_052225/desk02_smoke/splatfacto/2026-11-01_052229/nerfstudio_models/step-000000199.ckpt",
+      "asset": "outputs--smoke_train--desk02_20261101_052225--desk02_smoke--splatfacto--2026-11-01_052229--nerfstudio_models--step-000000199.ckpt",
+      "bytes": 14858729,
+      "sha256": "bc10604c7eff0f131c3fe3e7e324f53b01e85a203359b0bbccc5ded059890d04"
+    },
+    {
+      "path": "data/processed/desk02/feature_splatting_samclip_features.pt",
+      "asset": "data--processed--desk02--feature_splatting_samclip_features.pt",
+      "bytes": 997841146,
+      "sha256": "893e6bfb071f4b96c8c775e3296981ee2a725af4ba3b406ddd20b18d6b8d5f8f"
+    }
+  ],
+  "pretrained": [
+    {
+      "path": "../training-assets/models/clip/open_clip_model.safetensors",
+      "bytes": 1711828444,
+      "sha256": "fbc415c3d0d7b79faed8f5ccfb740c32b7c4f5ffe7283b851f89c6231c01a8e0",
+      "url": "https://huggingface.co/timm/vit_large_patch14_clip_336.openai/resolve/main/open_clip_model.safetensors",
+      "license": "MIT (OpenAI CLIP)"
+    },
+    {
+      "path": "../training-assets/models/sam2/hf/sam2.1_hiera_large.pt",
+      "bytes": 898083611,
+      "sha256": "2647878d5dfa5098f2f8649825738a9345572bae2d4350a2468587ece47dd318",
+      "url": "https://dl.fbaipublicfiles.com/segment_anything_2/092824/sam2.1_hiera_large.pt",
+      "license": "Apache-2.0 (SAM 2)"
+    },
+    {
+      "path": "../training-assets/models/lpips/alexnet-owt-7be5be79.pth",
+      "bytes": 244408911,
+      "sha256": "7be5be791159472b1fbf3c69796f7cb30dca7ad8466c2df70058c37116cdee02",
+      "url": "https://download.pytorch.org/models/alexnet-owt-7be5be79.pth",
+      "license": "BSD-3-Clause (torchvision)"
+    }
+  ]
+}

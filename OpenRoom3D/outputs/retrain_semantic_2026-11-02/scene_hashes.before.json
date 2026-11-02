@@ -1,0 +1,16 @@
+{
+  "outputs/desk02/feature-splatting/2026-09-22_202843/config.yml": "a1f0acebeaa23d75c8e574972d0f48b70c809eb71bb73a55072fb3ed5a1eb741",
+  "outputs/desk02/feature-splatting/2026-09-22_202843/nerfstudio_models/step-000029999.ckpt": "9fcb54bd91425dc7f3cb307c628db39d088243761ede043042c42887fd9a6ff9",
+  "outputs/retrain_2026-11-01/control/splatfacto/2026-11-01_060303/config.yml": "4b3fa5a75106fd582a1dabe73a033ad4d41d95c77fc09be7d3b00dcd3bd301b0",
+  "outputs/retrain_2026-11-01/control/splatfacto/2026-11-01_060303/nerfstudio_models/step-000029999.ckpt": "37ed78453afa5cc304c75181103ae89454e9cc8683eedc8bd101ced5a661bd2b",
+  "outputs/retrain_2026-11-01/control_sh0/splatfacto/2026-11-01_061727/config.yml": "c9deb3b94337f69429f5549fe5f9a4cadf199738f782c813ccc5598e2ab7e3e9",
+  "outputs/retrain_2026-11-01/control_sh0/splatfacto/2026-11-01_061727/nerfstudio_models/step-000029999.ckpt": "f3b6427375a59fe8d3a331994834314860cffdb2ceff3d9fce9baaa1f8b4419a",
+  "outputs/retrain_2026-11-01/scalereg/splatfacto/2026-11-01_060933/config.yml": "056388cec026cbc9a1cfd9de963bc1db7f122813fedafcfba8a6f637371aba1e",
+  "outputs/retrain_2026-11-01/scalereg/splatfacto/2026-11-01_060933/nerfstudio_models/step-000029999.ckpt": "16f438a51796f7d31f21162a045d1cd075807b064bd8a1b8f658c29644911d7a",
+  "outputs/retrain_2026-11-01/scalereg_sh0/splatfacto/2026-11-01_062342/config.yml": "150775b10879118a08c467e5d766073d13f752d970576a18d4c2bf568374e414",
+  "outputs/retrain_2026-11-01/scalereg_sh0/splatfacto/2026-11-01_062342/nerfstudio_models/step-000029999.ckpt": "c583f966c5ee6a33a23932ebb5016e6e9ee7a239601a8da5c6019f09bf6efe15",
+  "outputs/scenes/pipeline_test/pipeline_test/splatfacto/2026-11-01_075750/config.yml": "19b07000e51563f5ed1c33493bbdad14aa7bd8a148bd5052ef5073734de731f3",
+  "outputs/scenes/pipeline_test/pipeline_test/splatfacto/2026-11-01_075750/nerfstudio_models/step-000029999.ckpt": "b25627a5de1b954ad3690dbea0668099bcb7dbdeb5e90a1bd63b5012ce9013f5",
+  "outputs/smoke_train/desk02_20261101_052225/desk02_smoke/splatfacto/2026-11-01_052229/config.yml": "04189394388e88167bcb7e1dc5b3064c770b95d670e60e46e426215289c92027",
+  "outputs/smoke_train/desk02_20261101_052225/desk02_smoke/splatfacto/2026-11-01_052229/nerfstudio_models/step-000000199.ckpt": "bc10604c7eff0f131c3fe3e7e324f53b01e85a203359b0bbccc5ded059890d04"
+}

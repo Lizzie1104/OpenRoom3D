@@ -1,0 +1,10 @@
+{
+  "source_frames": 101,
+  "seconds": 50.5,
+  "sample_fps": 2.0,
+  "extracted": 101,
+  "registered": 101,
+  "models": 1,
+  "points": 7991,
+  "reprojection_error": 0.7775614541251332
+}

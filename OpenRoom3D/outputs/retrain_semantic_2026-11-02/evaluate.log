@@ -1,0 +1,91 @@
+/home/work/.local/share/openroom3d/train/lib/python3.12/site-packages/nerfstudio/field_components/activations.py:32: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd(cast_inputs=torch.float32)
+/home/work/.local/share/openroom3d/train/lib/python3.12/site-packages/nerfstudio/field_components/activations.py:38: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @custom_bwd
+[Taichi] version 1.7.3, llvm 15.0.4, commit 5ec301be, linux, python 3.12.3
+[09:45:05] use color only optimization with sigmoid activation                                         splatfacto.py:266
+Loading latest checkpoint from load_dir
+✅ Done loading checkpoint from outputs/desk02/feature-splatting/2026-09-22_202843/nerfstudio_models/step-000029999.ckpt
+saved /workspace/3D VISION/OpenRoom3D/outputs/retrain_semantic_2026-11-02/queries/baseline/laptop.npz
+saved /workspace/3D VISION/OpenRoom3D/outputs/retrain_semantic_2026-11-02/queries/baseline/laptop_selected.ply
+/home/work/.local/share/openroom3d/train/lib/python3.12/site-packages/nerfstudio/field_components/activations.py:32: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd(cast_inputs=torch.float32)
+/home/work/.local/share/openroom3d/train/lib/python3.12/site-packages/nerfstudio/field_components/activations.py:38: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @custom_bwd
+[Taichi] version 1.7.3, llvm 15.0.4, commit 5ec301be, linux, python 3.12.3
+[09:45:20] use color only optimization with sigmoid activation                                         splatfacto.py:266
+Loading latest checkpoint from load_dir
+✅ Done loading checkpoint from outputs/desk02/feature-splatting/2026-09-22_202843/nerfstudio_models/step-000029999.ckpt
+saved /workspace/3D VISION/OpenRoom3D/outputs/retrain_semantic_2026-11-02/queries/baseline/banana.npz
+saved /workspace/3D VISION/OpenRoom3D/outputs/retrain_semantic_2026-11-02/queries/baseline/banana_selected.ply
+/home/work/.local/share/openroom3d/train/lib/python3.12/site-packages/nerfstudio/field_components/activations.py:32: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd(cast_inputs=torch.float32)
+/home/work/.local/share/openroom3d/train/lib/python3.12/site-packages/nerfstudio/field_components/activations.py:38: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @custom_bwd
+[Taichi] version 1.7.3, llvm 15.0.4, commit 5ec301be, linux, python 3.12.3
+[09:45:36] use color only optimization with sigmoid activation                                         splatfacto.py:266
+Loading latest checkpoint from load_dir
+✅ Done loading checkpoint from 
+outputs/retrain_semantic_2026-11-02/feature_scalereg_sh0/feature-splatting/2026-11-02_093524/nerfstudio_models/step-0000
+29999.ckpt
+saved /workspace/3D VISION/OpenRoom3D/outputs/retrain_semantic_2026-11-02/queries/semantic/laptop.npz
+saved /workspace/3D VISION/OpenRoom3D/outputs/retrain_semantic_2026-11-02/queries/semantic/laptop_selected.ply
+/home/work/.local/share/openroom3d/train/lib/python3.12/site-packages/nerfstudio/field_components/activations.py:32: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd(cast_inputs=torch.float32)
+/home/work/.local/share/openroom3d/train/lib/python3.12/site-packages/nerfstudio/field_components/activations.py:38: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @custom_bwd
+[Taichi] version 1.7.3, llvm 15.0.4, commit 5ec301be, linux, python 3.12.3
+[09:45:51] use color only optimization with sigmoid activation                                         splatfacto.py:266
+Loading latest checkpoint from load_dir
+✅ Done loading checkpoint from 
+outputs/retrain_semantic_2026-11-02/feature_scalereg_sh0/feature-splatting/2026-11-02_093524/nerfstudio_models/step-0000
+29999.ckpt
+saved /workspace/3D VISION/OpenRoom3D/outputs/retrain_semantic_2026-11-02/queries/semantic/banana.npz
+saved /workspace/3D VISION/OpenRoom3D/outputs/retrain_semantic_2026-11-02/queries/semantic/banana_selected.ply
+text>=0.5 {'count': 93172, 'iou': 0.0775, 'captured': 0.9293, 'coverage': 0.9999, 'outside': 0.9217} train-fold iou 0.0769
+text>=0.5 + largest DBSCAN {'count': 13178, 'iou': 0.6812, 'captured': 0.7857, 'coverage': 0.8821, 'outside': 0.2699} train-fold iou 0.6776
+text>=0.8 {'count': 31405, 'iou': 0.0926, 'captured': 0.6584, 'coverage': 0.9955, 'outside': 0.9047} train-fold iou 0.0909
+text>=0.8 + largest DBSCAN {'count': 8033, 'iou': 0.7485, 'captured': 0.5101, 'coverage': 0.8321, 'outside': 0.1494} train-fold iou 0.7591
+sam2 ownership>=0.5 {'count': 13738, 'iou': 0.3758, 'captured': 0.9591, 'coverage': 0.9871, 'outside': 0.626} train-fold iou 0.3501
+sam2 ownership>=0.5 hull>=0.95 {'count': 12459, 'iou': 0.8045, 'captured': 0.8615, 'coverage': 0.8863, 'outside': 0.1344} train-fold iou 0.8059
+sam2 ownership>=0.5 hull>=0.95 radius<=0.02 {'count': 12617, 'iou': 0.7585, 'captured': 0.8794, 'coverage': 0.9075, 'outside': 0.1966} train-fold iou 0.7503
+sam2 ownership>=0.5 hull>=0.95 radius<=0.04 {'count': 12765, 'iou': 0.7036, 'captured': 0.9008, 'coverage': 0.9278, 'outside': 0.2696} train-fold iou 0.685
+sam2 ownership>=0.5 hull>=0.95 radius<=0.08 {'count': 12973, 'iou': 0.6192, 'captured': 0.9204, 'coverage': 0.947, 'outside': 0.3657} train-fold iou 0.598
+sam2 ownership>=0.85 {'count': 12737, 'iou': 0.4317, 'captured': 0.9009, 'coverage': 0.9781, 'outside': 0.571} train-fold iou 0.4024
+sam2 ownership>=0.85 hull>=0.95 {'count': 11952, 'iou': 0.8171, 'captured': 0.8238, 'coverage': 0.876, 'outside': 0.0976} train-fold iou 0.8173
+sam2 ownership>=0.85 hull>=0.95 radius<=0.02 {'count': 12014, 'iou': 0.8025, 'captured': 0.8326, 'coverage': 0.8915, 'outside': 0.1347} train-fold iou 0.7976
+sam2 ownership>=0.85 hull>=0.95 radius<=0.04 {'count': 12102, 'iou': 0.756, 'captured': 0.8507, 'coverage': 0.9165, 'outside': 0.2046} train-fold iou 0.7421
+sam2 ownership>=0.85 hull>=0.95 radius<=0.08 {'count': 12250, 'iou': 0.6715, 'captured': 0.8658, 'coverage': 0.9382, 'outside': 0.3094} train-fold iou 0.6512
+selected sam2 ownership>=0.85 hull>=0.95 11952 outputs/retrain_semantic_2026-11-02/selection/obj_laptop.npz
+/home/work/.local/share/openroom3d/train/lib/python3.12/site-packages/nerfstudio/field_components/activations.py:32: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd(cast_inputs=torch.float32)
+/home/work/.local/share/openroom3d/train/lib/python3.12/site-packages/nerfstudio/field_components/activations.py:38: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @custom_bwd
+[Taichi] version 1.7.3, llvm 15.0.4, commit 5ec301be, linux, python 3.12.3
+[09:46:54] Auto image downscale factor of 1                                                 nerfstudio_dataparser.py:484
+[09:46:55] use color only optimization with sigmoid activation                                         splatfacto.py:266
+Loading latest checkpoint from load_dir
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/work/.local/share/openroom3d/train/lib/python3.12/site-packages/nerfstudio/scripts/eval.py", line 71, in <module>
+    entrypoint()
+  File "/home/work/.local/share/openroom3d/train/lib/python3.12/site-packages/nerfstudio/scripts/eval.py", line 67, in entrypoint
+    tyro.cli(ComputePSNR).main()
+  File "/home/work/.local/share/openroom3d/train/lib/python3.12/site-packages/nerfstudio/scripts/eval.py", line 46, in main
+    config, pipeline, checkpoint_path, _ = eval_setup(self.load_config)
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/.local/share/openroom3d/train/lib/python3.12/site-packages/nerfstudio/utils/eval_utils.py", line 111, in eval_setup
+    checkpoint_path, step = eval_load_checkpoint(config, pipeline)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/.local/share/openroom3d/train/lib/python3.12/site-packages/nerfstudio/utils/eval_utils.py", line 62, in eval_load_checkpoint
+    loaded_state = torch.load(load_path, map_location="cpu")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/.local/share/openroom3d/train/lib/python3.12/site-packages/torch/serialization.py", line 1578, in load
+    raise pickle.UnpicklingError(_get_wo_message(str(e))) from None
+_pickle.UnpicklingError: Weights only load failed. This file can still be loaded, to do so you have two options, [1mdo those steps only if you trust the source of the checkpoint[0m. 
+	(1) In PyTorch 2.6, we changed the default value of the `weights_only` argument in `torch.load` from `False` to `True`. Re-running `torch.load` with `weights_only` set to `False` will likely succeed, but it can result in arbitrary code execution. Do it only if you got the file from a trusted source.
+	(2) Alternatively, to load with `weights_only=True` please check the recommended steps in the following error message.
+	WeightsUnpickler error: Unsupported global: GLOBAL numpy.core.multiarray.scalar was not an allowed global by default. Please use `torch.serialization.add_safe_globals([numpy.core.multiarray.scalar])` or the `torch.serialization.safe_globals([numpy.core.multiarray.scalar])` context manager to allowlist this global if you trust this class/function.
+
+Check the documentation of torch.load to learn more about types accepted by default with weights_only https://pytorch.org/docs/stable/generated/torch.load.html.

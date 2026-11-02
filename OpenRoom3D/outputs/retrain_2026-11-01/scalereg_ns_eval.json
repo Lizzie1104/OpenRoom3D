@@ -1,0 +1,17 @@
+{
+  "experiment_name": "scalereg_sh0",
+  "method_name": "splatfacto",
+  "checkpoint": "outputs/retrain_2026-11-01/scalereg_sh0/splatfacto/2026-11-01_062342/nerfstudio_models/step-000029999.ckpt",
+  "results": {
+    "psnr": 30.40485954284668,
+    "psnr_std": 1.9593003988265991,
+    "ssim": 0.9505505561828613,
+    "ssim_std": 0.013267834670841694,
+    "lpips": 0.0954216867685318,
+    "lpips_std": 0.022358134388923645,
+    "num_rays_per_sec": 88205392.0,
+    "num_rays_per_sec_std": 33930224.0,
+    "fps": 95.91702270507812,
+    "fps_std": 36.89667892456055
+  }
+}

@@ -1,0 +1,5 @@
+# Pretrained weights: official URLs and digests are in OpenRoom3D/docs/large_files.json.
+training-assets/models/clip/
+training-assets/models/lpips/
+training-assets/models/sam2/hf/
+__pycache__/
