@@ -1,0 +1,220 @@
+{
+  "config": "outputs/ablation_2026-11-04/runs/scalereg_w1e-3_s1/feature-splatting/2026-11-04_215529/config.yml",
+  "mask_note": "agreement with SAM 2 masks, not ground truth",
+  "checkpoint": "outputs/ablation_2026-11-04/runs/scalereg_w1e-3_s1/feature-splatting/2026-11-04_215529/nerfstudio_models/step-000029999.ckpt",
+  "nerfstudio": {
+    "psnr": 30.09449577331543,
+    "psnr_std": 2.360710382461548,
+    "ssim": 0.9491094946861267,
+    "ssim_std": 0.017689358443021774,
+    "lpips": 0.09575951844453812,
+    "lpips_std": 0.022312292829155922,
+    "num_rays_per_sec": 62784008.0,
+    "num_rays_per_sec_std": 22325468.0,
+    "fps": 68.27310180664062,
+    "fps_std": 24.277341842651367
+  },
+  "geometry": {
+    "gaussians": 176355,
+    "aspect_gt100": 0.0
+  },
+  "ownership_selection": {
+    "count": 11760,
+    "iou": 0.8237755596637726,
+    "captured": 0.8273387312889099,
+    "coverage": 0.874057799577713,
+    "outside": 0.0881974583491683
+  },
+  "queries": {
+    "default": {
+      "laptop": {
+        "kind": "present",
+        "ge_05": 17099,
+        "fraction_ge_05": 0.09695784071900428,
+        "ge_08": 4159,
+        "average_precision": 0.6091630250285033,
+        "text_selection": {
+          "chosen_threshold": 0.5,
+          "chosen": {
+            "count": 9060,
+            "fold_iou": 0.7874657349152998,
+            "iou": 0.7748162508010864,
+            "captured": 0.6052424967288971,
+            "coverage": 0.8422797977924347,
+            "outside": 0.13054215237498284
+          },
+          "by_threshold": {
+            "0.3": {
+              "count": 16442,
+              "fold_iou": 0.44824166054075415,
+              "iou": 0.4485675632953644,
+              "captured": 0.8126249611377716,
+              "coverage": 0.8810139298439026,
+              "outside": 0.5256334334611893
+            },
+            "0.4": {
+              "count": 10920,
+              "fold_iou": 0.7843469814820723,
+              "iou": 0.7773812234401702,
+              "captured": 0.729572468996048,
+              "coverage": 0.867408549785614,
+              "outside": 0.14971067309379577
+            },
+            "0.5": {
+              "count": 9060,
+              "fold_iou": 0.7874657349152998,
+              "iou": 0.7748162508010864,
+              "captured": 0.6052424967288971,
+              "coverage": 0.8422797977924347,
+              "outside": 0.13054215237498284
+            },
+            "0.6": {
+              "count": 6883,
+              "fold_iou": 0.7381459095261313,
+              "iou": 0.7145382344722748,
+              "captured": 0.44189185500144956,
+              "coverage": 0.7501592397689819,
+              "outside": 0.09773854464292527
+            },
+            "0.7": {
+              "count": 4864,
+              "fold_iou": 0.601954769004475,
+              "iou": 0.5865447163581848,
+              "captured": 0.2706765055656433,
+              "coverage": 0.6073166906833649,
+              "outside": 0.07986606508493424
+            },
+            "0.8": {
+              "count": 2689,
+              "fold_iou": 0.39655249498107215,
+              "iou": 0.378185561299324,
+              "captured": 0.12358681596815586,
+              "coverage": 0.3845304071903229,
+              "outside": 0.05444953432306647
+            }
+          }
+        }
+      },
+      "notebook computer": {
+        "kind": "synonym",
+        "ge_05": 9676,
+        "fraction_ge_05": 0.05486660429247824,
+        "ge_08": 1997,
+        "average_precision": 0.6005351599059641
+      },
+      "banana": {
+        "kind": "absent",
+        "ge_05": 1,
+        "fraction_ge_05": 5.670380766068442e-06,
+        "ge_08": 0,
+        "average_precision": 0.0686311418597618
+      },
+      "television": {
+        "kind": "absent, similar",
+        "ge_05": 1,
+        "fraction_ge_05": 5.670380766068442e-06,
+        "ge_08": 0,
+        "average_precision": 0.09065621571932458
+      }
+    },
+    "legacy": {
+      "laptop": {
+        "kind": "present",
+        "ge_05": 69056,
+        "fraction_ge_05": 0.3915738141816223,
+        "ge_08": 9293,
+        "average_precision": 0.525380806896899,
+        "text_selection": {
+          "chosen_threshold": 0.6,
+          "chosen": {
+            "count": 9644,
+            "fold_iou": 0.7861080982468345,
+            "iou": 0.7736303269863128,
+            "captured": 0.6474754989147187,
+            "coverage": 0.8527893781661987,
+            "outside": 0.1449466958642006
+          },
+          "by_threshold": {
+            "0.3": {
+              "count": 38418,
+              "fold_iou": 0.23475742204622788,
+              "iou": 0.24475422948598863,
+              "captured": 0.8572224378585815,
+              "coverage": 0.8927371382713318,
+              "outside": 0.7457546591758728
+            },
+            "0.4": {
+              "count": 32963,
+              "fold_iou": 0.2645414566451853,
+              "iou": 0.27856501191854477,
+              "captured": 0.8203359425067902,
+              "coverage": 0.8839034140110016,
+              "outside": 0.7080282419919968
+            },
+            "0.5": {
+              "count": 11424,
+              "fold_iou": 0.7531321482224898,
+              "iou": 0.7463694036006927,
+              "captured": 0.7425554275512696,
+              "coverage": 0.867209380865097,
+              "outside": 0.18837570771574974
+            },
+            "0.6": {
+              "count": 9644,
+              "fold_iou": 0.7861080982468345,
+              "iou": 0.7736303269863128,
+              "captured": 0.6474754989147187,
+              "coverage": 0.8527893781661987,
+              "outside": 0.1449466958642006
+            },
+            "0.7": {
+              "count": 8039,
+              "fold_iou": 0.7693888599222357,
+              "iou": 0.7486805498600007,
+              "captured": 0.528299731016159,
+              "coverage": 0.8140580534934998,
+              "outside": 0.13306291736662387
+            },
+            "0.8": {
+              "count": 5821,
+              "fold_iou": 0.7352731661363081,
+              "iou": 0.7112223029136657,
+              "captured": 0.3589852422475815,
+              "coverage": 0.7395239531993866,
+              "outside": 0.0873989749699831
+            },
+            "0.9": {
+              "count": 1499,
+              "fold_iou": 0.21660068834369833,
+              "iou": 0.19896434620022774,
+              "captured": 0.05786515826475806,
+              "coverage": 0.2101323239505291,
+              "outside": 0.05963415093719959
+            }
+          }
+        }
+      },
+      "notebook computer": {
+        "kind": "synonym",
+        "ge_05": 26697,
+        "fraction_ge_05": 0.1513821553117292,
+        "ge_08": 6005,
+        "average_precision": 0.47331579431764226
+      },
+      "banana": {
+        "kind": "absent",
+        "ge_05": 57,
+        "fraction_ge_05": 0.00032321170366590116,
+        "ge_08": 0,
+        "average_precision": 0.04048585075603849
+      },
+      "television": {
+        "kind": "absent, similar",
+        "ge_05": 227,
+        "fraction_ge_05": 0.0012871764338975363,
+        "ge_08": 0,
+        "average_precision": 0.08647969698342577
+      }
+    }
+  }
+}

@@ -1,0 +1,1261 @@
+/home/work/.local/share/openroom3d/train/lib/python3.12/site-packages/nerfstudio/field_components/activations.py:32: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd(cast_inputs=torch.float32)
+/home/work/.local/share/openroom3d/train/lib/python3.12/site-packages/nerfstudio/field_components/activations.py:38: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @custom_bwd
+[Taichi] version 1.7.3, llvm 15.0.4, commit 5ec301be, linux, python 3.12.3
+[22:40:11] Using --data alias for --data.pipeline.datamanager.data                                          train.py:230
+──────────────────────────────────────────────────────── Config ────────────────────────────────────────────────────────
+TrainerConfig(
+    _target=<class 'nerfstudio.engine.trainer.Trainer'>,
+    output_dir=PosixPath('outputs/ablation_2026-11-04/runs'),
+    method_name='feature-splatting',
+    experiment_name='scalereg_w1e-2_s42',
+    project_name='nerfstudio-project',
+    timestamp='2026-11-04_224011',
+    machine=MachineConfig(seed=42, num_devices=1, num_machines=1, machine_rank=0, dist_url='auto', device_type='cuda'),
+    logging=LoggingConfig(
+        relative_log_dir=PosixPath('.'),
+        steps_per_log=500,
+        max_buffer_size=20,
+        local_writer=LocalWriterConfig(
+            _target=<class 'nerfstudio.utils.writer.LocalWriter'>,
+            enable=True,
+            stats_to_track=(
+                <EventName.ITER_TRAIN_TIME: 'Train Iter (time)'>,
+                <EventName.TRAIN_RAYS_PER_SEC: 'Train Rays / Sec'>,
+                <EventName.CURR_TEST_PSNR: 'Test PSNR'>,
+                <EventName.VIS_RAYS_PER_SEC: 'Vis Rays / Sec'>,
+                <EventName.TEST_RAYS_PER_SEC: 'Test Rays / Sec'>,
+                <EventName.ETA: 'ETA (time)'>
+            ),
+            max_log_size=10
+        ),
+        profiler='basic'
+    ),
+    viewer=ViewerConfig(
+        relative_log_filename='viewer_log_filename.txt',
+        websocket_port=None,
+        websocket_port_default=7007,
+        websocket_host='0.0.0.0',
+        num_rays_per_chunk=32768,
+        max_num_display_images=512,
+        quit_on_train_completion=False,
+        image_format='jpeg',
+        jpeg_quality=75,
+        make_share_url=False,
+        camera_frustum_scale=0.1,
+        default_composite_depth=True
+    ),
+    pipeline=VanillaPipelineConfig(
+        _target=<class 'nerfstudio.pipelines.base_pipeline.VanillaPipeline'>,
+        datamanager=FeatureSplattingDataManagerConfig(
+            _target=<class 'feature_splatting.feature_splatting_datamgr.FeatureSplattingDataManager'>,
+            data=PosixPath('data/processed/desk02'),
+            masks_on_gpu=False,
+            images_on_gpu=False,
+            dataparser=NerfstudioDataParserConfig(
+                _target=<class 'nerfstudio.data.dataparsers.nerfstudio_dataparser.Nerfstudio'>,
+                data=PosixPath('.'),
+                scale_factor=1.0,
+                downscale_factor=None,
+                scene_scale=1.0,
+                orientation_method='up',
+                center_method='poses',
+                auto_scale_poses=True,
+                eval_mode='fraction',
+                train_split_fraction=0.9,
+                eval_interval=8,
+                depth_unit_scale_factor=0.001,
+                mask_color=None,
+                load_3D_points=True
+            ),
+            camera_res_scale_factor=1.0,
+            eval_num_images_to_sample_from=-1,
+            eval_num_times_to_repeat_images=-1,
+            eval_image_indices=(0,),
+            cache_images='gpu',
+            cache_images_type='uint8',
+            max_thread_workers=4,
+            train_cameras_sampling_strategy='random',
+            train_cameras_sampling_seed=42,
+            fps_reset_every=100,
+            feature_type='SAMCLIP',
+            enable_cache=True
+        ),
+        model=FeatureSplattingModelConfig(
+            _target=<class 'feature_splatting.model.FeatureSplattingModel'>,
+            enable_collider=True,
+            collider_params={'near_plane': 2.0, 'far_plane': 6.0},
+            loss_coefficients={'rgb_loss_coarse': 1.0, 'rgb_loss_fine': 1.0},
+            eval_num_rays_per_chunk=4096,
+            prompt=None,
+            warmup_length=500,
+            refine_every=100,
+            resolution_schedule=3000,
+            background_color='random',
+            num_downscales=2,
+            cull_alpha_thresh=0.1,
+            cull_scale_thresh=0.5,
+            reset_alpha_every=30,
+            densify_grad_thresh=0.0008,
+            use_absgrad=True,
+            densify_size_thresh=0.01,
+            n_split_samples=2,
+            sh_degree_interval=1000,
+            cull_screen_size=0.15,
+            split_screen_size=0.05,
+            stop_screen_size_at=4000,
+            random_init=False,
+            num_random=50000,
+            random_scale=10.0,
+            ssim_lambda=0.2,
+            stop_split_at=15000,
+            sh_degree=0,
+            use_scale_regularization=True,
+            max_gauss_ratio=10.0,
+            output_depth_during_training=False,
+            rasterize_mode='classic',
+            camera_optimizer=CameraOptimizerConfig(
+                _target=<class 'nerfstudio.cameras.camera_optimizers.CameraOptimizer'>,
+                mode='off',
+                trans_l2_penalty=0.01,
+                rot_l2_penalty=0.001,
+                optimizer=None,
+                scheduler=None
+            ),
+            use_bilateral_grid=False,
+            grid_shape=(16, 16, 8),
+            color_corrected_metrics=False,
+            python_compute_sh=False,
+            feat_loss_weight=0.01,
+            feat_aux_loss_weight=0.1,
+            feat_latent_dim=13,
+            mlp_hidden_dim=64
+        )
+    ),
+    optimizers={
+        'means': {
+            'optimizer': AdamOptimizerConfig(
+                _target=<class 'torch.optim.adam.Adam'>,
+                lr=0.00016,
+                eps=1e-15,
+                max_norm=None,
+                weight_decay=0
+            ),
+            'scheduler': ExponentialDecaySchedulerConfig(
+                _target=<class 'nerfstudio.engine.schedulers.ExponentialDecayScheduler'>,
+                lr_pre_warmup=1e-08,
+                lr_final=1.6e-06,
+                warmup_steps=0,
+                max_steps=30000,
+                ramp='cosine'
+            )
+        },
+        'features_dc': {
+            'optimizer': AdamOptimizerConfig(
+                _target=<class 'torch.optim.adam.Adam'>,
+                lr=0.0025,
+                eps=1e-15,
+                max_norm=None,
+                weight_decay=0
+            ),
+            'scheduler': None
+        },
+        'features_rest': {
+            'optimizer': AdamOptimizerConfig(
+                _target=<class 'torch.optim.adam.Adam'>,
+                lr=0.000125,
+                eps=1e-15,
+                max_norm=None,
+                weight_decay=0
+            ),
+            'scheduler': None
+        },
+        'opacities': {
+            'optimizer': AdamOptimizerConfig(
+                _target=<class 'torch.optim.adam.Adam'>,
+                lr=0.05,
+                eps=1e-15,
+                max_norm=None,
+                weight_decay=0
+            ),
+            'scheduler': None
+        },
+        'scales': {
+            'optimizer': AdamOptimizerConfig(
+                _target=<class 'torch.optim.adam.Adam'>,
+                lr=0.005,
+                eps=1e-15,
+                max_norm=None,
+                weight_decay=0
+            ),
+            'scheduler': None
+        },
+        'distill_features': {
+            'optimizer': AdamOptimizerConfig(
+                _target=<class 'torch.optim.adam.Adam'>,
+                lr=0.0025,
+                eps=1e-15,
+                max_norm=None,
+                weight_decay=0
+            ),
+            'scheduler': ExponentialDecaySchedulerConfig(
+                _target=<class 'nerfstudio.engine.schedulers.ExponentialDecayScheduler'>,
+                lr_pre_warmup=1e-08,
+                lr_final=0.0005,
+                warmup_steps=0,
+                max_steps=10000,
+                ramp='cosine'
+            )
+        },
+        'feature_mlp': {
+            'optimizer': AdamOptimizerConfig(
+                _target=<class 'torch.optim.adam.Adam'>,
+                lr=0.001,
+                eps=1e-15,
+                max_norm=None,
+                weight_decay=0
+            ),
+            'scheduler': None
+        },
+        'quats': {
+            'optimizer': AdamOptimizerConfig(
+                _target=<class 'torch.optim.adam.Adam'>,
+                lr=0.001,
+                eps=1e-15,
+                max_norm=None,
+                weight_decay=0
+            ),
+            'scheduler': None
+        },
+        'camera_opt': {
+            'optimizer': AdamOptimizerConfig(
+                _target=<class 'torch.optim.adam.Adam'>,
+                lr=0.0001,
+                eps=1e-15,
+                max_norm=None,
+                weight_decay=0
+            ),
+            'scheduler': ExponentialDecaySchedulerConfig(
+                _target=<class 'nerfstudio.engine.schedulers.ExponentialDecayScheduler'>,
+                lr_pre_warmup=0,
+                lr_final=5e-07,
+                warmup_steps=1000,
+                max_steps=30000,
+                ramp='cosine'
+            )
+        }
+    },
+    vis='tensorboard',
+    data=PosixPath('data/processed/desk02'),
+    prompt=None,
+    relative_model_dir=PosixPath('nerfstudio_models'),
+    load_scheduler=True,
+    steps_per_save=2000,
+    steps_per_eval_batch=0,
+    steps_per_eval_image=100000,
+    steps_per_eval_all_images=100000,
+    max_num_iterations=30000,
+    mixed_precision=False,
+    use_grad_scaler=False,
+    save_only_latest_checkpoint=True,
+    load_dir=None,
+    load_step=None,
+    load_config=None,
+    load_checkpoint=None,
+    log_gradients=False,
+    gradient_accumulation_steps={},
+    start_paused=False
+)
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+           Saving config to:                                                                    experiment_config.py:136
+           outputs/ablation_2026-11-04/runs/scalereg_w1e-2_s42/feature-splatting/2026-11-04_224                         
+           011/config.yml                                                                                               
+/home/work/.local/share/openroom3d/train/lib/python3.12/site-packages/nerfstudio/engine/trainer.py:137: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  self.grad_scaler = GradScaler(enabled=self.use_grad_scaler)
+           Saving checkpoints to:                                                                         trainer.py:142
+           outputs/ablation_2026-11-04/runs/scalereg_w1e-2_s42/feature-splatting/2026-11-04_224011/nerfst               
+           udio_models                                                                                                  
+           Auto image downscale factor of 1                                                 nerfstudio_dataparser.py:484
+[22:40:13] use color only optimization with sigmoid activation                                         splatfacto.py:266
+No Nerfstudio checkpoint to load, so training from scratch.
+logging events to: outputs/ablation_2026-11-04/runs/scalereg_w1e-2_s42/feature-splatting/2026-11-04_224011
+[22:40:18] Caching / undistorting train images                                            full_images_datamanager.py:230
+
+ninja: no work to do.
+/home/work/.local/share/openroom3d/train/lib/python3.12/site-packages/nerfstudio/utils/writer.py:272: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  self.write_scalar(name + "/" + key, float(scalar), step)
+[22:40:22] Printing max of 10 lines. Set flag --logging.local-writer.max-log-size=0 to disable line        writer.py:449
+           wrapping.                                                                                                    
+Step (% Done)       Train Iter (time)    ETA (time)           
+--------------------------------------------------------------
+[2A[1KStep (% Done)       Train Iter (time)    ETA (time)            [0m
+-------------------------------------------------------------- [0m
+0 (0.00%)           3 s, 952.221 ms      1 d, 8 h, 56 m, 6 s   [0m
+[3A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+0 (0.00%)           3 s, 952.221 ms      1 d, 8 h, 56 m, 6 s                        [0m
+500 (1.67%)         9.717 ms             4 m, 46 s            99.29 M               [0m
+Step 600: 643 GSs duplicated, 3134 GSs split. Now having 10779 GSs.
+Step 600: 4197 GSs pruned. Now having 6582 GSs.
+Step 700: 1279 GSs duplicated, 2583 GSs split. Now having 10444 GSs.
+Step 700: 704 GSs pruned. Now having 9740 GSs.
+Step 800: 1451 GSs duplicated, 3494 GSs split. Now having 14685 GSs.
+Step 800: 1001 GSs pruned. Now having 13684 GSs.
+Step 900: 1698 GSs duplicated, 4422 GSs split. Now having 19804 GSs.
+Step 900: 1256 GSs pruned. Now having 18548 GSs.
+Step 1000: 1826 GSs duplicated, 5702 GSs split. Now having 26076 GSs.
+Step 1000: 1406 GSs pruned. Now having 24670 GSs.
+[4A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+0 (0.00%)           3 s, 952.221 ms      1 d, 8 h, 56 m, 6 s                        [0m
+500 (1.67%)         9.717 ms             4 m, 46 s            99.29 M               [0m
+1000 (3.33%)        9.815 ms             4 m, 44 s            96.66 M               [0m
+Step 1100: 1890 GSs duplicated, 7020 GSs split. Now having 33580 GSs.
+Step 1100: 1663 GSs pruned. Now having 31917 GSs.
+Step 1200: 1957 GSs duplicated, 8843 GSs split. Now having 42717 GSs.
+Step 1200: 2014 GSs pruned. Now having 40703 GSs.
+Step 1300: 1945 GSs duplicated, 10549 GSs split. Now having 53197 GSs.
+Step 1300: 1998 GSs pruned. Now having 51199 GSs.
+Step 1400: 2294 GSs duplicated, 11931 GSs split. Now having 65424 GSs.
+Step 1400: 2233 GSs pruned. Now having 63191 GSs.
+Step 1500: 2071 GSs duplicated, 12767 GSs split. Now having 78029 GSs.
+Step 1500: 2361 GSs pruned. Now having 75668 GSs.
+[5A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+0 (0.00%)           3 s, 952.221 ms      1 d, 8 h, 56 m, 6 s                        [0m
+500 (1.67%)         9.717 ms             4 m, 46 s            99.29 M               [0m
+1000 (3.33%)        9.815 ms             4 m, 44 s            96.66 M               [0m
+1500 (5.00%)        10.592 ms            5 m, 1 s             90.04 M               [0m
+Step 1600: 2136 GSs duplicated, 12688 GSs split. Now having 90492 GSs.
+Step 1600: 2338 GSs pruned. Now having 88154 GSs.
+Step 1700: 2072 GSs duplicated, 12775 GSs split. Now having 103001 GSs.
+Step 1700: 2425 GSs pruned. Now having 100576 GSs.
+Step 1800: 2091 GSs duplicated, 12336 GSs split. Now having 115003 GSs.
+Step 1800: 2312 GSs pruned. Now having 112691 GSs.
+Step 1900: 2162 GSs duplicated, 11363 GSs split. Now having 126216 GSs.
+Step 1900: 2544 GSs pruned. Now having 123672 GSs.
+Step 2000: 2059 GSs duplicated, 11213 GSs split. Now having 136944 GSs.
+Step 2000: 2410 GSs pruned. Now having 134534 GSs.
+[6A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+0 (0.00%)           3 s, 952.221 ms      1 d, 8 h, 56 m, 6 s                        [0m
+500 (1.67%)         9.717 ms             4 m, 46 s            99.29 M               [0m
+1000 (3.33%)        9.815 ms             4 m, 44 s            96.66 M               [0m
+1500 (5.00%)        10.592 ms            5 m, 1 s             90.04 M               [0m
+2000 (6.67%)        11.113 ms            5 m, 11 s            84.70 M               [0m
+Step 2100: 1992 GSs duplicated, 10082 GSs split. Now having 146608 GSs.
+Step 2100: 2398 GSs pruned. Now having 144210 GSs.
+Step 2200: 2099 GSs duplicated, 9628 GSs split. Now having 155937 GSs.
+Step 2200: 2280 GSs pruned. Now having 153657 GSs.
+Step 2300: 1968 GSs duplicated, 7794 GSs split. Now having 163419 GSs.
+Step 2300: 2497 GSs pruned. Now having 160922 GSs.
+Step 2400: 1974 GSs duplicated, 8500 GSs split. Now having 171396 GSs.
+Step 2400: 2292 GSs pruned. Now having 169104 GSs.
+Step 2500: 2154 GSs duplicated, 6414 GSs split. Now having 177672 GSs.
+Step 2500: 2287 GSs pruned. Now having 175385 GSs.
+[7A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+0 (0.00%)           3 s, 952.221 ms      1 d, 8 h, 56 m, 6 s                        [0m
+500 (1.67%)         9.717 ms             4 m, 46 s            99.29 M               [0m
+1000 (3.33%)        9.815 ms             4 m, 44 s            96.66 M               [0m
+1500 (5.00%)        10.592 ms            5 m, 1 s             90.04 M               [0m
+2000 (6.67%)        11.113 ms            5 m, 11 s            84.70 M               [0m
+2500 (8.33%)        11.368 ms            5 m, 12 s            83.89 M               [0m
+Step 2600: 1835 GSs duplicated, 6751 GSs split. Now having 183971 GSs.
+Step 2600: 2289 GSs pruned. Now having 181682 GSs.
+Step 2700: 1963 GSs duplicated, 6007 GSs split. Now having 189652 GSs.
+Step 2700: 2350 GSs pruned. Now having 187302 GSs.
+Step 2800: 1936 GSs duplicated, 6026 GSs split. Now having 195264 GSs.
+Step 2800: 2317 GSs pruned. Now having 192947 GSs.
+Step 2900: 1895 GSs duplicated, 5300 GSs split. Now having 200142 GSs.
+Step 2900: 2322 GSs pruned. Now having 197820 GSs.
+[8A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+0 (0.00%)           3 s, 952.221 ms      1 d, 8 h, 56 m, 6 s                        [0m
+500 (1.67%)         9.717 ms             4 m, 46 s            99.29 M               [0m
+1000 (3.33%)        9.815 ms             4 m, 44 s            96.66 M               [0m
+1500 (5.00%)        10.592 ms            5 m, 1 s             90.04 M               [0m
+2000 (6.67%)        11.113 ms            5 m, 11 s            84.70 M               [0m
+2500 (8.33%)        11.368 ms            5 m, 12 s            83.89 M               [0m
+3000 (10.00%)       80.678 ms            36 m, 18 s           77.82 M               [0m
+Step 3200: 2580 GSs duplicated, 19716 GSs split. Now having 220116 GSs.
+Step 3200: 28091 GSs pruned. Now having 192025 GSs.
+Step 3300: 3218 GSs duplicated, 6342 GSs split. Now having 201585 GSs.
+Step 3300: 7457 GSs pruned. Now having 194128 GSs.
+Step 3400: 3164 GSs duplicated, 5298 GSs split. Now having 202590 GSs.
+Step 3400: 5155 GSs pruned. Now having 197435 GSs.
+Step 3500: 2822 GSs duplicated, 4875 GSs split. Now having 205132 GSs.
+Step 3500: 4697 GSs pruned. Now having 200435 GSs.
+[9A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+0 (0.00%)           3 s, 952.221 ms      1 d, 8 h, 56 m, 6 s                        [0m
+500 (1.67%)         9.717 ms             4 m, 46 s            99.29 M               [0m
+1000 (3.33%)        9.815 ms             4 m, 44 s            96.66 M               [0m
+1500 (5.00%)        10.592 ms            5 m, 1 s             90.04 M               [0m
+2000 (6.67%)        11.113 ms            5 m, 11 s            84.70 M               [0m
+2500 (8.33%)        11.368 ms            5 m, 12 s            83.89 M               [0m
+3000 (10.00%)       80.678 ms            36 m, 18 s           77.82 M               [0m
+3500 (11.67%)       11.569 ms            5 m, 6 s             80.03 M               [0m
+Step 3600: 3323 GSs duplicated, 4263 GSs split. Now having 208021 GSs.
+Step 3600: 4351 GSs pruned. Now having 203670 GSs.
+Step 3700: 2823 GSs duplicated, 4129 GSs split. Now having 210622 GSs.
+Step 3700: 4392 GSs pruned. Now having 206230 GSs.
+Step 3800: 3002 GSs duplicated, 3884 GSs split. Now having 213116 GSs.
+Step 3800: 4265 GSs pruned. Now having 208851 GSs.
+Step 3900: 2890 GSs duplicated, 3597 GSs split. Now having 215338 GSs.
+Step 3900: 4241 GSs pruned. Now having 211097 GSs.
+Step 4000: 2885 GSs duplicated, 215 GSs split. Now having 214197 GSs.
+Step 4000: 4226 GSs pruned. Now having 209971 GSs.
+[10A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+0 (0.00%)           3 s, 952.221 ms      1 d, 8 h, 56 m, 6 s                        [0m
+500 (1.67%)         9.717 ms             4 m, 46 s            99.29 M               [0m
+1000 (3.33%)        9.815 ms             4 m, 44 s            96.66 M               [0m
+1500 (5.00%)        10.592 ms            5 m, 1 s             90.04 M               [0m
+2000 (6.67%)        11.113 ms            5 m, 11 s            84.70 M               [0m
+2500 (8.33%)        11.368 ms            5 m, 12 s            83.89 M               [0m
+3000 (10.00%)       80.678 ms            36 m, 18 s           77.82 M               [0m
+3500 (11.67%)       11.569 ms            5 m, 6 s             80.03 M               [0m
+4000 (13.33%)       16.818 ms            7 m, 17 s            55.60 M               [0m
+Step 4100: 2695 GSs duplicated, 181 GSs split. Now having 212847 GSs.
+Step 4100: 3554 GSs pruned. Now having 209293 GSs.
+Step 4200: 2980 GSs duplicated, 232 GSs split. Now having 212505 GSs.
+Step 4200: 3435 GSs pruned. Now having 209070 GSs.
+Step 4300: 2909 GSs duplicated, 236 GSs split. Now having 212215 GSs.
+Step 4300: 3510 GSs pruned. Now having 208705 GSs.
+Step 4400: 2573 GSs duplicated, 152 GSs split. Now having 211430 GSs.
+Step 4400: 3166 GSs pruned. Now having 208264 GSs.
+Step 4500: 2793 GSs duplicated, 228 GSs split. Now having 211285 GSs.
+Step 4500: 3133 GSs pruned. Now having 208152 GSs.
+[11A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+0 (0.00%)           3 s, 952.221 ms      1 d, 8 h, 56 m, 6 s                        [0m
+500 (1.67%)         9.717 ms             4 m, 46 s            99.29 M               [0m
+1000 (3.33%)        9.815 ms             4 m, 44 s            96.66 M               [0m
+1500 (5.00%)        10.592 ms            5 m, 1 s             90.04 M               [0m
+2000 (6.67%)        11.113 ms            5 m, 11 s            84.70 M               [0m
+2500 (8.33%)        11.368 ms            5 m, 12 s            83.89 M               [0m
+3000 (10.00%)       80.678 ms            36 m, 18 s           77.82 M               [0m
+3500 (11.67%)       11.569 ms            5 m, 6 s             80.03 M               [0m
+4000 (13.33%)       16.818 ms            7 m, 17 s            55.60 M               [0m
+4500 (15.00%)       15.735 ms            6 m, 41 s            60.79 M               [0m
+Step 4600: 2914 GSs duplicated, 239 GSs split. Now having 211305 GSs.
+Step 4600: 3192 GSs pruned. Now having 208113 GSs.
+Step 4700: 2560 GSs duplicated, 177 GSs split. Now having 210850 GSs.
+Step 4700: 3046 GSs pruned. Now having 207804 GSs.
+Step 4800: 2786 GSs duplicated, 180 GSs split. Now having 210770 GSs.
+Step 4800: 3059 GSs pruned. Now having 207711 GSs.
+Step 4900: 2876 GSs duplicated, 223 GSs split. Now having 210810 GSs.
+Step 4900: 3164 GSs pruned. Now having 207646 GSs.
+Step 5000: 2708 GSs duplicated, 146 GSs split. Now having 210500 GSs.
+Step 5000: 3115 GSs pruned. Now having 207385 GSs.
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+500 (1.67%)         9.717 ms             4 m, 46 s            99.29 M               [0m
+1000 (3.33%)        9.815 ms             4 m, 44 s            96.66 M               [0m
+1500 (5.00%)        10.592 ms            5 m, 1 s             90.04 M               [0m
+2000 (6.67%)        11.113 ms            5 m, 11 s            84.70 M               [0m
+2500 (8.33%)        11.368 ms            5 m, 12 s            83.89 M               [0m
+3000 (10.00%)       80.678 ms            36 m, 18 s           77.82 M               [0m
+3500 (11.67%)       11.569 ms            5 m, 6 s             80.03 M               [0m
+4000 (13.33%)       16.818 ms            7 m, 17 s            55.60 M               [0m
+4500 (15.00%)       15.735 ms            6 m, 41 s            60.79 M               [0m
+5000 (16.67%)       17.770 ms            7 m, 24 s            54.34 M               [0m
+Step 5100: 2703 GSs duplicated, 154 GSs split. Now having 210242 GSs.
+Step 5100: 3010 GSs pruned. Now having 207232 GSs.
+Step 5200: 2622 GSs duplicated, 157 GSs split. Now having 210011 GSs.
+Step 5200: 3053 GSs pruned. Now having 206958 GSs.
+Step 5300: 2851 GSs duplicated, 222 GSs split. Now having 210031 GSs.
+Step 5300: 2904 GSs pruned. Now having 207127 GSs.
+Step 5400: 2539 GSs duplicated, 141 GSs split. Now having 209807 GSs.
+Step 5400: 3072 GSs pruned. Now having 206735 GSs.
+Step 5500: 2819 GSs duplicated, 200 GSs split. Now having 209754 GSs.
+Step 5500: 2917 GSs pruned. Now having 206837 GSs.
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+1000 (3.33%)        9.815 ms             4 m, 44 s            96.66 M               [0m
+1500 (5.00%)        10.592 ms            5 m, 1 s             90.04 M               [0m
+2000 (6.67%)        11.113 ms            5 m, 11 s            84.70 M               [0m
+2500 (8.33%)        11.368 ms            5 m, 12 s            83.89 M               [0m
+3000 (10.00%)       80.678 ms            36 m, 18 s           77.82 M               [0m
+3500 (11.67%)       11.569 ms            5 m, 6 s             80.03 M               [0m
+4000 (13.33%)       16.818 ms            7 m, 17 s            55.60 M               [0m
+4500 (15.00%)       15.735 ms            6 m, 41 s            60.79 M               [0m
+5000 (16.67%)       17.770 ms            7 m, 24 s            54.34 M               [0m
+5500 (18.33%)       11.584 ms            4 m, 43 s            79.87 M               [0m
+Step 5600: 2906 GSs duplicated, 232 GSs split. Now having 209975 GSs.
+Step 5600: 3092 GSs pruned. Now having 206883 GSs.
+Step 5700: 2909 GSs duplicated, 233 GSs split. Now having 210025 GSs.
+Step 5700: 3099 GSs pruned. Now having 206926 GSs.
+Step 5800: 2662 GSs duplicated, 169 GSs split. Now having 209757 GSs.
+Step 5800: 3043 GSs pruned. Now having 206714 GSs.
+Step 5900: 2708 GSs duplicated, 153 GSs split. Now having 209575 GSs.
+Step 5900: 2812 GSs pruned. Now having 206763 GSs.
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+1500 (5.00%)        10.592 ms            5 m, 1 s             90.04 M               [0m
+2000 (6.67%)        11.113 ms            5 m, 11 s            84.70 M               [0m
+2500 (8.33%)        11.368 ms            5 m, 12 s            83.89 M               [0m
+3000 (10.00%)       80.678 ms            36 m, 18 s           77.82 M               [0m
+3500 (11.67%)       11.569 ms            5 m, 6 s             80.03 M               [0m
+4000 (13.33%)       16.818 ms            7 m, 17 s            55.60 M               [0m
+4500 (15.00%)       15.735 ms            6 m, 41 s            60.79 M               [0m
+5000 (16.67%)       17.770 ms            7 m, 24 s            54.34 M               [0m
+5500 (18.33%)       11.584 ms            4 m, 43 s            79.87 M               [0m
+6000 (20.00%)       60.830 ms            24 m, 19 s           76.28 M               [0m
+Step 6200: 3064 GSs duplicated, 583 GSs split. Now having 210410 GSs.
+Step 6200: 19824 GSs pruned. Now having 190586 GSs.
+Step 6300: 3445 GSs duplicated, 790 GSs split. Now having 194821 GSs.
+Step 6300: 3106 GSs pruned. Now having 191715 GSs.
+Step 6400: 3718 GSs duplicated, 587 GSs split. Now having 196020 GSs.
+Step 6400: 2692 GSs pruned. Now having 193328 GSs.
+Step 6500: 3340 GSs duplicated, 390 GSs split. Now having 197058 GSs.
+Step 6500: 2868 GSs pruned. Now having 194190 GSs.
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+2000 (6.67%)        11.113 ms            5 m, 11 s            84.70 M               [0m
+2500 (8.33%)        11.368 ms            5 m, 12 s            83.89 M               [0m
+3000 (10.00%)       80.678 ms            36 m, 18 s           77.82 M               [0m
+3500 (11.67%)       11.569 ms            5 m, 6 s             80.03 M               [0m
+4000 (13.33%)       16.818 ms            7 m, 17 s            55.60 M               [0m
+4500 (15.00%)       15.735 ms            6 m, 41 s            60.79 M               [0m
+5000 (16.67%)       17.770 ms            7 m, 24 s            54.34 M               [0m
+5500 (18.33%)       11.584 ms            4 m, 43 s            79.87 M               [0m
+6000 (20.00%)       60.830 ms            24 m, 19 s           76.28 M               [0m
+6500 (21.67%)       17.752 ms            6 m, 57 s            52.71 M               [0m
+Step 6600: 3447 GSs duplicated, 377 GSs split. Now having 198014 GSs.
+Step 6600: 2893 GSs pruned. Now having 195121 GSs.
+Step 6700: 2967 GSs duplicated, 281 GSs split. Now having 198369 GSs.
+Step 6700: 2874 GSs pruned. Now having 195495 GSs.
+Step 6800: 3548 GSs duplicated, 342 GSs split. Now having 199385 GSs.
+Step 6800: 2872 GSs pruned. Now having 196513 GSs.
+Step 6900: 2711 GSs duplicated, 194 GSs split. Now having 199418 GSs.
+Step 6900: 2757 GSs pruned. Now having 196661 GSs.
+Step 7000: 3231 GSs duplicated, 231 GSs split. Now having 200123 GSs.
+Step 7000: 2535 GSs pruned. Now having 197588 GSs.
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+2500 (8.33%)        11.368 ms            5 m, 12 s            83.89 M               [0m
+3000 (10.00%)       80.678 ms            36 m, 18 s           77.82 M               [0m
+3500 (11.67%)       11.569 ms            5 m, 6 s             80.03 M               [0m
+4000 (13.33%)       16.818 ms            7 m, 17 s            55.60 M               [0m
+4500 (15.00%)       15.735 ms            6 m, 41 s            60.79 M               [0m
+5000 (16.67%)       17.770 ms            7 m, 24 s            54.34 M               [0m
+5500 (18.33%)       11.584 ms            4 m, 43 s            79.87 M               [0m
+6000 (20.00%)       60.830 ms            24 m, 19 s           76.28 M               [0m
+6500 (21.67%)       17.752 ms            6 m, 57 s            52.71 M               [0m
+7000 (23.33%)       17.918 ms            6 m, 52 s            51.84 M               [0m
+Step 7100: 3108 GSs duplicated, 169 GSs split. Now having 200865 GSs.
+Step 7100: 2914 GSs pruned. Now having 197951 GSs.
+Step 7200: 2985 GSs duplicated, 182 GSs split. Now having 201118 GSs.
+Step 7200: 2880 GSs pruned. Now having 198238 GSs.
+Step 7300: 3052 GSs duplicated, 199 GSs split. Now having 201489 GSs.
+Step 7300: 2746 GSs pruned. Now having 198743 GSs.
+Step 7400: 2838 GSs duplicated, 189 GSs split. Now having 201770 GSs.
+Step 7400: 2728 GSs pruned. Now having 199042 GSs.
+Step 7500: 3183 GSs duplicated, 208 GSs split. Now having 202433 GSs.
+Step 7500: 2656 GSs pruned. Now having 199777 GSs.
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+3000 (10.00%)       80.678 ms            36 m, 18 s           77.82 M               [0m
+3500 (11.67%)       11.569 ms            5 m, 6 s             80.03 M               [0m
+4000 (13.33%)       16.818 ms            7 m, 17 s            55.60 M               [0m
+4500 (15.00%)       15.735 ms            6 m, 41 s            60.79 M               [0m
+5000 (16.67%)       17.770 ms            7 m, 24 s            54.34 M               [0m
+5500 (18.33%)       11.584 ms            4 m, 43 s            79.87 M               [0m
+6000 (20.00%)       60.830 ms            24 m, 19 s           76.28 M               [0m
+6500 (21.67%)       17.752 ms            6 m, 57 s            52.71 M               [0m
+7000 (23.33%)       17.918 ms            6 m, 52 s            51.84 M               [0m
+7500 (25.00%)       17.892 ms            6 m, 42 s            51.94 M               [0m
+Step 7600: 2801 GSs duplicated, 199 GSs split. Now having 202777 GSs.
+Step 7600: 2803 GSs pruned. Now having 199974 GSs.
+Step 7700: 2736 GSs duplicated, 185 GSs split. Now having 202895 GSs.
+Step 7700: 2819 GSs pruned. Now having 200076 GSs.
+Step 7800: 3224 GSs duplicated, 203 GSs split. Now having 203503 GSs.
+Step 7800: 2673 GSs pruned. Now having 200830 GSs.
+Step 7900: 2484 GSs duplicated, 162 GSs split. Now having 203476 GSs.
+Step 7900: 2779 GSs pruned. Now having 200697 GSs.
+Step 8000: 2835 GSs duplicated, 189 GSs split. Now having 203721 GSs.
+Step 8000: 2698 GSs pruned. Now having 201023 GSs.
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+3500 (11.67%)       11.569 ms            5 m, 6 s             80.03 M               [0m
+4000 (13.33%)       16.818 ms            7 m, 17 s            55.60 M               [0m
+4500 (15.00%)       15.735 ms            6 m, 41 s            60.79 M               [0m
+5000 (16.67%)       17.770 ms            7 m, 24 s            54.34 M               [0m
+5500 (18.33%)       11.584 ms            4 m, 43 s            79.87 M               [0m
+6000 (20.00%)       60.830 ms            24 m, 19 s           76.28 M               [0m
+6500 (21.67%)       17.752 ms            6 m, 57 s            52.71 M               [0m
+7000 (23.33%)       17.918 ms            6 m, 52 s            51.84 M               [0m
+7500 (25.00%)       17.892 ms            6 m, 42 s            51.94 M               [0m
+8000 (26.67%)       17.680 ms            6 m, 28 s            52.51 M               [0m
+Step 8100: 2746 GSs duplicated, 150 GSs split. Now having 203919 GSs.
+Step 8100: 2669 GSs pruned. Now having 201250 GSs.
+Step 8200: 2661 GSs duplicated, 136 GSs split. Now having 204047 GSs.
+Step 8200: 2847 GSs pruned. Now having 201200 GSs.
+Step 8300: 2737 GSs duplicated, 147 GSs split. Now having 204084 GSs.
+Step 8300: 2841 GSs pruned. Now having 201243 GSs.
+Step 8400: 2532 GSs duplicated, 178 GSs split. Now having 203953 GSs.
+Step 8400: 2677 GSs pruned. Now having 201276 GSs.
+Step 8500: 3159 GSs duplicated, 269 GSs split. Now having 204704 GSs.
+Step 8500: 2622 GSs pruned. Now having 202082 GSs.
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+4000 (13.33%)       16.818 ms            7 m, 17 s            55.60 M               [0m
+4500 (15.00%)       15.735 ms            6 m, 41 s            60.79 M               [0m
+5000 (16.67%)       17.770 ms            7 m, 24 s            54.34 M               [0m
+5500 (18.33%)       11.584 ms            4 m, 43 s            79.87 M               [0m
+6000 (20.00%)       60.830 ms            24 m, 19 s           76.28 M               [0m
+6500 (21.67%)       17.752 ms            6 m, 57 s            52.71 M               [0m
+7000 (23.33%)       17.918 ms            6 m, 52 s            51.84 M               [0m
+7500 (25.00%)       17.892 ms            6 m, 42 s            51.94 M               [0m
+8000 (26.67%)       17.680 ms            6 m, 28 s            52.51 M               [0m
+8500 (28.33%)       21.940 ms            7 m, 51 s            43.62 M               [0m
+Step 8600: 2313 GSs duplicated, 157 GSs split. Now having 204552 GSs.
+Step 8600: 2909 GSs pruned. Now having 201643 GSs.
+Step 8700: 2684 GSs duplicated, 167 GSs split. Now having 204494 GSs.
+Step 8700: 2486 GSs pruned. Now having 202008 GSs.
+Step 8800: 2707 GSs duplicated, 177 GSs split. Now having 204892 GSs.
+Step 8800: 2640 GSs pruned. Now having 202252 GSs.
+Step 8900: 2590 GSs duplicated, 166 GSs split. Now having 205008 GSs.
+Step 8900: 2808 GSs pruned. Now having 202200 GSs.
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+4500 (15.00%)       15.735 ms            6 m, 41 s            60.79 M               [0m
+5000 (16.67%)       17.770 ms            7 m, 24 s            54.34 M               [0m
+5500 (18.33%)       11.584 ms            4 m, 43 s            79.87 M               [0m
+6000 (20.00%)       60.830 ms            24 m, 19 s           76.28 M               [0m
+6500 (21.67%)       17.752 ms            6 m, 57 s            52.71 M               [0m
+7000 (23.33%)       17.918 ms            6 m, 52 s            51.84 M               [0m
+7500 (25.00%)       17.892 ms            6 m, 42 s            51.94 M               [0m
+8000 (26.67%)       17.680 ms            6 m, 28 s            52.51 M               [0m
+8500 (28.33%)       21.940 ms            7 m, 51 s            43.62 M               [0m
+9000 (30.00%)       19.774 ms            6 m, 55 s            46.81 M               [0m
+Step 9200: 2056 GSs duplicated, 193 GSs split. Now having 204449 GSs.
+Step 9200: 15735 GSs pruned. Now having 188714 GSs.
+Step 9300: 2335 GSs duplicated, 243 GSs split. Now having 191292 GSs.
+Step 9300: 2818 GSs pruned. Now having 188474 GSs.
+Step 9400: 2547 GSs duplicated, 173 GSs split. Now having 191194 GSs.
+Step 9400: 2431 GSs pruned. Now having 188763 GSs.
+Step 9500: 2382 GSs duplicated, 258 GSs split. Now having 191403 GSs.
+Step 9500: 2742 GSs pruned. Now having 188661 GSs.
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+5000 (16.67%)       17.770 ms            7 m, 24 s            54.34 M               [0m
+5500 (18.33%)       11.584 ms            4 m, 43 s            79.87 M               [0m
+6000 (20.00%)       60.830 ms            24 m, 19 s           76.28 M               [0m
+6500 (21.67%)       17.752 ms            6 m, 57 s            52.71 M               [0m
+7000 (23.33%)       17.918 ms            6 m, 52 s            51.84 M               [0m
+7500 (25.00%)       17.892 ms            6 m, 42 s            51.94 M               [0m
+8000 (26.67%)       17.680 ms            6 m, 28 s            52.51 M               [0m
+8500 (28.33%)       21.940 ms            7 m, 51 s            43.62 M               [0m
+9000 (30.00%)       19.774 ms            6 m, 55 s            46.81 M               [0m
+9500 (31.67%)       19.978 ms            6 m, 49 s            47.49 M               [0m
+Step 9600: 2265 GSs duplicated, 190 GSs split. Now having 191116 GSs.
+Step 9600: 2627 GSs pruned. Now having 188489 GSs.
+Step 9700: 2987 GSs duplicated, 311 GSs split. Now having 191787 GSs.
+Step 9700: 2426 GSs pruned. Now having 189361 GSs.
+Step 9800: 2181 GSs duplicated, 143 GSs split. Now having 191685 GSs.
+Step 9800: 2933 GSs pruned. Now having 188752 GSs.
+Step 9900: 3048 GSs duplicated, 243 GSs split. Now having 192043 GSs.
+Step 9900: 2420 GSs pruned. Now having 189623 GSs.
+Step 10000: 2424 GSs duplicated, 151 GSs split. Now having 192198 GSs.
+Step 10000: 2929 GSs pruned. Now having 189269 GSs.
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+5500 (18.33%)       11.584 ms            4 m, 43 s            79.87 M               [0m
+6000 (20.00%)       60.830 ms            24 m, 19 s           76.28 M               [0m
+6500 (21.67%)       17.752 ms            6 m, 57 s            52.71 M               [0m
+7000 (23.33%)       17.918 ms            6 m, 52 s            51.84 M               [0m
+7500 (25.00%)       17.892 ms            6 m, 42 s            51.94 M               [0m
+8000 (26.67%)       17.680 ms            6 m, 28 s            52.51 M               [0m
+8500 (28.33%)       21.940 ms            7 m, 51 s            43.62 M               [0m
+9000 (30.00%)       19.774 ms            6 m, 55 s            46.81 M               [0m
+9500 (31.67%)       19.978 ms            6 m, 49 s            47.49 M               [0m
+10000 (33.33%)      17.800 ms            5 m, 56 s            52.10 M               [0m
+Step 10100: 2259 GSs duplicated, 115 GSs split. Now having 191643 GSs.
+Step 10100: 2511 GSs pruned. Now having 189132 GSs.
+Step 10200: 2402 GSs duplicated, 109 GSs split. Now having 191643 GSs.
+Step 10200: 2317 GSs pruned. Now having 189326 GSs.
+Step 10300: 2510 GSs duplicated, 173 GSs split. Now having 192009 GSs.
+Step 10300: 2521 GSs pruned. Now having 189488 GSs.
+Step 10400: 2329 GSs duplicated, 131 GSs split. Now having 191948 GSs.
+Step 10400: 2622 GSs pruned. Now having 189326 GSs.
+Step 10500: 2417 GSs duplicated, 131 GSs split. Now having 191874 GSs.
+Step 10500: 2591 GSs pruned. Now having 189283 GSs.
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+6000 (20.00%)       60.830 ms            24 m, 19 s           76.28 M               [0m
+6500 (21.67%)       17.752 ms            6 m, 57 s            52.71 M               [0m
+7000 (23.33%)       17.918 ms            6 m, 52 s            51.84 M               [0m
+7500 (25.00%)       17.892 ms            6 m, 42 s            51.94 M               [0m
+8000 (26.67%)       17.680 ms            6 m, 28 s            52.51 M               [0m
+8500 (28.33%)       21.940 ms            7 m, 51 s            43.62 M               [0m
+9000 (30.00%)       19.774 ms            6 m, 55 s            46.81 M               [0m
+9500 (31.67%)       19.978 ms            6 m, 49 s            47.49 M               [0m
+10000 (33.33%)      17.800 ms            5 m, 56 s            52.10 M               [0m
+10500 (35.00%)      18.383 ms            5 m, 58 s            50.42 M               [0m
+Step 10600: 2531 GSs duplicated, 172 GSs split. Now having 191986 GSs.
+Step 10600: 2574 GSs pruned. Now having 189412 GSs.
+Step 10700: 2974 GSs duplicated, 246 GSs split. Now having 192632 GSs.
+Step 10700: 2481 GSs pruned. Now having 190151 GSs.
+Step 10800: 2389 GSs duplicated, 216 GSs split. Now having 192756 GSs.
+Step 10800: 2985 GSs pruned. Now having 189771 GSs.
+Step 10900: 2165 GSs duplicated, 119 GSs split. Now having 192055 GSs.
+Step 10900: 2648 GSs pruned. Now having 189407 GSs.
+Step 11000: 2536 GSs duplicated, 126 GSs split. Now having 192069 GSs.
+Step 11000: 2472 GSs pruned. Now having 189597 GSs.
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+6500 (21.67%)       17.752 ms            6 m, 57 s            52.71 M               [0m
+7000 (23.33%)       17.918 ms            6 m, 52 s            51.84 M               [0m
+7500 (25.00%)       17.892 ms            6 m, 42 s            51.94 M               [0m
+8000 (26.67%)       17.680 ms            6 m, 28 s            52.51 M               [0m
+8500 (28.33%)       21.940 ms            7 m, 51 s            43.62 M               [0m
+9000 (30.00%)       19.774 ms            6 m, 55 s            46.81 M               [0m
+9500 (31.67%)       19.978 ms            6 m, 49 s            47.49 M               [0m
+10000 (33.33%)      17.800 ms            5 m, 56 s            52.10 M               [0m
+10500 (35.00%)      18.383 ms            5 m, 58 s            50.42 M               [0m
+11000 (36.67%)      22.513 ms            7 m, 7 s             41.83 M               [0m
+Step 11100: 2390 GSs duplicated, 124 GSs split. Now having 192111 GSs.
+Step 11100: 2485 GSs pruned. Now having 189626 GSs.
+Step 11200: 2270 GSs duplicated, 99 GSs split. Now having 191995 GSs.
+Step 11200: 2596 GSs pruned. Now having 189399 GSs.
+Step 11300: 2482 GSs duplicated, 124 GSs split. Now having 192005 GSs.
+Step 11300: 2429 GSs pruned. Now having 189576 GSs.
+Step 11400: 2688 GSs duplicated, 156 GSs split. Now having 192420 GSs.
+Step 11400: 2577 GSs pruned. Now having 189843 GSs.
+Step 11500: 2157 GSs duplicated, 149 GSs split. Now having 192149 GSs.
+Step 11500: 2822 GSs pruned. Now having 189327 GSs.
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+7000 (23.33%)       17.918 ms            6 m, 52 s            51.84 M               [0m
+7500 (25.00%)       17.892 ms            6 m, 42 s            51.94 M               [0m
+8000 (26.67%)       17.680 ms            6 m, 28 s            52.51 M               [0m
+8500 (28.33%)       21.940 ms            7 m, 51 s            43.62 M               [0m
+9000 (30.00%)       19.774 ms            6 m, 55 s            46.81 M               [0m
+9500 (31.67%)       19.978 ms            6 m, 49 s            47.49 M               [0m
+10000 (33.33%)      17.800 ms            5 m, 56 s            52.10 M               [0m
+10500 (35.00%)      18.383 ms            5 m, 58 s            50.42 M               [0m
+11000 (36.67%)      22.513 ms            7 m, 7 s             41.83 M               [0m
+11500 (38.33%)      18.119 ms            5 m, 35 s            51.16 M               [0m
+Step 11600: 2347 GSs duplicated, 153 GSs split. Now having 191827 GSs.
+Step 11600: 2653 GSs pruned. Now having 189174 GSs.
+Step 11700: 2762 GSs duplicated, 181 GSs split. Now having 192117 GSs.
+Step 11700: 2399 GSs pruned. Now having 189718 GSs.
+Step 11800: 2168 GSs duplicated, 178 GSs split. Now having 192064 GSs.
+Step 11800: 2824 GSs pruned. Now having 189240 GSs.
+Step 11900: 2883 GSs duplicated, 183 GSs split. Now having 192306 GSs.
+Step 11900: 2529 GSs pruned. Now having 189777 GSs.
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+7500 (25.00%)       17.892 ms            6 m, 42 s            51.94 M               [0m
+8000 (26.67%)       17.680 ms            6 m, 28 s            52.51 M               [0m
+8500 (28.33%)       21.940 ms            7 m, 51 s            43.62 M               [0m
+9000 (30.00%)       19.774 ms            6 m, 55 s            46.81 M               [0m
+9500 (31.67%)       19.978 ms            6 m, 49 s            47.49 M               [0m
+10000 (33.33%)      17.800 ms            5 m, 56 s            52.10 M               [0m
+10500 (35.00%)      18.383 ms            5 m, 58 s            50.42 M               [0m
+11000 (36.67%)      22.513 ms            7 m, 7 s             41.83 M               [0m
+11500 (38.33%)      18.119 ms            5 m, 35 s            51.16 M               [0m
+12000 (40.00%)      17.335 ms            5 m, 12 s            53.08 M               [0m
+Step 12200: 1765 GSs duplicated, 161 GSs split. Now having 191703 GSs.
+Step 12200: 12425 GSs pruned. Now having 179278 GSs.
+Step 12300: 1973 GSs duplicated, 159 GSs split. Now having 181410 GSs.
+Step 12300: 2556 GSs pruned. Now having 178854 GSs.
+Step 12400: 2417 GSs duplicated, 180 GSs split. Now having 181451 GSs.
+Step 12400: 2358 GSs pruned. Now having 179093 GSs.
+Step 12500: 1882 GSs duplicated, 151 GSs split. Now having 181126 GSs.
+Step 12500: 2406 GSs pruned. Now having 178720 GSs.
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+8000 (26.67%)       17.680 ms            6 m, 28 s            52.51 M               [0m
+8500 (28.33%)       21.940 ms            7 m, 51 s            43.62 M               [0m
+9000 (30.00%)       19.774 ms            6 m, 55 s            46.81 M               [0m
+9500 (31.67%)       19.978 ms            6 m, 49 s            47.49 M               [0m
+10000 (33.33%)      17.800 ms            5 m, 56 s            52.10 M               [0m
+10500 (35.00%)      18.383 ms            5 m, 58 s            50.42 M               [0m
+11000 (36.67%)      22.513 ms            7 m, 7 s             41.83 M               [0m
+11500 (38.33%)      18.119 ms            5 m, 35 s            51.16 M               [0m
+12000 (40.00%)      17.335 ms            5 m, 12 s            53.08 M               [0m
+12500 (41.67%)      18.194 ms            5 m, 18 s            50.87 M               [0m
+Step 12600: 2623 GSs duplicated, 196 GSs split. Now having 181539 GSs.
+Step 12600: 2354 GSs pruned. Now having 179185 GSs.
+Step 12700: 2355 GSs duplicated, 102 GSs split. Now having 181642 GSs.
+Step 12700: 2442 GSs pruned. Now having 179200 GSs.
+Step 12800: 2131 GSs duplicated, 169 GSs split. Now having 181500 GSs.
+Step 12800: 2416 GSs pruned. Now having 179084 GSs.
+Step 12900: 2265 GSs duplicated, 160 GSs split. Now having 181509 GSs.
+Step 12900: 2204 GSs pruned. Now having 179305 GSs.
+Step 13000: 2380 GSs duplicated, 146 GSs split. Now having 181831 GSs.
+Step 13000: 2417 GSs pruned. Now having 179414 GSs.
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+8500 (28.33%)       21.940 ms            7 m, 51 s            43.62 M               [0m
+9000 (30.00%)       19.774 ms            6 m, 55 s            46.81 M               [0m
+9500 (31.67%)       19.978 ms            6 m, 49 s            47.49 M               [0m
+10000 (33.33%)      17.800 ms            5 m, 56 s            52.10 M               [0m
+10500 (35.00%)      18.383 ms            5 m, 58 s            50.42 M               [0m
+11000 (36.67%)      22.513 ms            7 m, 7 s             41.83 M               [0m
+11500 (38.33%)      18.119 ms            5 m, 35 s            51.16 M               [0m
+12000 (40.00%)      17.335 ms            5 m, 12 s            53.08 M               [0m
+12500 (41.67%)      18.194 ms            5 m, 18 s            50.87 M               [0m
+13000 (43.33%)      18.128 ms            5 m, 8 s             51.33 M               [0m
+Step 13100: 2182 GSs duplicated, 121 GSs split. Now having 181717 GSs.
+Step 13100: 2541 GSs pruned. Now having 179176 GSs.
+Step 13200: 2440 GSs duplicated, 118 GSs split. Now having 181734 GSs.
+Step 13200: 2320 GSs pruned. Now having 179414 GSs.
+Step 13300: 2110 GSs duplicated, 117 GSs split. Now having 181641 GSs.
+Step 13300: 2727 GSs pruned. Now having 178914 GSs.
+Step 13400: 2272 GSs duplicated, 152 GSs split. Now having 181338 GSs.
+Step 13400: 2326 GSs pruned. Now having 179012 GSs.
+Step 13500: 2427 GSs duplicated, 160 GSs split. Now having 181599 GSs.
+Step 13500: 2408 GSs pruned. Now having 179191 GSs.
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+9000 (30.00%)       19.774 ms            6 m, 55 s            46.81 M               [0m
+9500 (31.67%)       19.978 ms            6 m, 49 s            47.49 M               [0m
+10000 (33.33%)      17.800 ms            5 m, 56 s            52.10 M               [0m
+10500 (35.00%)      18.383 ms            5 m, 58 s            50.42 M               [0m
+11000 (36.67%)      22.513 ms            7 m, 7 s             41.83 M               [0m
+11500 (38.33%)      18.119 ms            5 m, 35 s            51.16 M               [0m
+12000 (40.00%)      17.335 ms            5 m, 12 s            53.08 M               [0m
+12500 (41.67%)      18.194 ms            5 m, 18 s            50.87 M               [0m
+13000 (43.33%)      18.128 ms            5 m, 8 s             51.33 M               [0m
+13500 (45.00%)      18.294 ms            5 m, 1 s             50.70 M               [0m
+Step 13600: 2724 GSs duplicated, 240 GSs split. Now having 182155 GSs.
+Step 13600: 2493 GSs pruned. Now having 179662 GSs.
+Step 13700: 2465 GSs duplicated, 158 GSs split. Now having 182285 GSs.
+Step 13700: 2615 GSs pruned. Now having 179670 GSs.
+Step 13800: 2302 GSs duplicated, 150 GSs split. Now having 182122 GSs.
+Step 13800: 2655 GSs pruned. Now having 179467 GSs.
+Step 13900: 2682 GSs duplicated, 181 GSs split. Now having 182330 GSs.
+Step 13900: 2575 GSs pruned. Now having 179755 GSs.
+Step 14000: 1942 GSs duplicated, 114 GSs split. Now having 181811 GSs.
+Step 14000: 2587 GSs pruned. Now having 179224 GSs.
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+9500 (31.67%)       19.978 ms            6 m, 49 s            47.49 M               [0m
+10000 (33.33%)      17.800 ms            5 m, 56 s            52.10 M               [0m
+10500 (35.00%)      18.383 ms            5 m, 58 s            50.42 M               [0m
+11000 (36.67%)      22.513 ms            7 m, 7 s             41.83 M               [0m
+11500 (38.33%)      18.119 ms            5 m, 35 s            51.16 M               [0m
+12000 (40.00%)      17.335 ms            5 m, 12 s            53.08 M               [0m
+12500 (41.67%)      18.194 ms            5 m, 18 s            50.87 M               [0m
+13000 (43.33%)      18.128 ms            5 m, 8 s             51.33 M               [0m
+13500 (45.00%)      18.294 ms            5 m, 1 s             50.70 M               [0m
+14000 (46.67%)      17.796 ms            4 m, 44 s            52.20 M               [0m
+Step 14100: 2429 GSs duplicated, 105 GSs split. Now having 181758 GSs.
+Step 14100: 2320 GSs pruned. Now having 179438 GSs.
+Step 14200: 2604 GSs duplicated, 138 GSs split. Now having 182180 GSs.
+Step 14200: 2511 GSs pruned. Now having 179669 GSs.
+Step 14300: 2206 GSs duplicated, 101 GSs split. Now having 181976 GSs.
+Step 14300: 2701 GSs pruned. Now having 179275 GSs.
+Step 14400: 2044 GSs duplicated, 138 GSs split. Now having 181457 GSs.
+Step 14400: 2494 GSs pruned. Now having 178963 GSs.
+Step 14500: 2680 GSs duplicated, 158 GSs split. Now having 181801 GSs.
+Step 14500: 2322 GSs pruned. Now having 179479 GSs.
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+10000 (33.33%)      17.800 ms            5 m, 56 s            52.10 M               [0m
+10500 (35.00%)      18.383 ms            5 m, 58 s            50.42 M               [0m
+11000 (36.67%)      22.513 ms            7 m, 7 s             41.83 M               [0m
+11500 (38.33%)      18.119 ms            5 m, 35 s            51.16 M               [0m
+12000 (40.00%)      17.335 ms            5 m, 12 s            53.08 M               [0m
+12500 (41.67%)      18.194 ms            5 m, 18 s            50.87 M               [0m
+13000 (43.33%)      18.128 ms            5 m, 8 s             51.33 M               [0m
+13500 (45.00%)      18.294 ms            5 m, 1 s             50.70 M               [0m
+14000 (46.67%)      17.796 ms            4 m, 44 s            52.20 M               [0m
+14500 (48.33%)      17.564 ms            4 m, 32 s            52.87 M               [0m
+Step 14600: 2137 GSs duplicated, 159 GSs split. Now having 181775 GSs.
+Step 14600: 2494 GSs pruned. Now having 179281 GSs.
+Step 14700: 2467 GSs duplicated, 146 GSs split. Now having 181894 GSs.
+Step 14700: 2552 GSs pruned. Now having 179342 GSs.
+Step 14800: 2097 GSs duplicated, 105 GSs split. Now having 181544 GSs.
+Step 14800: 2483 GSs pruned. Now having 179061 GSs.
+Step 14900: 1964 GSs duplicated, 139 GSs split. Now having 181164 GSs.
+Step 14900: 2447 GSs pruned. Now having 178717 GSs.
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+10500 (35.00%)      18.383 ms            5 m, 58 s            50.42 M               [0m
+11000 (36.67%)      22.513 ms            7 m, 7 s             41.83 M               [0m
+11500 (38.33%)      18.119 ms            5 m, 35 s            51.16 M               [0m
+12000 (40.00%)      17.335 ms            5 m, 12 s            53.08 M               [0m
+12500 (41.67%)      18.194 ms            5 m, 18 s            50.87 M               [0m
+13000 (43.33%)      18.128 ms            5 m, 8 s             51.33 M               [0m
+13500 (45.00%)      18.294 ms            5 m, 1 s             50.70 M               [0m
+14000 (46.67%)      17.796 ms            4 m, 44 s            52.20 M               [0m
+14500 (48.33%)      17.564 ms            4 m, 32 s            52.87 M               [0m
+15000 (50.00%)      17.252 ms            4 m, 18 s            53.99 M               [0m
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+11000 (36.67%)      22.513 ms            7 m, 7 s             41.83 M               [0m
+11500 (38.33%)      18.119 ms            5 m, 35 s            51.16 M               [0m
+12000 (40.00%)      17.335 ms            5 m, 12 s            53.08 M               [0m
+12500 (41.67%)      18.194 ms            5 m, 18 s            50.87 M               [0m
+13000 (43.33%)      18.128 ms            5 m, 8 s             51.33 M               [0m
+13500 (45.00%)      18.294 ms            5 m, 1 s             50.70 M               [0m
+14000 (46.67%)      17.796 ms            4 m, 44 s            52.20 M               [0m
+14500 (48.33%)      17.564 ms            4 m, 32 s            52.87 M               [0m
+15000 (50.00%)      17.252 ms            4 m, 18 s            53.99 M               [0m
+15500 (51.67%)      15.346 ms            3 m, 42 s            60.51 M               [0m
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+11500 (38.33%)      18.119 ms            5 m, 35 s            51.16 M               [0m
+12000 (40.00%)      17.335 ms            5 m, 12 s            53.08 M               [0m
+12500 (41.67%)      18.194 ms            5 m, 18 s            50.87 M               [0m
+13000 (43.33%)      18.128 ms            5 m, 8 s             51.33 M               [0m
+13500 (45.00%)      18.294 ms            5 m, 1 s             50.70 M               [0m
+14000 (46.67%)      17.796 ms            4 m, 44 s            52.20 M               [0m
+14500 (48.33%)      17.564 ms            4 m, 32 s            52.87 M               [0m
+15000 (50.00%)      17.252 ms            4 m, 18 s            53.99 M               [0m
+15500 (51.67%)      15.346 ms            3 m, 42 s            60.51 M               [0m
+16000 (53.33%)      17.027 ms            3 m, 58 s            56.31 M               [0m
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+12000 (40.00%)      17.335 ms            5 m, 12 s            53.08 M               [0m
+12500 (41.67%)      18.194 ms            5 m, 18 s            50.87 M               [0m
+13000 (43.33%)      18.128 ms            5 m, 8 s             51.33 M               [0m
+13500 (45.00%)      18.294 ms            5 m, 1 s             50.70 M               [0m
+14000 (46.67%)      17.796 ms            4 m, 44 s            52.20 M               [0m
+14500 (48.33%)      17.564 ms            4 m, 32 s            52.87 M               [0m
+15000 (50.00%)      17.252 ms            4 m, 18 s            53.99 M               [0m
+15500 (51.67%)      15.346 ms            3 m, 42 s            60.51 M               [0m
+16000 (53.33%)      17.027 ms            3 m, 58 s            56.31 M               [0m
+16500 (55.00%)      15.723 ms            3 m, 32 s            60.08 M               [0m
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+12500 (41.67%)      18.194 ms            5 m, 18 s            50.87 M               [0m
+13000 (43.33%)      18.128 ms            5 m, 8 s             51.33 M               [0m
+13500 (45.00%)      18.294 ms            5 m, 1 s             50.70 M               [0m
+14000 (46.67%)      17.796 ms            4 m, 44 s            52.20 M               [0m
+14500 (48.33%)      17.564 ms            4 m, 32 s            52.87 M               [0m
+15000 (50.00%)      17.252 ms            4 m, 18 s            53.99 M               [0m
+15500 (51.67%)      15.346 ms            3 m, 42 s            60.51 M               [0m
+16000 (53.33%)      17.027 ms            3 m, 58 s            56.31 M               [0m
+16500 (55.00%)      15.723 ms            3 m, 32 s            60.08 M               [0m
+17000 (56.67%)      16.631 ms            3 m, 36 s            56.03 M               [0m
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+13000 (43.33%)      18.128 ms            5 m, 8 s             51.33 M               [0m
+13500 (45.00%)      18.294 ms            5 m, 1 s             50.70 M               [0m
+14000 (46.67%)      17.796 ms            4 m, 44 s            52.20 M               [0m
+14500 (48.33%)      17.564 ms            4 m, 32 s            52.87 M               [0m
+15000 (50.00%)      17.252 ms            4 m, 18 s            53.99 M               [0m
+15500 (51.67%)      15.346 ms            3 m, 42 s            60.51 M               [0m
+16000 (53.33%)      17.027 ms            3 m, 58 s            56.31 M               [0m
+16500 (55.00%)      15.723 ms            3 m, 32 s            60.08 M               [0m
+17000 (56.67%)      16.631 ms            3 m, 36 s            56.03 M               [0m
+17500 (58.33%)      15.689 ms            3 m, 16 s            58.83 M               [0m
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+13500 (45.00%)      18.294 ms            5 m, 1 s             50.70 M               [0m
+14000 (46.67%)      17.796 ms            4 m, 44 s            52.20 M               [0m
+14500 (48.33%)      17.564 ms            4 m, 32 s            52.87 M               [0m
+15000 (50.00%)      17.252 ms            4 m, 18 s            53.99 M               [0m
+15500 (51.67%)      15.346 ms            3 m, 42 s            60.51 M               [0m
+16000 (53.33%)      17.027 ms            3 m, 58 s            56.31 M               [0m
+16500 (55.00%)      15.723 ms            3 m, 32 s            60.08 M               [0m
+17000 (56.67%)      16.631 ms            3 m, 36 s            56.03 M               [0m
+17500 (58.33%)      15.689 ms            3 m, 16 s            58.83 M               [0m
+18000 (60.00%)      14.929 ms            2 m, 59 s            61.65 M               [0m
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+14000 (46.67%)      17.796 ms            4 m, 44 s            52.20 M               [0m
+14500 (48.33%)      17.564 ms            4 m, 32 s            52.87 M               [0m
+15000 (50.00%)      17.252 ms            4 m, 18 s            53.99 M               [0m
+15500 (51.67%)      15.346 ms            3 m, 42 s            60.51 M               [0m
+16000 (53.33%)      17.027 ms            3 m, 58 s            56.31 M               [0m
+16500 (55.00%)      15.723 ms            3 m, 32 s            60.08 M               [0m
+17000 (56.67%)      16.631 ms            3 m, 36 s            56.03 M               [0m
+17500 (58.33%)      15.689 ms            3 m, 16 s            58.83 M               [0m
+18000 (60.00%)      14.929 ms            2 m, 59 s            61.65 M               [0m
+18500 (61.67%)      18.442 ms            3 m, 32 s            50.42 M               [0m
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+14500 (48.33%)      17.564 ms            4 m, 32 s            52.87 M               [0m
+15000 (50.00%)      17.252 ms            4 m, 18 s            53.99 M               [0m
+15500 (51.67%)      15.346 ms            3 m, 42 s            60.51 M               [0m
+16000 (53.33%)      17.027 ms            3 m, 58 s            56.31 M               [0m
+16500 (55.00%)      15.723 ms            3 m, 32 s            60.08 M               [0m
+17000 (56.67%)      16.631 ms            3 m, 36 s            56.03 M               [0m
+17500 (58.33%)      15.689 ms            3 m, 16 s            58.83 M               [0m
+18000 (60.00%)      14.929 ms            2 m, 59 s            61.65 M               [0m
+18500 (61.67%)      18.442 ms            3 m, 32 s            50.42 M               [0m
+19000 (63.33%)      14.767 ms            2 m, 42 s            62.37 M               [0m
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+15000 (50.00%)      17.252 ms            4 m, 18 s            53.99 M               [0m
+15500 (51.67%)      15.346 ms            3 m, 42 s            60.51 M               [0m
+16000 (53.33%)      17.027 ms            3 m, 58 s            56.31 M               [0m
+16500 (55.00%)      15.723 ms            3 m, 32 s            60.08 M               [0m
+17000 (56.67%)      16.631 ms            3 m, 36 s            56.03 M               [0m
+17500 (58.33%)      15.689 ms            3 m, 16 s            58.83 M               [0m
+18000 (60.00%)      14.929 ms            2 m, 59 s            61.65 M               [0m
+18500 (61.67%)      18.442 ms            3 m, 32 s            50.42 M               [0m
+19000 (63.33%)      14.767 ms            2 m, 42 s            62.37 M               [0m
+19500 (65.00%)      14.961 ms            2 m, 37 s            61.51 M               [0m
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+15500 (51.67%)      15.346 ms            3 m, 42 s            60.51 M               [0m
+16000 (53.33%)      17.027 ms            3 m, 58 s            56.31 M               [0m
+16500 (55.00%)      15.723 ms            3 m, 32 s            60.08 M               [0m
+17000 (56.67%)      16.631 ms            3 m, 36 s            56.03 M               [0m
+17500 (58.33%)      15.689 ms            3 m, 16 s            58.83 M               [0m
+18000 (60.00%)      14.929 ms            2 m, 59 s            61.65 M               [0m
+18500 (61.67%)      18.442 ms            3 m, 32 s            50.42 M               [0m
+19000 (63.33%)      14.767 ms            2 m, 42 s            62.37 M               [0m
+19500 (65.00%)      14.961 ms            2 m, 37 s            61.51 M               [0m
+20000 (66.67%)      14.899 ms            2 m, 28 s            61.79 M               [0m
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+16000 (53.33%)      17.027 ms            3 m, 58 s            56.31 M               [0m
+16500 (55.00%)      15.723 ms            3 m, 32 s            60.08 M               [0m
+17000 (56.67%)      16.631 ms            3 m, 36 s            56.03 M               [0m
+17500 (58.33%)      15.689 ms            3 m, 16 s            58.83 M               [0m
+18000 (60.00%)      14.929 ms            2 m, 59 s            61.65 M               [0m
+18500 (61.67%)      18.442 ms            3 m, 32 s            50.42 M               [0m
+19000 (63.33%)      14.767 ms            2 m, 42 s            62.37 M               [0m
+19500 (65.00%)      14.961 ms            2 m, 37 s            61.51 M               [0m
+20000 (66.67%)      14.899 ms            2 m, 28 s            61.79 M               [0m
+20500 (68.33%)      15.313 ms            2 m, 25 s            60.39 M               [0m
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+16500 (55.00%)      15.723 ms            3 m, 32 s            60.08 M               [0m
+17000 (56.67%)      16.631 ms            3 m, 36 s            56.03 M               [0m
+17500 (58.33%)      15.689 ms            3 m, 16 s            58.83 M               [0m
+18000 (60.00%)      14.929 ms            2 m, 59 s            61.65 M               [0m
+18500 (61.67%)      18.442 ms            3 m, 32 s            50.42 M               [0m
+19000 (63.33%)      14.767 ms            2 m, 42 s            62.37 M               [0m
+19500 (65.00%)      14.961 ms            2 m, 37 s            61.51 M               [0m
+20000 (66.67%)      14.899 ms            2 m, 28 s            61.79 M               [0m
+20500 (68.33%)      15.313 ms            2 m, 25 s            60.39 M               [0m
+21000 (70.00%)      18.071 ms            2 m, 42 s            51.66 M               [0m
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+17000 (56.67%)      16.631 ms            3 m, 36 s            56.03 M               [0m
+17500 (58.33%)      15.689 ms            3 m, 16 s            58.83 M               [0m
+18000 (60.00%)      14.929 ms            2 m, 59 s            61.65 M               [0m
+18500 (61.67%)      18.442 ms            3 m, 32 s            50.42 M               [0m
+19000 (63.33%)      14.767 ms            2 m, 42 s            62.37 M               [0m
+19500 (65.00%)      14.961 ms            2 m, 37 s            61.51 M               [0m
+20000 (66.67%)      14.899 ms            2 m, 28 s            61.79 M               [0m
+20500 (68.33%)      15.313 ms            2 m, 25 s            60.39 M               [0m
+21000 (70.00%)      18.071 ms            2 m, 42 s            51.66 M               [0m
+21500 (71.67%)      19.120 ms            2 m, 42 s            48.67 M               [0m
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+17500 (58.33%)      15.689 ms            3 m, 16 s            58.83 M               [0m
+18000 (60.00%)      14.929 ms            2 m, 59 s            61.65 M               [0m
+18500 (61.67%)      18.442 ms            3 m, 32 s            50.42 M               [0m
+19000 (63.33%)      14.767 ms            2 m, 42 s            62.37 M               [0m
+19500 (65.00%)      14.961 ms            2 m, 37 s            61.51 M               [0m
+20000 (66.67%)      14.899 ms            2 m, 28 s            61.79 M               [0m
+20500 (68.33%)      15.313 ms            2 m, 25 s            60.39 M               [0m
+21000 (70.00%)      18.071 ms            2 m, 42 s            51.66 M               [0m
+21500 (71.67%)      19.120 ms            2 m, 42 s            48.67 M               [0m
+22000 (73.33%)      15.029 ms            2 m, 0 s             61.26 M               [0m
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+18000 (60.00%)      14.929 ms            2 m, 59 s            61.65 M               [0m
+18500 (61.67%)      18.442 ms            3 m, 32 s            50.42 M               [0m
+19000 (63.33%)      14.767 ms            2 m, 42 s            62.37 M               [0m
+19500 (65.00%)      14.961 ms            2 m, 37 s            61.51 M               [0m
+20000 (66.67%)      14.899 ms            2 m, 28 s            61.79 M               [0m
+20500 (68.33%)      15.313 ms            2 m, 25 s            60.39 M               [0m
+21000 (70.00%)      18.071 ms            2 m, 42 s            51.66 M               [0m
+21500 (71.67%)      19.120 ms            2 m, 42 s            48.67 M               [0m
+22000 (73.33%)      15.029 ms            2 m, 0 s             61.26 M               [0m
+22500 (75.00%)      20.578 ms            2 m, 34 s            46.40 M               [0m
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+18500 (61.67%)      18.442 ms            3 m, 32 s            50.42 M               [0m
+19000 (63.33%)      14.767 ms            2 m, 42 s            62.37 M               [0m
+19500 (65.00%)      14.961 ms            2 m, 37 s            61.51 M               [0m
+20000 (66.67%)      14.899 ms            2 m, 28 s            61.79 M               [0m
+20500 (68.33%)      15.313 ms            2 m, 25 s            60.39 M               [0m
+21000 (70.00%)      18.071 ms            2 m, 42 s            51.66 M               [0m
+21500 (71.67%)      19.120 ms            2 m, 42 s            48.67 M               [0m
+22000 (73.33%)      15.029 ms            2 m, 0 s             61.26 M               [0m
+22500 (75.00%)      20.578 ms            2 m, 34 s            46.40 M               [0m
+23000 (76.67%)      17.638 ms            2 m, 3 s             54.82 M               [0m
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+19000 (63.33%)      14.767 ms            2 m, 42 s            62.37 M               [0m
+19500 (65.00%)      14.961 ms            2 m, 37 s            61.51 M               [0m
+20000 (66.67%)      14.899 ms            2 m, 28 s            61.79 M               [0m
+20500 (68.33%)      15.313 ms            2 m, 25 s            60.39 M               [0m
+21000 (70.00%)      18.071 ms            2 m, 42 s            51.66 M               [0m
+21500 (71.67%)      19.120 ms            2 m, 42 s            48.67 M               [0m
+22000 (73.33%)      15.029 ms            2 m, 0 s             61.26 M               [0m
+22500 (75.00%)      20.578 ms            2 m, 34 s            46.40 M               [0m
+23000 (76.67%)      17.638 ms            2 m, 3 s             54.82 M               [0m
+23500 (78.33%)      14.859 ms            1 m, 36 s            61.98 M               [0m
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+19500 (65.00%)      14.961 ms            2 m, 37 s            61.51 M               [0m
+20000 (66.67%)      14.899 ms            2 m, 28 s            61.79 M               [0m
+20500 (68.33%)      15.313 ms            2 m, 25 s            60.39 M               [0m
+21000 (70.00%)      18.071 ms            2 m, 42 s            51.66 M               [0m
+21500 (71.67%)      19.120 ms            2 m, 42 s            48.67 M               [0m
+22000 (73.33%)      15.029 ms            2 m, 0 s             61.26 M               [0m
+22500 (75.00%)      20.578 ms            2 m, 34 s            46.40 M               [0m
+23000 (76.67%)      17.638 ms            2 m, 3 s             54.82 M               [0m
+23500 (78.33%)      14.859 ms            1 m, 36 s            61.98 M               [0m
+24000 (80.00%)      17.467 ms            1 m, 44 s            55.47 M               [0m
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+20000 (66.67%)      14.899 ms            2 m, 28 s            61.79 M               [0m
+20500 (68.33%)      15.313 ms            2 m, 25 s            60.39 M               [0m
+21000 (70.00%)      18.071 ms            2 m, 42 s            51.66 M               [0m
+21500 (71.67%)      19.120 ms            2 m, 42 s            48.67 M               [0m
+22000 (73.33%)      15.029 ms            2 m, 0 s             61.26 M               [0m
+22500 (75.00%)      20.578 ms            2 m, 34 s            46.40 M               [0m
+23000 (76.67%)      17.638 ms            2 m, 3 s             54.82 M               [0m
+23500 (78.33%)      14.859 ms            1 m, 36 s            61.98 M               [0m
+24000 (80.00%)      17.467 ms            1 m, 44 s            55.47 M               [0m
+24500 (81.67%)      15.097 ms            1 m, 23 s            61.02 M               [0m
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+20500 (68.33%)      15.313 ms            2 m, 25 s            60.39 M               [0m
+21000 (70.00%)      18.071 ms            2 m, 42 s            51.66 M               [0m
+21500 (71.67%)      19.120 ms            2 m, 42 s            48.67 M               [0m
+22000 (73.33%)      15.029 ms            2 m, 0 s             61.26 M               [0m
+22500 (75.00%)      20.578 ms            2 m, 34 s            46.40 M               [0m
+23000 (76.67%)      17.638 ms            2 m, 3 s             54.82 M               [0m
+23500 (78.33%)      14.859 ms            1 m, 36 s            61.98 M               [0m
+24000 (80.00%)      17.467 ms            1 m, 44 s            55.47 M               [0m
+24500 (81.67%)      15.097 ms            1 m, 23 s            61.02 M               [0m
+25000 (83.33%)      20.781 ms            1 m, 43 s            45.88 M               [0m
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+21000 (70.00%)      18.071 ms            2 m, 42 s            51.66 M               [0m
+21500 (71.67%)      19.120 ms            2 m, 42 s            48.67 M               [0m
+22000 (73.33%)      15.029 ms            2 m, 0 s             61.26 M               [0m
+22500 (75.00%)      20.578 ms            2 m, 34 s            46.40 M               [0m
+23000 (76.67%)      17.638 ms            2 m, 3 s             54.82 M               [0m
+23500 (78.33%)      14.859 ms            1 m, 36 s            61.98 M               [0m
+24000 (80.00%)      17.467 ms            1 m, 44 s            55.47 M               [0m
+24500 (81.67%)      15.097 ms            1 m, 23 s            61.02 M               [0m
+25000 (83.33%)      20.781 ms            1 m, 43 s            45.88 M               [0m
+25500 (85.00%)      18.808 ms            1 m, 24 s            50.96 M               [0m
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+21500 (71.67%)      19.120 ms            2 m, 42 s            48.67 M               [0m
+22000 (73.33%)      15.029 ms            2 m, 0 s             61.26 M               [0m
+22500 (75.00%)      20.578 ms            2 m, 34 s            46.40 M               [0m
+23000 (76.67%)      17.638 ms            2 m, 3 s             54.82 M               [0m
+23500 (78.33%)      14.859 ms            1 m, 36 s            61.98 M               [0m
+24000 (80.00%)      17.467 ms            1 m, 44 s            55.47 M               [0m
+24500 (81.67%)      15.097 ms            1 m, 23 s            61.02 M               [0m
+25000 (83.33%)      20.781 ms            1 m, 43 s            45.88 M               [0m
+25500 (85.00%)      18.808 ms            1 m, 24 s            50.96 M               [0m
+26000 (86.67%)      15.940 ms            1 m, 3 s             59.05 M               [0m
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+22000 (73.33%)      15.029 ms            2 m, 0 s             61.26 M               [0m
+22500 (75.00%)      20.578 ms            2 m, 34 s            46.40 M               [0m
+23000 (76.67%)      17.638 ms            2 m, 3 s             54.82 M               [0m
+23500 (78.33%)      14.859 ms            1 m, 36 s            61.98 M               [0m
+24000 (80.00%)      17.467 ms            1 m, 44 s            55.47 M               [0m
+24500 (81.67%)      15.097 ms            1 m, 23 s            61.02 M               [0m
+25000 (83.33%)      20.781 ms            1 m, 43 s            45.88 M               [0m
+25500 (85.00%)      18.808 ms            1 m, 24 s            50.96 M               [0m
+26000 (86.67%)      15.940 ms            1 m, 3 s             59.05 M               [0m
+26500 (88.33%)      15.070 ms            52 s, 743.781 ms     61.08 M               [0m
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+22500 (75.00%)      20.578 ms            2 m, 34 s            46.40 M               [0m
+23000 (76.67%)      17.638 ms            2 m, 3 s             54.82 M               [0m
+23500 (78.33%)      14.859 ms            1 m, 36 s            61.98 M               [0m
+24000 (80.00%)      17.467 ms            1 m, 44 s            55.47 M               [0m
+24500 (81.67%)      15.097 ms            1 m, 23 s            61.02 M               [0m
+25000 (83.33%)      20.781 ms            1 m, 43 s            45.88 M               [0m
+25500 (85.00%)      18.808 ms            1 m, 24 s            50.96 M               [0m
+26000 (86.67%)      15.940 ms            1 m, 3 s             59.05 M               [0m
+26500 (88.33%)      15.070 ms            52 s, 743.781 ms     61.08 M               [0m
+27000 (90.00%)      17.158 ms            51 s, 473.272 ms     56.24 M               [0m
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+23000 (76.67%)      17.638 ms            2 m, 3 s             54.82 M               [0m
+23500 (78.33%)      14.859 ms            1 m, 36 s            61.98 M               [0m
+24000 (80.00%)      17.467 ms            1 m, 44 s            55.47 M               [0m
+24500 (81.67%)      15.097 ms            1 m, 23 s            61.02 M               [0m
+25000 (83.33%)      20.781 ms            1 m, 43 s            45.88 M               [0m
+25500 (85.00%)      18.808 ms            1 m, 24 s            50.96 M               [0m
+26000 (86.67%)      15.940 ms            1 m, 3 s             59.05 M               [0m
+26500 (88.33%)      15.070 ms            52 s, 743.781 ms     61.08 M               [0m
+27000 (90.00%)      17.158 ms            51 s, 473.272 ms     56.24 M               [0m
+27500 (91.67%)      18.186 ms            45 s, 465.350 ms     53.11 M               [0m
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+23500 (78.33%)      14.859 ms            1 m, 36 s            61.98 M               [0m
+24000 (80.00%)      17.467 ms            1 m, 44 s            55.47 M               [0m
+24500 (81.67%)      15.097 ms            1 m, 23 s            61.02 M               [0m
+25000 (83.33%)      20.781 ms            1 m, 43 s            45.88 M               [0m
+25500 (85.00%)      18.808 ms            1 m, 24 s            50.96 M               [0m
+26000 (86.67%)      15.940 ms            1 m, 3 s             59.05 M               [0m
+26500 (88.33%)      15.070 ms            52 s, 743.781 ms     61.08 M               [0m
+27000 (90.00%)      17.158 ms            51 s, 473.272 ms     56.24 M               [0m
+27500 (91.67%)      18.186 ms            45 s, 465.350 ms     53.11 M               [0m
+28000 (93.33%)      15.385 ms            30 s, 770.135 ms     60.50 M               [0m
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+24000 (80.00%)      17.467 ms            1 m, 44 s            55.47 M               [0m
+24500 (81.67%)      15.097 ms            1 m, 23 s            61.02 M               [0m
+25000 (83.33%)      20.781 ms            1 m, 43 s            45.88 M               [0m
+25500 (85.00%)      18.808 ms            1 m, 24 s            50.96 M               [0m
+26000 (86.67%)      15.940 ms            1 m, 3 s             59.05 M               [0m
+26500 (88.33%)      15.070 ms            52 s, 743.781 ms     61.08 M               [0m
+27000 (90.00%)      17.158 ms            51 s, 473.272 ms     56.24 M               [0m
+27500 (91.67%)      18.186 ms            45 s, 465.350 ms     53.11 M               [0m
+28000 (93.33%)      15.385 ms            30 s, 770.135 ms     60.50 M               [0m
+28500 (95.00%)      16.606 ms            24 s, 908.853 ms     56.37 M               [0m
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+24500 (81.67%)      15.097 ms            1 m, 23 s            61.02 M               [0m
+25000 (83.33%)      20.781 ms            1 m, 43 s            45.88 M               [0m
+25500 (85.00%)      18.808 ms            1 m, 24 s            50.96 M               [0m
+26000 (86.67%)      15.940 ms            1 m, 3 s             59.05 M               [0m
+26500 (88.33%)      15.070 ms            52 s, 743.781 ms     61.08 M               [0m
+27000 (90.00%)      17.158 ms            51 s, 473.272 ms     56.24 M               [0m
+27500 (91.67%)      18.186 ms            45 s, 465.350 ms     53.11 M               [0m
+28000 (93.33%)      15.385 ms            30 s, 770.135 ms     60.50 M               [0m
+28500 (95.00%)      16.606 ms            24 s, 908.853 ms     56.37 M               [0m
+29000 (96.67%)      15.025 ms            15 s, 25.258 ms      61.23 M               [0m
+[12A[1KStep (% Done)       Train Iter (time)    ETA (time)           Train Rays / Sec      [0m
+----------------------------------------------------------------------------------- [0m
+25000 (83.33%)      20.781 ms            1 m, 43 s            45.88 M               [0m
+25500 (85.00%)      18.808 ms            1 m, 24 s            50.96 M               [0m
+26000 (86.67%)      15.940 ms            1 m, 3 s             59.05 M               [0m
+26500 (88.33%)      15.070 ms            52 s, 743.781 ms     61.08 M               [0m
+27000 (90.00%)      17.158 ms            51 s, 473.272 ms     56.24 M               [0m
+27500 (91.67%)      18.186 ms            45 s, 465.350 ms     53.11 M               [0m
+28000 (93.33%)      15.385 ms            30 s, 770.135 ms     60.50 M               [0m
+28500 (95.00%)      16.606 ms            24 s, 908.853 ms     56.37 M               [0m
+29000 (96.67%)      15.025 ms            15 s, 25.258 ms      61.23 M               [0m
+29500 (98.33%)      18.976 ms            9 s, 487.939 ms      49.07 M               [0m
+[12A[1KStep (% Done)                                                                       [0m
+--------------------                                                                [0m
+25500 (85.00%)      18.808 ms            1 m, 24 s            50.96 M               [0m
+26000 (86.67%)      15.940 ms            1 m, 3 s             59.05 M               [0m
+26500 (88.33%)      15.070 ms            52 s, 743.781 ms     61.08 M               [0m
+27000 (90.00%)      17.158 ms            51 s, 473.272 ms     56.24 M               [0m
+27500 (91.67%)      18.186 ms            45 s, 465.350 ms     53.11 M               [0m
+28000 (93.33%)      15.385 ms            30 s, 770.135 ms     60.50 M               [0m
+28500 (95.00%)      16.606 ms            24 s, 908.853 ms     56.37 M               [0m
+29000 (96.67%)      15.025 ms            15 s, 25.258 ms      61.23 M               [0m
+29500 (98.33%)      18.976 ms            9 s, 487.939 ms      49.07 M               [0m
+29999 (100.00%)                                                                     [0m
+╭────────────────────────────────────────────── 🎉 Training Finished 🎉 ───────────────────────────────────────────────╮
+│                        ╷                                                                                             │
+│   Config File          │ outputs/ablation_2026-11-04/runs/scalereg_w1e-2_s42/feature-splatting/2026-11-04_224011/…   │
+│   Checkpoint Directory │ outputs/ablation_2026-11-04/runs/scalereg_w1e-2_s42/feature-splatting/2026-11-04_224011/…   │
+│                        ╵                                                                                             │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+Printing profiling stats, from longest to shortest duration in seconds
+Trainer.train_iteration: 0.0139              
+VanillaPipeline.get_train_loss_dict: 0.0094              
+Trainer.eval_iteration: 0.0000              

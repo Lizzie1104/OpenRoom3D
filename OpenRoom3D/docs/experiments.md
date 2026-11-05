@@ -43,3 +43,13 @@ Around 98.5% of the original footprint had no direct surface observation. The ba
 A jointly trained Feature Splatting model with scale regularization (`outputs/retrain_semantic_2026-11-02`) reached 30.33 dB, SSIM 0.951 and LPIPS 0.094 in the Nerfstudio evaluator. Using its own scores, text ≥ 0.8 plus the largest cluster reached IoU 0.749 with capture 0.510. Transferred scores reached 0.528 and 0.200. Its scores are broader: 52% of points exceed 0.5 for the laptop.
 
 With the LERF pairwise minimum, the canonical phrases `things, stuff, texture` behave like `object` alone. Adding hand-written scene categories as negatives raised laptop average precision on the original checkpoint from 0.415 to 0.491 against the SAM 2 pseudo-label. It reduced the look-alike `television` responses from 195 to 16 and raised held-out IoU from 0.761 to 0.775. On the retrained model the IoU gain was small and average precision fell. Details are in that directory's `negatives/README.md`.
+
+## Multi-seed ablation (2026-11-04)
+
+Three seeds each of: no scale regularization with feature weight 1e-3; scale regularization with 1e-3; scale regularization with 1e-2. Evaluated with `scripts/evaluate_run.py`. Full table and per-seed values: [outputs/ablation_2026-11-04/README.md](../outputs/ablation_2026-11-04/README.md).
+
+- The joint semantic model's lower AP (0.33) came from seed 42, which is the worst seed in all three configurations. Averaged over three seeds, scale regularization gives AP 0.493 ± 0.147, versus 0.491 for the September model.
+- The seed standard deviation of AP is about 0.1, so single-run comparisons across training configurations are not meaningful.
+- Scale regularization costs about 0.55 dB PSNR (30.83 ± 0.02 vs 30.27 ± 0.15). It removes 22% of Gaussians and every Gaussian with aspect ratio above 100. Selection metrics are equal or slightly better.
+- A feature-loss weight of 1e-2 brings no clear gain over 1e-3.
+- Paired on the same model, the scene negatives beat the legacy scoring on all 10 models for synonym AP, text-selection IoU and television false positives, and on 9 of 10 for laptop AP.

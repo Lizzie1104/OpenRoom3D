@@ -1,1 +1,16 @@
 === control_w1e-3_s42 scalereg=False feat_loss_weight=0.001 seed=42 21:39:10
+control_w1e-3_s42 {"psnr": 30.839, "ownership_iou": 0.805, "laptop_ap": 0.34, "text_iou": 0.743, "television_ge_05": 57}
+=== scalereg_w1e-3_s1 scalereg=True feat_loss_weight=0.001 seed=1 21:55:25
+scalereg_w1e-3_s1 {"psnr": 30.094, "ownership_iou": 0.824, "laptop_ap": 0.609, "text_iou": 0.775, "television_ge_05": 1}
+=== control_w1e-3_s1 scalereg=False feat_loss_weight=0.001 seed=1 22:05:14
+control_w1e-3_s1 {"psnr": 30.849, "ownership_iou": 0.824, "laptop_ap": 0.527, "text_iou": 0.775, "television_ge_05": 6}
+=== scalereg_w1e-3_s2 scalereg=True feat_loss_weight=0.001 seed=2 22:16:22
+scalereg_w1e-3_s2 {"psnr": 30.372, "ownership_iou": 0.829, "laptop_ap": 0.542, "text_iou": 0.778, "television_ge_05": 4}
+=== control_w1e-3_s2 scalereg=False feat_loss_weight=0.001 seed=2 22:25:58
+control_w1e-3_s2 {"psnr": 30.807, "ownership_iou": 0.822, "laptop_ap": 0.434, "text_iou": 0.749, "television_ge_05": 70}
+=== scalereg_w1e-2_s42 scalereg=True feat_loss_weight=0.01 seed=42 22:40:07
+scalereg_w1e-2_s42 {"psnr": 30.419, "ownership_iou": 0.833, "laptop_ap": 0.424, "text_iou": 0.795, "television_ge_05": 48}
+=== scalereg_w1e-2_s1 scalereg=True feat_loss_weight=0.01 seed=1 22:49:35
+scalereg_w1e-2_s1 {"psnr": 30.083, "ownership_iou": 0.821, "laptop_ap": 0.525, "text_iou": 0.77, "television_ge_05": 17}
+=== scalereg_w1e-2_s2 scalereg=True feat_loss_weight=0.01 seed=2 22:58:40
+scalereg_w1e-2_s2 {"psnr": 30.452, "ownership_iou": 0.821, "laptop_ap": 0.524, "text_iou": 0.779, "television_ge_05": 40}
