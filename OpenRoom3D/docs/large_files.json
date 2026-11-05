@@ -55,6 +55,90 @@
       "asset": "data--processed--desk02--feature_splatting_samclip_features.pt",
       "bytes": 997841146,
       "sha256": "893e6bfb071f4b96c8c775e3296981ee2a725af4ba3b406ddd20b18d6b8d5f8f"
+    },
+    {
+      "path": "outputs/ablation_2026-11-04/runs/control_w1e-3_s1/feature-splatting/2026-11-04_220518/nerfstudio_models/step-000029999.ckpt",
+      "asset": "outputs--ablation_2026-11-04--runs--control_w1e-3_s1--feature-splatting--2026-11-04_220518--nerfstudio_models--step-000029999.ckpt",
+      "bytes": 84188061,
+      "sha256": "cf146225b5673eaa426a02214316a6b4f00a0755e10fdd4d8f3649610e927742"
+    },
+    {
+      "path": "outputs/ablation_2026-11-04/runs/control_w1e-3_s2/feature-splatting/2026-11-04_222602/nerfstudio_models/step-000029999.ckpt",
+      "asset": "outputs--ablation_2026-11-04--runs--control_w1e-3_s2--feature-splatting--2026-11-04_222602--nerfstudio_models--step-000029999.ckpt",
+      "bytes": 83376093,
+      "sha256": "ab86a64e65e1d126ff893b7bf77ff7de83ec25c66503c82c92958c390bce7aec"
+    },
+    {
+      "path": "outputs/ablation_2026-11-04/runs/control_w1e-3_s42/feature-splatting/2026-11-04_213914/nerfstudio_models/step-000029999.ckpt",
+      "asset": "outputs--ablation_2026-11-04--runs--control_w1e-3_s42--feature-splatting--2026-11-04_213914--nerfstudio_models--step-000029999.ckpt",
+      "bytes": 86149725,
+      "sha256": "433d89de5610288d5baeb7e21a4b79949a43ffeb52b4e77a30ab63f1ff740022"
+    },
+    {
+      "path": "outputs/ablation_2026-11-04/runs/scalereg_w1e-2_s1/feature-splatting/2026-11-04_224939/nerfstudio_models/step-000029999.ckpt",
+      "asset": "outputs--ablation_2026-11-04--runs--scalereg_w1e-2_s1--feature-splatting--2026-11-04_224939--nerfstudio_models--step-000029999.ckpt",
+      "bytes": 69295389,
+      "sha256": "40bb04766d5d92c5a2a847b32e5f2ebc55ed9df91489e6c13d0d483453217f8a"
+    },
+    {
+      "path": "outputs/ablation_2026-11-04/runs/scalereg_w1e-2_s2/feature-splatting/2026-11-04_225844/nerfstudio_models/step-000029999.ckpt",
+      "asset": "outputs--ablation_2026-11-04--runs--scalereg_w1e-2_s2--feature-splatting--2026-11-04_225844--nerfstudio_models--step-000029999.ckpt",
+      "bytes": 69983901,
+      "sha256": "156cddcda33a7fb1fbfa4117d30cedb25592ef9f5fd3e6ba75df92559dbb9e66"
+    },
+    {
+      "path": "outputs/ablation_2026-11-04/runs/scalereg_w1e-2_s42/feature-splatting/2026-11-04_224011/nerfstudio_models/step-000029999.ckpt",
+      "asset": "outputs--ablation_2026-11-04--runs--scalereg_w1e-2_s42--feature-splatting--2026-11-04_224011--nerfstudio_models--step-000029999.ckpt",
+      "bytes": 68724573,
+      "sha256": "5dff43ff91de8e2da2e4454ec1416f43f719d44ff1f10e11a0d9208c4b2ecdda"
+    },
+    {
+      "path": "outputs/ablation_2026-11-04/runs/scalereg_w1e-3_s1/feature-splatting/2026-11-04_215529/nerfstudio_models/step-000029999.ckpt",
+      "asset": "outputs--ablation_2026-11-04--runs--scalereg_w1e-3_s1--feature-splatting--2026-11-04_215529--nerfstudio_models--step-000029999.ckpt",
+      "bytes": 67959261,
+      "sha256": "3cf306caf7d0ca816cc3c1bdf1568d0e92958bba4a95e390b668a7e988e29410"
+    },
+    {
+      "path": "outputs/ablation_2026-11-04/runs/scalereg_w1e-3_s2/feature-splatting/2026-11-04_221625/nerfstudio_models/step-000029999.ckpt",
+      "asset": "outputs--ablation_2026-11-04--runs--scalereg_w1e-3_s2--feature-splatting--2026-11-04_221625--nerfstudio_models--step-000029999.ckpt",
+      "bytes": 68375133,
+      "sha256": "2cd51e44559bdc6fdb3991467a0c162db8e584262f0d3f65403f944ae2fa6ef6"
+    },
+    {
+      "path": "outputs/feat128_2026-11-04/runs/control_w1e-3_s1/feature-splatting/2026-11-05_000951/nerfstudio_models/step-000029999.ckpt",
+      "asset": "outputs--feat128_2026-11-04--runs--control_w1e-3_s1--feature-splatting--2026-11-05_000951--nerfstudio_models--step-000029999.ckpt",
+      "bytes": 82202589,
+      "sha256": "1f5b153401af701da1269b561d31f7e0654a9465ed7869737203fc8dd5bfb172"
+    },
+    {
+      "path": "outputs/feat128_2026-11-04/runs/control_w1e-3_s2/feature-splatting/2026-11-05_002207/nerfstudio_models/step-000029999.ckpt",
+      "asset": "outputs--feat128_2026-11-04--runs--control_w1e-3_s2--feature-splatting--2026-11-05_002207--nerfstudio_models--step-000029999.ckpt",
+      "bytes": 84632925,
+      "sha256": "22623e49730568402146448e16419b9e5e83bab8492b746ee525b6cd66152686"
+    },
+    {
+      "path": "outputs/feat128_2026-11-04/runs/control_w1e-3_s42/feature-splatting/2026-11-04_235743/nerfstudio_models/step-000029999.ckpt",
+      "asset": "outputs--feat128_2026-11-04--runs--control_w1e-3_s42--feature-splatting--2026-11-04_235743--nerfstudio_models--step-000029999.ckpt",
+      "bytes": 83165085,
+      "sha256": "87ad8f904b9c56c341bdb28cbc8843a1b12d6e8a83bffe254b77ffe4fc086f4a"
+    },
+    {
+      "path": "outputs/feat128_2026-11-04/runs/scalereg_w1e-3_s1/feature-splatting/2026-11-04_233544/nerfstudio_models/step-000029999.ckpt",
+      "asset": "outputs--feat128_2026-11-04--runs--scalereg_w1e-3_s1--feature-splatting--2026-11-04_233544--nerfstudio_models--step-000029999.ckpt",
+      "bytes": 67998813,
+      "sha256": "92dcd9bf99a06f511baf601410c27177e93305b79434ec00bee1f12ad26411fe"
+    },
+    {
+      "path": "outputs/feat128_2026-11-04/runs/scalereg_w1e-3_s2/feature-splatting/2026-11-04_234700/nerfstudio_models/step-000029999.ckpt",
+      "asset": "outputs--feat128_2026-11-04--runs--scalereg_w1e-3_s2--feature-splatting--2026-11-04_234700--nerfstudio_models--step-000029999.ckpt",
+      "bytes": 69380829,
+      "sha256": "8cc711e444e4da31a9c5aefc505fefd2b5e7adc541e95bc8b40d1dde9d5090ec"
+    },
+    {
+      "path": "outputs/feat128_2026-11-04/runs/scalereg_w1e-3_s42/feature-splatting/2026-11-04_232346/nerfstudio_models/step-000029999.ckpt",
+      "asset": "outputs--feat128_2026-11-04--runs--scalereg_w1e-3_s42--feature-splatting--2026-11-04_232346--nerfstudio_models--step-000029999.ckpt",
+      "bytes": 69419229,
+      "sha256": "e363d5e8c9a9d434f2124d7d7c9b69491fca30d6311eac6cfe41ae937c50bb40"
     }
   ],
   "pretrained": [

@@ -134,7 +134,7 @@ OpenRoom3D 把一段桌面视频变成可以用文字查询、可以抓取和移
 
 ## 5. 组员如何上手
 
-1. 克隆仓库后，下载大文件（checkpoint、特征缓存和预训练权重，约 4.4 GB）。最后一个参数会额外生成本地 CLIP 权重：
+1. 克隆仓库后，下载大文件，共约 6.0 GB：包括 23 个 checkpoint（其中 14 个是 11-04 消融和 128 特征实验的模型）、64 特征缓存，以及 CLIP、SAM 2、LPIPS、MobileSAMV2 和 DINOv2 的预训练权重。只需要部分文件时，可用 `--only release` 或 `--only pretrained`。128 特征缓存不上传，按 [setup.md](setup.md) 本地生成即可，约 1 分钟。最后一个参数会额外生成本地 CLIP 权重：
 
    ```bash
    python scripts/fetch_assets.py --convert-clip
