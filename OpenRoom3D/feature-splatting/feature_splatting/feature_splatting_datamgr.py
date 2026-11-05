@@ -42,6 +42,10 @@ class FeatureSplattingDataManagerConfig(FullImageDatamanagerConfig):
     """Feature type to extract."""
     enable_cache: bool = True
     """Whether to cache extracted features."""
+    final_feat_res: int = 64
+    """Width of the cached SAMCLIP feature map (height follows the image aspect)."""
+    obj_feat_res: int = 100
+    """Width at which SAM-mask-averaged CLIP features are painted before resizing to final_feat_res."""
 
 class FeatureSplattingDataManager(FullImageDatamanager):
     config: FeatureSplattingDataManagerConfig
@@ -80,6 +84,10 @@ class FeatureSplattingDataManager(FullImageDatamanager):
             raise ValueError(f"Unknown feature type {self.config.feature_type}")
         extract_fn = feat_type_to_extract_fn[self.config.feature_type]
         extract_args = feat_type_to_args[self.config.feature_type]
+        if self.config.feature_type == "SAMCLIP":
+            # Subclass so id_dict() records the overrides and a cache made at another resolution is rejected.
+            extract_args = type("SAMCLIPArgs", (extract_args,), {"final_feat_res": self.config.final_feat_res,
+                                                                "obj_feat_res": self.config.obj_feat_res})
         image_fnames = self.train_dataset.image_filenames + self.eval_dataset.image_filenames
         # For dev purpose, visually tested image_fnames order matches camera_idx. NS seems to internally sort valid image_fnames.
         # self.feature_image_fnames = image_fnames

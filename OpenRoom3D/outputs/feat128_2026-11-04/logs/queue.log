@@ -1,0 +1,12 @@
+=== scalereg_w1e-3_s42 scalereg=True feat_loss_weight=0.001 seed=42 23:23:41
+scalereg_w1e-3_s42 {"psnr": 30.396, "ownership_iou": 0.808, "laptop_ap": 0.417, "text_iou": 0.777, "television_ge_05": 185}
+=== scalereg_w1e-3_s1 scalereg=True feat_loss_weight=0.001 seed=1 23:35:40
+scalereg_w1e-3_s1 {"psnr": 30.218, "ownership_iou": 0.848, "laptop_ap": 0.553, "text_iou": 0.811, "television_ge_05": 97}
+=== scalereg_w1e-3_s2 scalereg=True feat_loss_weight=0.001 seed=2 23:46:56
+scalereg_w1e-3_s2 {"psnr": 30.382, "ownership_iou": 0.822, "laptop_ap": 0.52, "text_iou": 0.779, "television_ge_05": 77}
+=== control_w1e-3_s42 scalereg=False feat_loss_weight=0.001 seed=42 23:57:39
+control_w1e-3_s42 {"psnr": 30.797, "ownership_iou": 0.821, "laptop_ap": 0.437, "text_iou": 0.771, "television_ge_05": 76}
+=== control_w1e-3_s1 scalereg=False feat_loss_weight=0.001 seed=1 00:09:47
+control_w1e-3_s1 {"psnr": 30.773, "ownership_iou": 0.818, "laptop_ap": 0.576, "text_iou": 0.772, "television_ge_05": 71}
+=== control_w1e-3_s2 scalereg=False feat_loss_weight=0.001 seed=2 00:22:03
+control_w1e-3_s2 {"psnr": 30.828, "ownership_iou": 0.822, "laptop_ap": 0.485, "text_iou": 0.778, "television_ge_05": 5}

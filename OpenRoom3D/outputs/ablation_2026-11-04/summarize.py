@@ -52,4 +52,5 @@ def main():
         print(f"| {metric} | " + " | ".join(cells) + " |")
 
 
-main()
+if __name__ == "__main__":
+    main()

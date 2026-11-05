@@ -53,3 +53,13 @@ Three seeds each of: no scale regularization with feature weight 1e-3; scale reg
 - Scale regularization costs about 0.55 dB PSNR (30.83 ± 0.02 vs 30.27 ± 0.15). It removes 22% of Gaussians and every Gaussian with aspect ratio above 100. Selection metrics are equal or slightly better.
 - A feature-loss weight of 1e-2 brings no clear gain over 1e-3.
 - Paired on the same model, the scene negatives beat the legacy scoring on all 10 models for synonym AP, text-selection IoU and television false positives, and on 9 of 10 for laptop AP.
+
+## Feature resolution 64 to 128 (2026-11-04)
+
+The SAMCLIP cache was re-extracted with local MobileSAMV2 and DINOv2. The local models reproduce the supplied 64-wide cache exactly (cosine similarity 1.0000). The new cache is 128 wide, with an object-level resolution of 256, and lives in `data/processed/desk02_feat128`. Training was the same as in the multi-seed ablation, with 3 seeds per configuration. Details are in [outputs/feat128_2026-11-04/README.md](../outputs/feat128_2026-11-04/README.md).
+
+- Text-selection held-out IoU rises about 0.019 for both configurations, and is higher in 5 of 6 same-seed pairs.
+- Laptop AP rises from 0.434 to 0.499 without scale regularization and is unchanged with it (0.493 to 0.496). The seed standard deviation roughly halves in both configurations.
+- PSNR, LPIPS and SAM ownership IoU are unchanged.
+- Television false positives on the scale-regularized model rise from 3 to 120 of about 180k Gaussians.
+- Resolution is part of the semantic bottleneck, but a modest one.

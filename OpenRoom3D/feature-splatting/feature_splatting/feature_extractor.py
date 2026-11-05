@@ -78,7 +78,12 @@ def batch_iterator(batch_size: int, *args) -> Generator[List[Any], None, None]:
 class MaskCLIPFeaturizer(nn.Module):
     def __init__(self, clip_model_name):
         super().__init__()
-        self.model, self.preprocess = maskclip_onnx.clip.load(clip_model_name)
+        # OPENROOM_CLIP_WEIGHTS: local OpenAI-format state dict (see utils/clip_text_encoder.py); avoids a download.
+        weights = os.environ.get("OPENROOM_CLIP_WEIGHTS")
+        if weights:
+            self.model = maskclip_onnx.clip.build_model(torch.load(weights, map_location="cpu", weights_only=True), True).cuda()
+        else:
+            self.model, self.preprocess = maskclip_onnx.clip.load(clip_model_name)
         self.model.eval()
         self.patch_size = self.model.visual.patch_size
 

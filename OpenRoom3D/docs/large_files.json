@@ -78,6 +78,34 @@
       "sha256": "7be5be791159472b1fbf3c69796f7cb30dca7ad8466c2df70058c37116cdee02",
       "url": "https://download.pytorch.org/models/alexnet-owt-7be5be79.pth",
       "license": "BSD-3-Clause (torchvision)"
+    },
+    {
+      "path": "../training-assets/torch_home/hub/RogerQi_MobileSAMV2_main/ObjectAwareModel.pt",
+      "bytes": 140395126,
+      "sha256": "4d99244a9c7a4d7330af28d1801ebee362fa469ac564b57c8eab48b43e4e64a1",
+      "url": "https://huggingface.co/RogerQi/MobileSAMV2/resolve/main/ObjectAwareModel.pt",
+      "license": "AGPL-3.0 (Ultralytics YOLOv8 object-aware model, MobileSAMV2)"
+    },
+    {
+      "path": "../training-assets/torch_home/hub/RogerQi_MobileSAMV2_main/efficientvit_l2.pt",
+      "bytes": 245724244,
+      "sha256": "f087f8287d5b3791020be8b0346a35dae0849dd191bf165178bf947e0df868cc",
+      "url": "https://huggingface.co/RogerQi/MobileSAMV2/resolve/main/l2.pt",
+      "license": "Apache-2.0 (EfficientViT-SAM, MobileSAMV2)"
+    },
+    {
+      "path": "../training-assets/torch_home/hub/RogerQi_MobileSAMV2_main/Prompt_guided_Mask_Decoder.pt",
+      "bytes": 16310784,
+      "sha256": "8771b38a57ad67750dbe18fff95e66c8d1789436096738cace37d58bfc06151e",
+      "url": "https://huggingface.co/RogerQi/MobileSAMV2/resolve/main/Prompt_guided_Mask_Decoder.pt",
+      "license": "Apache-2.0 (MobileSAMV2)"
+    },
+    {
+      "path": "../training-assets/torch_home/hub/checkpoints/dinov2_vits14_pretrain.pth",
+      "bytes": 88283115,
+      "sha256": "b938bf1bc15cd2ec0feacfe3a1bb553fe8ea9ca46a7e1d8d00217f29aef60cd9",
+      "url": "https://dl.fbaipublicfiles.com/dinov2/dinov2_vits14/dinov2_vits14_pretrain.pth",
+      "license": "Apache-2.0 (DINOv2)"
     }
   ]
 }

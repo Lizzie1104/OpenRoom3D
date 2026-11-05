@@ -1,0 +1,16 @@
+/home/work/.local/share/openroom3d/train/lib/python3.12/site-packages/nerfstudio/field_components/activations.py:32: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd(cast_inputs=torch.float32)
+/home/work/.local/share/openroom3d/train/lib/python3.12/site-packages/nerfstudio/field_components/activations.py:38: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @custom_bwd
+[Taichi] version 1.7.3, llvm 15.0.4, commit 5ec301be, linux, python 3.12.3
+[23:56:51] Auto image downscale factor of 1                                                 nerfstudio_dataparser.py:484
+[23:56:53] use color only optimization with sigmoid activation                                         splatfacto.py:266
+Loading latest checkpoint from load_dir
+✅ Done loading checkpoint from 
+outputs/feat128_2026-11-04/runs/scalereg_w1e-3_s2/feature-splatting/2026-11-04_234700/nerfstudio_models/step-000029999.c
+kpt
+[23:56:57] Caching / undistorting eval images                                             full_images_datamanager.py:230
+
+ninja: no work to do.
+
+{"psnr": 30.382, "ownership_iou": 0.822, "laptop_ap": 0.52, "text_iou": 0.779, "television_ge_05": 77}

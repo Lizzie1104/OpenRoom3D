@@ -3,3 +3,5 @@ training-assets/models/clip/
 training-assets/models/lpips/
 training-assets/models/sam2/hf/
 __pycache__/
+training-assets/hub/
+training-assets/torch_home/
