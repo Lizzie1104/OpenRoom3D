@@ -7,6 +7,9 @@ show after the object moves; it is an estimate, stored apart, and stays in place
 Parent-frame rigid transforms rotate both centers and covariance;
 saved exports left-compose quaternions with the same world rotation.
 
+With --plane, object axes use the table normal as up, and an on-by-default
+switch keeps edits on the tabletop: slide along it and spin about its normal.
+
 Viser's installed experimental browser splat renderer is an interactive
 preview. CUDA gsplat diagnostic renders remain the reference for appearance.
 """
@@ -24,7 +27,7 @@ from scipy.spatial.transform import Rotation
 import viser
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from openroom3d.geometry import gaussian_covariances, pca_pose, box_edges
+from openroom3d.geometry import gaussian_covariances, pca_pose, box_edges, constrain_to_plane, load_support_plane, support_plane_pose
 from openroom3d.manipulation import ObjectState
 from openroom3d.presentation import cleanup_mask, load_inferred_background, object_has_moved
 from transform_object_gaussians import save_state
@@ -43,6 +46,8 @@ class PoseViewer:
         self.background_clean_mask = cleanup_mask(self.raw["xyz"], self.presentation) if self.presentation else None
         inferred_path = getattr(args, "inferred_background", None)
         self.inferred = load_inferred_background(inferred_path, len(self.raw["xyz"])) if inferred_path else None
+        plane_path = getattr(args, "plane", None)
+        self.plane_normal = load_support_plane(plane_path)[0] if plane_path else None
         self.objects = {}
         for option in args.object:
             label, path = option.split("=", 1)
@@ -57,7 +62,11 @@ class PoseViewer:
                 if not np.array_equal(data[key], self.raw[key][ids]):
                     raise ValueError(f"{path}: {key} differs from original scene; this viewer accepts unmodified selections")
             pose_path = path.with_suffix(".pose.json")
-            if pose_path.is_file():
+            if self.plane_normal is not None:
+                support = data.get("pose_support_mask", np.ones(len(ids), dtype=bool))
+                pose = support_plane_pose(data["xyz"], self.plane_normal, data["xyz"][support])
+                pose.update(source=str(path.resolve()), support_plane_source=str(Path(plane_path).resolve()))
+            elif pose_path.is_file():
                 pose = json.loads(pose_path.read_text())
                 if Path(pose["source"]).resolve() != path.resolve():
                     raise ValueError("Object pose source mismatch")
@@ -93,6 +102,8 @@ class PoseViewer:
                                                              disabled=self.presentation is None, visible=self.presentation is not None)
         self.show_inferred = self.server.gui.add_checkbox("Show inferred tabletop after movement", initial_value=self.inferred is not None,
                                                           disabled=self.inferred is None, visible=self.inferred is not None)
+        self.on_table = self.server.gui.add_checkbox("Keep on the tabletop (slide and spin only)", initial_value=self.plane_normal is not None,
+                                                     disabled=self.plane_normal is None, visible=self.plane_normal is not None)
         self.mode_status = self.server.gui.add_markdown("")
         self.step = self.server.gui.add_number("Translation step (reconstruction units)", .03, min=.001, max=.5, step=.001)
         self.positions = [self.server.gui.add_number(f"World {axis} translation", 0., step=.005) for axis in "XYZ"]
@@ -116,6 +127,8 @@ class PoseViewer:
         self.heatmap.on_update(lambda _: self.apply_visibility())
         self.clean_background.on_update(lambda _: self.apply_visibility())
         self.show_inferred.on_update(lambda _: self.apply_visibility())
+        # Like the number inputs, react only to browser clicks; Viser also echoes programmatic updates asynchronously.
+        self.on_table.on_update(lambda event: self.apply_edit(self.state.rotation, self.state.translation) if event.client is not None else None)
         for number in self.positions + self.angles:
             # Viser dispatches callbacks even for programmatic value updates,
             # asynchronously. Ignore these to prevent gizmo/Euler feedback.
@@ -258,8 +271,26 @@ class PoseViewer:
                                 f"Center: `{np.round(pose['centroid'], 4).tolist()}`\n\n"
                                 f"4x4 local-to-world pose:\n```text\n{np.array2string(matrix, precision=4)}\n```\n\n"
                                 + ("Axes and box use the main support points. Some render-contributing Gaussians may lie outside." if "pose_geometry_scope" in pose else
-                                 "Axes use principal components of the main object. Box extents cover the current selection."))
+                                   "The third axis is the table normal; the first follows the object's longest in-plane direction. Box extents cover the current selection."
+                                   if "support_normal" in pose else
+                                   "Axes use principal components of the main object. Box extents cover the current selection."))
         self.apply_visibility()
+
+    def apply_edit(self, rotation, translation):
+        """Set the absolute edit, projected onto the tabletop when that switch is on, and sync the inputs."""
+        with self.lock:
+            if self.plane_normal is not None and self.on_table.value:
+                rotation, translation = constrain_to_plane(rotation, translation, self.plane_normal)
+            self.state.set_transform(rotation, translation)
+            self.syncing = True
+            try:
+                for item, value in zip(self.positions, self.state.translation):
+                    item.value = float(value)
+                for item, value in zip(self.angles, Rotation.from_matrix(self.state.rotation).as_euler("xyz", degrees=True)):
+                    item.value = float(value)
+            finally:
+                self.syncing = False
+            self.update_scene()
 
     def from_numbers(self):
         with self.lock:
@@ -267,8 +298,7 @@ class PoseViewer:
                 return
             try:
                 rotation = Rotation.from_euler("xyz", [item.value for item in self.angles], degrees=True).as_matrix()
-                self.state.set_transform(rotation, [item.value for item in self.positions])
-                self.update_scene()
+                self.apply_edit(rotation, [item.value for item in self.positions])
             except ValueError as error:
                 self.details.content = f"Invalid input: {error}"
 
@@ -277,17 +307,7 @@ class PoseViewer:
             if self.syncing:
                 return
             rotation = Rotation.from_quat(self.control.wxyz[[1, 2, 3, 0]]).as_matrix() @ self.axes_original.T
-            translation = self.control.position - self.state.pivot
-            self.state.set_transform(rotation, translation)
-            self.syncing = True
-            try:
-                for item, value in zip(self.positions, translation):
-                    item.value = float(value)
-                for item, value in zip(self.angles, Rotation.from_matrix(rotation).as_euler("xyz", degrees=True)):
-                    item.value = float(value)
-            finally:
-                self.syncing = False
-            self.update_scene()
+            self.apply_edit(rotation, self.control.position - self.state.pivot)
 
     def nudge(self, axis, sign):
         with self.lock:
@@ -355,6 +375,7 @@ if __name__ == "__main__":
     p.add_argument("--export-dir", type=Path, default=Path("outputs/object_edits"))
     p.add_argument("--presentation", type=Path, help="optional scene-specific background display crop; legacy table fields ignored")
     p.add_argument("--inferred-background", type=Path, help="fill_table_layer.py NPZ; shown only after the object moves")
+    p.add_argument("--plane", type=Path, help="support-plane NPZ (normal/center or n/d); table-normal axes and tabletop editing")
     args = p.parse_args()
     viewer = PoseViewer(args)
     print(f"OpenRoom3D pose viewer at http://localhost:{viewer.server.get_port()}", flush=True)

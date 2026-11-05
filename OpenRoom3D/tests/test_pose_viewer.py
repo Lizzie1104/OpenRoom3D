@@ -174,6 +174,42 @@ class PoseViewerIntegrationTest(unittest.TestCase):
             with self.assertRaises(ValueError):
                 PoseViewer(args)
 
+    def test_tabletop_switch_projects_edits_onto_plane(self):
+        rng = np.random.default_rng(5)
+        raw = {"xyz": (rng.normal(size=(40, 3)) * [.2, .1, .01] + [0, 0, .02]).astype(np.float32),
+               "quat": np.tile([1., 0, 0, 0], (40, 1)).astype(np.float32),
+               "scale": np.tile([.006, .003, .001], (40, 1)).astype(np.float32),
+               "rgb": np.full((40, 3), 80, dtype=np.uint8), "opacity": np.full(40, .8, dtype=np.float32),
+               "gaussian_index": np.arange(40), "similarity": np.full(40, .8, dtype=np.float32)}
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            np.savez(root / "scene.npz", **raw)
+            path = root / "obj.npz"
+            np.savez(path, **{key: value[:30] for key, value in raw.items()})
+            np.savez(root / "plane.npz", normal=np.array([0, 0, 1.]), center=np.zeros(3))
+            with socket.socket() as allocation:
+                allocation.bind(("127.0.0.1", 0))
+                port = allocation.getsockname()[1]
+            viewer = PoseViewer(Namespace(scene=root / "scene.npz", object=[f"Obj={path}"], port=port, host="127.0.0.1",
+                                          export_dir=root / "exports", plane=root / "plane.npz"))
+            try:
+                self.assertTrue(viewer.on_table.value)
+                np.testing.assert_allclose(viewer.axes_original[:, 2], [0, 0, 1], atol=1e-12)
+                viewer.positions[2].value = .05
+                viewer.angles[0].value = 30.
+                viewer.angles[2].value = 40.
+                viewer.from_numbers()
+                np.testing.assert_allclose(viewer.state.translation[2], 0., atol=1e-12)
+                np.testing.assert_allclose(viewer.state.rotation @ [0, 0, 1.], [0, 0, 1.], atol=1e-10)
+                self.assertAlmostEqual(viewer.positions[2].value, 0.)
+                self.assertAlmostEqual(viewer.angles[0].value, 0., places=6)
+                viewer.on_table.value = False
+                viewer.positions[2].value = .05
+                viewer.from_numbers()
+                self.assertAlmostEqual(viewer.state.translation[2], .05)
+            finally:
+                viewer.server.stop()
+
     def test_controls_export_scene_covariance_and_reset(self):
         rng = np.random.default_rng(16)
         raw = {"xyz": (rng.normal(size=(90, 3)) * [.25, .15, .07]).astype(np.float32),

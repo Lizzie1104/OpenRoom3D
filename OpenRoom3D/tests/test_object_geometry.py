@@ -5,7 +5,7 @@ import unittest
 import numpy as np
 from scipy.spatial.transform import Rotation
 
-from openroom3d.geometry import gaussian_covariances, pca_pose, rigid_gaussians
+from openroom3d.geometry import constrain_to_plane, gaussian_covariances, load_support_plane, pca_pose, rigid_gaussians, support_plane_pose
 from openroom3d.manipulation import ObjectState
 from openroom3d.shape_retention import retain_by_shape
 
@@ -108,6 +108,54 @@ class PoseAndManipulationTests(unittest.TestCase):
         for key in self.data:
             np.testing.assert_array_equal(state.arrays()[key], self.data[key])
 
+
+
+class SupportPlaneTests(unittest.TestCase):
+    def setUp(self):
+        rng = np.random.default_rng(7)
+        # A flat box resting on a tilted table: long axis along u, thin along the normal.
+        self.normal = np.array([.1, -.2, 1.]) / np.linalg.norm([.1, -.2, 1.])
+        u = np.cross(self.normal, [0, 0, 1.]) + [1, 0, 0]
+        u -= u @ self.normal * self.normal
+        u /= np.linalg.norm(u)
+        v = np.cross(self.normal, u)
+        local = rng.uniform(-1, 1, (400, 3)) * [.3, .2, .02] + [0, 0, .02]
+        self.xyz = local @ np.stack([u, v, self.normal])
+        self.u = u
+
+    def test_third_axis_is_normal_and_first_is_long_side(self):
+        pose = support_plane_pose(self.xyz, self.normal)
+        axes = np.array(pose["rotation_matrix_columns"])
+        np.testing.assert_allclose(axes.T @ axes, np.eye(3), atol=1e-12)
+        self.assertAlmostEqual(np.linalg.det(axes), 1.)
+        np.testing.assert_allclose(axes[:, 2], self.normal, atol=1e-12)
+        self.assertGreater(abs(axes[:, 0] @ self.u), .99)
+        local = (self.xyz - pose["obb_center"]) @ axes
+        self.assertTrue(np.all(np.abs(local) <= np.array(pose["obb_extent"]) / 2 + 1e-12))
+        self.assertFalse(pose["orientation_ambiguous"])
+
+    def test_constraint_keeps_spin_about_normal_and_drops_tilt_and_lift(self):
+        spin = Rotation.from_rotvec(self.normal * .7).as_matrix()
+        rotation, translation = constrain_to_plane(spin, self.u * .1 + self.normal * .05, self.normal)
+        np.testing.assert_allclose(rotation, spin, atol=1e-10)
+        np.testing.assert_allclose(translation, self.u * .1, atol=1e-12)
+        tilt = Rotation.from_rotvec(self.u * .4).as_matrix()
+        rotation, _ = constrain_to_plane(tilt @ spin, np.zeros(3), self.normal)
+        np.testing.assert_allclose(rotation @ self.normal, self.normal, atol=1e-10)
+        flip = Rotation.from_rotvec(self.u * np.pi).as_matrix()
+        np.testing.assert_allclose(constrain_to_plane(flip, np.zeros(3), self.normal)[0], np.eye(3), atol=1e-10)
+
+    def test_plane_files_in_both_formats_agree(self):
+        import tempfile
+        from pathlib import Path
+        point = np.array([.1, .2, -.3])
+        with tempfile.TemporaryDirectory() as directory:
+            a, b = Path(directory, "a.npz"), Path(directory, "b.npz")
+            np.savez(a, normal=self.normal, center=point)
+            np.savez(b, n=self.normal, d=self.normal @ point)
+            (na, pa), (nb, pb) = load_support_plane(a), load_support_plane(b)
+        np.testing.assert_allclose(na, nb)
+        self.assertAlmostEqual(float((pa - pb) @ na), 0., places=12)
 
 if __name__ == "__main__":
     unittest.main()
