@@ -63,3 +63,13 @@ The SAMCLIP cache was re-extracted with local MobileSAMV2 and DINOv2. The local 
 - PSNR, LPIPS and SAM ownership IoU are unchanged.
 - Television false positives on the scale-regularized model rise from 3 to 120 of about 180k Gaussians.
 - Resolution is part of the semantic bottleneck, but a modest one.
+
+## Screen-type negatives (2026-11-05)
+
+`monitor, screen` were added to the default scene negatives after a paired test on all 16 saved models; details are in [outputs/negatives_screen_2026-11-05/README.md](../outputs/negatives_screen_2026-11-05/README.md).
+
+- Laptop AP rose on 15 of 16 models (mean +0.007).
+- Points scoring 0.5 or more fell on every model, both for television (mean 48 to 5) and for unrelated absent queries: smartphone by 554, tablet by 1174, printer by 2035.
+- Text-selection IoU was unchanged (mean −0.001), and capture fell by 0.017 because some laptop-screen points now prefer "screen".
+- Tablet still scores at least 0.5 on about 7.5k Gaussians. This is a CLIP look-alike limit that negatives do not solve.
+- Earlier `eval/*.json` files used the previous defaults.

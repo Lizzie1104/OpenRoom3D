@@ -1,0 +1,99 @@
+/home/work/.local/share/openroom3d/train/lib/python3.12/site-packages/nerfstudio/field_components/activations.py:32: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  @custom_fwd(cast_inputs=torch.float32)
+/home/work/.local/share/openroom3d/train/lib/python3.12/site-packages/nerfstudio/field_components/activations.py:38: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @custom_bwd
+[Taichi] version 1.7.3, llvm 15.0.4, commit 5ec301be, linux, python 3.12.3
+[01:56:21] use color only optimization with sigmoid activation                                         splatfacto.py:266
+Loading latest checkpoint from load_dir
+✅ Done loading checkpoint from 
+outputs/ablation_2026-11-04/runs/control_w1e-3_s1/feature-splatting/2026-11-04_220518/nerfstudio_models/step-000029999.c
+kpt
+ablation/control_w1e-3_s1 {"default": {"laptop AP": 0.527, "notebook computer AP": 0.55, "television >= 0.5": 6, "smartphone >= 0.5": 1213, "tablet >= 0.5": 6030, "printer >= 0.5": 1872, "banana >= 0.5": 0, "text IoU": 0.775, "text capture": 0.545}, "+monitor": {"laptop AP": 0.524, "notebook computer AP": 0.549, "television >= 0.5": 2, "smartphone >= 0.5": 1175, "tablet >= 0.5": 5649, "printer >= 0.5": 910, "banana >= 0.5": 0, "text IoU": 0.775, "text capture": 0.542}, "+monitor,screen": {"laptop AP": 0.527, "notebook computer AP": 0.551, "television >= 0.5": 1, "smartphone >= 0.5": 638, "tablet >= 0.5": 5141, "printer >= 0.5": 872, "banana >= 0.5": 0, "text IoU": 0.775, "text capture": 0.542}}
+[02:01:58] use color only optimization with sigmoid activation                                         splatfacto.py:266
+Loading latest checkpoint from load_dir
+✅ Done loading checkpoint from 
+outputs/ablation_2026-11-04/runs/control_w1e-3_s2/feature-splatting/2026-11-04_222602/nerfstudio_models/step-000029999.c
+kpt
+ablation/control_w1e-3_s2 {"default": {"laptop AP": 0.434, "notebook computer AP": 0.398, "television >= 0.5": 70, "smartphone >= 0.5": 1527, "tablet >= 0.5": 10633, "printer >= 0.5": 4994, "banana >= 0.5": 0, "text IoU": 0.749, "text capture": 0.544}, "+monitor": {"laptop AP": 0.446, "notebook computer AP": 0.413, "television >= 0.5": 0, "smartphone >= 0.5": 1404, "tablet >= 0.5": 9570, "printer >= 0.5": 3098, "banana >= 0.5": 0, "text IoU": 0.749, "text capture": 0.54}, "+monitor,screen": {"laptop AP": 0.448, "notebook computer AP": 0.415, "television >= 0.5": 0, "smartphone >= 0.5": 670, "tablet >= 0.5": 9101, "printer >= 0.5": 2920, "banana >= 0.5": 0, "text IoU": 0.749, "text capture": 0.54}}
+[02:03:49] use color only optimization with sigmoid activation                                         splatfacto.py:266
+Loading latest checkpoint from load_dir
+✅ Done loading checkpoint from 
+outputs/ablation_2026-11-04/runs/control_w1e-3_s42/feature-splatting/2026-11-04_213914/nerfstudio_models/step-000029999.
+ckpt
+ablation/control_w1e-3_s42 {"default": {"laptop AP": 0.34, "notebook computer AP": 0.318, "television >= 0.5": 57, "smartphone >= 0.5": 1539, "tablet >= 0.5": 10900, "printer >= 0.5": 7573, "banana >= 0.5": 1, "text IoU": 0.743, "text capture": 0.598}, "+monitor": {"laptop AP": 0.342, "notebook computer AP": 0.31, "television >= 0.5": 8, "smartphone >= 0.5": 1362, "tablet >= 0.5": 10306, "printer >= 0.5": 5772, "banana >= 0.5": 1, "text IoU": 0.743, "text capture": 0.596}, "+monitor,screen": {"laptop AP": 0.346, "notebook computer AP": 0.313, "television >= 0.5": 4, "smartphone >= 0.5": 901, "tablet >= 0.5": 9639, "printer >= 0.5": 5370, "banana >= 0.5": 1, "text IoU": 0.743, "text capture": 0.595}}
+[02:05:25] use color only optimization with sigmoid activation                                         splatfacto.py:266
+Loading latest checkpoint from load_dir
+✅ Done loading checkpoint from outputs/desk02/feature-splatting/2026-09-22_202843/nerfstudio_models/step-000029999.ckpt
+ablation/original_september {"default": {"laptop AP": 0.491, "notebook computer AP": 0.482, "television >= 0.5": 16, "smartphone >= 0.5": 1785, "tablet >= 0.5": 6478, "printer >= 0.5": 3177, "banana >= 0.5": 0, "text IoU": 0.775, "text capture": 0.549}, "+monitor": {"laptop AP": 0.485, "notebook computer AP": 0.477, "television >= 0.5": 0, "smartphone >= 0.5": 1737, "tablet >= 0.5": 6171, "printer >= 0.5": 2207, "banana >= 0.5": 0, "text IoU": 0.774, "text capture": 0.543}, "+monitor,screen": {"laptop AP": 0.487, "notebook computer AP": 0.479, "television >= 0.5": 0, "smartphone >= 0.5": 814, "tablet >= 0.5": 5421, "printer >= 0.5": 2193, "banana >= 0.5": 0, "text IoU": 0.774, "text capture": 0.543}}
+[02:06:44] use color only optimization with sigmoid activation                                         splatfacto.py:266
+Loading latest checkpoint from load_dir
+✅ Done loading checkpoint from 
+outputs/ablation_2026-11-04/runs/scalereg_w1e-2_s1/feature-splatting/2026-11-04_224939/nerfstudio_models/step-000029999.
+ckpt
+ablation/scalereg_w1e-2_s1 {"default": {"laptop AP": 0.525, "notebook computer AP": 0.53, "television >= 0.5": 17, "smartphone >= 0.5": 1923, "tablet >= 0.5": 5431, "printer >= 0.5": 4392, "banana >= 0.5": 0, "text IoU": 0.77, "text capture": 0.568}, "+monitor": {"laptop AP": 0.537, "notebook computer AP": 0.55, "television >= 0.5": 2, "smartphone >= 0.5": 1736, "tablet >= 0.5": 4752, "printer >= 0.5": 2031, "banana >= 0.5": 0, "text IoU": 0.766, "text capture": 0.548}, "+monitor,screen": {"laptop AP": 0.543, "notebook computer AP": 0.552, "television >= 0.5": 2, "smartphone >= 0.5": 865, "tablet >= 0.5": 4264, "printer >= 0.5": 1880, "banana >= 0.5": 0, "text IoU": 0.766, "text capture": 0.547}}
+[02:07:34] use color only optimization with sigmoid activation                                         splatfacto.py:266
+Loading latest checkpoint from load_dir
+✅ Done loading checkpoint from 
+outputs/ablation_2026-11-04/runs/scalereg_w1e-2_s2/feature-splatting/2026-11-04_225844/nerfstudio_models/step-000029999.
+ckpt
+ablation/scalereg_w1e-2_s2 {"default": {"laptop AP": 0.524, "notebook computer AP": 0.453, "television >= 0.5": 40, "smartphone >= 0.5": 1513, "tablet >= 0.5": 8531, "printer >= 0.5": 2874, "banana >= 0.5": 0, "text IoU": 0.779, "text capture": 0.644}, "+monitor": {"laptop AP": 0.53, "notebook computer AP": 0.455, "television >= 0.5": 4, "smartphone >= 0.5": 1439, "tablet >= 0.5": 7999, "printer >= 0.5": 1667, "banana >= 0.5": 0, "text IoU": 0.779, "text capture": 0.644}, "+monitor,screen": {"laptop AP": 0.535, "notebook computer AP": 0.458, "television >= 0.5": 4, "smartphone >= 0.5": 1195, "tablet >= 0.5": 7282, "printer >= 0.5": 1540, "banana >= 0.5": 0, "text IoU": 0.779, "text capture": 0.644}}
+[02:08:27] use color only optimization with sigmoid activation                                         splatfacto.py:266
+Loading latest checkpoint from load_dir
+✅ Done loading checkpoint from 
+outputs/ablation_2026-11-04/runs/scalereg_w1e-2_s42/feature-splatting/2026-11-04_224011/nerfstudio_models/step-000029999
+.ckpt
+ablation/scalereg_w1e-2_s42 {"default": {"laptop AP": 0.424, "notebook computer AP": 0.418, "television >= 0.5": 48, "smartphone >= 0.5": 1332, "tablet >= 0.5": 8317, "printer >= 0.5": 5039, "banana >= 0.5": 0, "text IoU": 0.795, "text capture": 0.678}, "+monitor": {"laptop AP": 0.42, "notebook computer AP": 0.41, "television >= 0.5": 9, "smartphone >= 0.5": 1138, "tablet >= 0.5": 7830, "printer >= 0.5": 3131, "banana >= 0.5": 0, "text IoU": 0.795, "text capture": 0.666}, "+monitor,screen": {"laptop AP": 0.426, "notebook computer AP": 0.413, "television >= 0.5": 8, "smartphone >= 0.5": 878, "tablet >= 0.5": 7561, "printer >= 0.5": 3022, "banana >= 0.5": 0, "text IoU": 0.795, "text capture": 0.666}}
+[02:09:17] use color only optimization with sigmoid activation                                         splatfacto.py:266
+Loading latest checkpoint from load_dir
+✅ Done loading checkpoint from 
+outputs/ablation_2026-11-04/runs/scalereg_w1e-3_s1/feature-splatting/2026-11-04_215529/nerfstudio_models/step-000029999.
+ckpt
+ablation/scalereg_w1e-3_s1 {"default": {"laptop AP": 0.609, "notebook computer AP": 0.601, "television >= 0.5": 1, "smartphone >= 0.5": 647, "tablet >= 0.5": 4768, "printer >= 0.5": 2140, "banana >= 0.5": 1, "text IoU": 0.775, "text capture": 0.605}, "+monitor": {"laptop AP": 0.611, "notebook computer AP": 0.608, "television >= 0.5": 1, "smartphone >= 0.5": 567, "tablet >= 0.5": 4313, "printer >= 0.5": 1165, "banana >= 0.5": 0, "text IoU": 0.775, "text capture": 0.604}, "+monitor,screen": {"laptop AP": 0.612, "notebook computer AP": 0.608, "television >= 0.5": 0, "smartphone >= 0.5": 453, "tablet >= 0.5": 4159, "printer >= 0.5": 1105, "banana >= 0.5": 0, "text IoU": 0.775, "text capture": 0.604}}
+[02:10:05] use color only optimization with sigmoid activation                                         splatfacto.py:266
+Loading latest checkpoint from load_dir
+✅ Done loading checkpoint from 
+outputs/ablation_2026-11-04/runs/scalereg_w1e-3_s2/feature-splatting/2026-11-04_221625/nerfstudio_models/step-000029999.
+ckpt
+ablation/scalereg_w1e-3_s2 {"default": {"laptop AP": 0.542, "notebook computer AP": 0.533, "television >= 0.5": 4, "smartphone >= 0.5": 405, "tablet >= 0.5": 2979, "printer >= 0.5": 2232, "banana >= 0.5": 0, "text IoU": 0.778, "text capture": 0.713}, "+monitor": {"laptop AP": 0.542, "notebook computer AP": 0.534, "television >= 0.5": 1, "smartphone >= 0.5": 371, "tablet >= 0.5": 2830, "printer >= 0.5": 1739, "banana >= 0.5": 0, "text IoU": 0.778, "text capture": 0.713}, "+monitor,screen": {"laptop AP": 0.544, "notebook computer AP": 0.535, "television >= 0.5": 1, "smartphone >= 0.5": 336, "tablet >= 0.5": 2769, "printer >= 0.5": 1703, "banana >= 0.5": 0, "text IoU": 0.778, "text capture": 0.713}}
+[02:10:52] use color only optimization with sigmoid activation                                         splatfacto.py:266
+Loading latest checkpoint from load_dir
+✅ Done loading checkpoint from 
+outputs/retrain_semantic_2026-11-02/feature_scalereg_sh0/feature-splatting/2026-11-02_093524/nerfstudio_models/step-0000
+29999.ckpt
+ablation/scalereg_w1e-3_s42 {"default": {"laptop AP": 0.328, "notebook computer AP": 0.339, "television >= 0.5": 3, "smartphone >= 0.5": 1321, "tablet >= 0.5": 13433, "printer >= 0.5": 6642, "banana >= 0.5": 0, "text IoU": 0.757, "text capture": 0.542}, "+monitor": {"laptop AP": 0.348, "notebook computer AP": 0.348, "television >= 0.5": 0, "smartphone >= 0.5": 1265, "tablet >= 0.5": 11734, "printer >= 0.5": 3099, "banana >= 0.5": 0, "text IoU": 0.754, "text capture": 0.492}, "+monitor,screen": {"laptop AP": 0.352, "notebook computer AP": 0.35, "television >= 0.5": 0, "smartphone >= 0.5": 1004, "tablet >= 0.5": 11263, "printer >= 0.5": 2872, "banana >= 0.5": 0, "text IoU": 0.754, "text capture": 0.492}}
+[02:11:44] use color only optimization with sigmoid activation                                         splatfacto.py:266
+Loading latest checkpoint from load_dir
+✅ Done loading checkpoint from 
+outputs/feat128_2026-11-04/runs/control_w1e-3_s1/feature-splatting/2026-11-05_000951/nerfstudio_models/step-000029999.ck
+pt
+feat128/control_w1e-3_s1 {"default": {"laptop AP": 0.576, "notebook computer AP": 0.553, "television >= 0.5": 71, "smartphone >= 0.5": 1396, "tablet >= 0.5": 6700, "printer >= 0.5": 2722, "banana >= 0.5": 0, "text IoU": 0.772, "text capture": 0.66}, "+monitor": {"laptop AP": 0.578, "notebook computer AP": 0.555, "television >= 0.5": 23, "smartphone >= 0.5": 1239, "tablet >= 0.5": 6320, "printer >= 0.5": 1550, "banana >= 0.5": 0, "text IoU": 0.772, "text capture": 0.659}, "+monitor,screen": {"laptop AP": 0.583, "notebook computer AP": 0.558, "television >= 0.5": 16, "smartphone >= 0.5": 945, "tablet >= 0.5": 6136, "printer >= 0.5": 1453, "banana >= 0.5": 0, "text IoU": 0.772, "text capture": 0.659}}
+[02:13:00] use color only optimization with sigmoid activation                                         splatfacto.py:266
+Loading latest checkpoint from load_dir
+✅ Done loading checkpoint from 
+outputs/feat128_2026-11-04/runs/control_w1e-3_s2/feature-splatting/2026-11-05_002207/nerfstudio_models/step-000029999.ck
+pt
+feat128/control_w1e-3_s2 {"default": {"laptop AP": 0.485, "notebook computer AP": 0.44, "television >= 0.5": 5, "smartphone >= 0.5": 882, "tablet >= 0.5": 8106, "printer >= 0.5": 3674, "banana >= 0.5": 0, "text IoU": 0.778, "text capture": 0.708}, "+monitor": {"laptop AP": 0.485, "notebook computer AP": 0.437, "television >= 0.5": 1, "smartphone >= 0.5": 824, "tablet >= 0.5": 7596, "printer >= 0.5": 2365, "banana >= 0.5": 0, "text IoU": 0.778, "text capture": 0.709}, "+monitor,screen": {"laptop AP": 0.488, "notebook computer AP": 0.438, "television >= 0.5": 1, "smartphone >= 0.5": 758, "tablet >= 0.5": 7379, "printer >= 0.5": 2216, "banana >= 0.5": 0, "text IoU": 0.778, "text capture": 0.709}}
+[02:14:25] use color only optimization with sigmoid activation                                         splatfacto.py:266
+Loading latest checkpoint from load_dir
+✅ Done loading checkpoint from 
+outputs/feat128_2026-11-04/runs/control_w1e-3_s42/feature-splatting/2026-11-04_235743/nerfstudio_models/step-000029999.c
+kpt
+feat128/control_w1e-3_s42 {"default": {"laptop AP": 0.437, "notebook computer AP": 0.399, "television >= 0.5": 76, "smartphone >= 0.5": 4517, "tablet >= 0.5": 14173, "printer >= 0.5": 8603, "banana >= 0.5": 0, "text IoU": 0.771, "text capture": 0.65}, "+monitor": {"laptop AP": 0.435, "notebook computer AP": 0.399, "television >= 0.5": 4, "smartphone >= 0.5": 4200, "tablet >= 0.5": 12643, "printer >= 0.5": 3510, "banana >= 0.5": 0, "text IoU": 0.769, "text capture": 0.569}, "+monitor,screen": {"laptop AP": 0.442, "notebook computer AP": 0.403, "television >= 0.5": 2, "smartphone >= 0.5": 3153, "tablet >= 0.5": 11788, "printer >= 0.5": 3124, "banana >= 0.5": 0, "text IoU": 0.769, "text capture": 0.569}}
+[02:15:46] use color only optimization with sigmoid activation                                         splatfacto.py:266
+Loading latest checkpoint from load_dir
+✅ Done loading checkpoint from 
+outputs/feat128_2026-11-04/runs/scalereg_w1e-3_s1/feature-splatting/2026-11-04_233544/nerfstudio_models/step-000029999.c
+kpt
+feat128/scalereg_w1e-3_s1 {"default": {"laptop AP": 0.553, "notebook computer AP": 0.519, "television >= 0.5": 97, "smartphone >= 0.5": 1793, "tablet >= 0.5": 8384, "printer >= 0.5": 3804, "banana >= 0.5": 0, "text IoU": 0.811, "text capture": 0.652}, "+monitor": {"laptop AP": 0.557, "notebook computer AP": 0.52, "television >= 0.5": 49, "smartphone >= 0.5": 1655, "tablet >= 0.5": 7841, "printer >= 0.5": 2302, "banana >= 0.5": 0, "text IoU": 0.81, "text capture": 0.634}, "+monitor,screen": {"laptop AP": 0.567, "notebook computer AP": 0.526, "television >= 0.5": 23, "smartphone >= 0.5": 1256, "tablet >= 0.5": 7282, "printer >= 0.5": 2143, "banana >= 0.5": 0, "text IoU": 0.81, "text capture": 0.634}}
+[02:16:37] use color only optimization with sigmoid activation                                         splatfacto.py:266
+Loading latest checkpoint from load_dir
+✅ Done loading checkpoint from 
+outputs/feat128_2026-11-04/runs/scalereg_w1e-3_s2/feature-splatting/2026-11-04_234700/nerfstudio_models/step-000029999.c
+kpt
+feat128/scalereg_w1e-3_s2 {"default": {"laptop AP": 0.52, "notebook computer AP": 0.508, "television >= 0.5": 77, "smartphone >= 0.5": 2834, "tablet >= 0.5": 10655, "printer >= 0.5": 4350, "banana >= 0.5": 0, "text IoU": 0.779, "text capture": 0.57}, "+monitor": {"laptop AP": 0.522, "notebook computer AP": 0.511, "television >= 0.5": 24, "smartphone >= 0.5": 2653, "tablet >= 0.5": 10108, "printer >= 0.5": 2893, "banana >= 0.5": 0, "text IoU": 0.779, "text capture": 0.57}, "+monitor,screen": {"laptop AP": 0.525, "notebook computer AP": 0.513, "television >= 0.5": 20, "smartphone >= 0.5": 2460, "tablet >= 0.5": 9889, "printer >= 0.5": 2726, "banana >= 0.5": 0, "text IoU": 0.779, "text capture": 0.57}}
+[02:17:28] use color only optimization with sigmoid activation                                         splatfacto.py:266
+Loading latest checkpoint from load_dir
+✅ Done loading checkpoint from 
+outputs/feat128_2026-11-04/runs/scalereg_w1e-3_s42/feature-splatting/2026-11-04_232346/nerfstudio_models/step-000029999.
+ckpt
+feat128/scalereg_w1e-3_s42 {"default": {"laptop AP": 0.417, "notebook computer AP": 0.418, "television >= 0.5": 185, "smartphone >= 0.5": 1978, "tablet >= 0.5": 13583, "printer >= 0.5": 5860, "banana >= 0.5": 5, "text IoU": 0.777, "text capture": 0.603}, "+monitor": {"laptop AP": 0.416, "notebook computer AP": 0.416, "television >= 0.5": 21, "smartphone >= 0.5": 1749, "tablet >= 0.5": 11999, "printer >= 0.5": 2393, "banana >= 0.5": 5, "text IoU": 0.77, "text capture": 0.536}, "+monitor,screen": {"laptop AP": 0.421, "notebook computer AP": 0.418, "television >= 0.5": 0, "smartphone >= 0.5": 1415, "tablet >= 0.5": 11243, "printer >= 0.5": 2245, "banana >= 0.5": 5, "text IoU": 0.77, "text capture": 0.535}}

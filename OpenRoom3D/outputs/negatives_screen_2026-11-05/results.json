@@ -1,0 +1,562 @@
+{
+  "ablation/control_w1e-3_s1": {
+    "default": {
+      "laptop AP": 0.5266245315684421,
+      "notebook computer AP": 0.5497794101754555,
+      "television >= 0.5": 6,
+      "smartphone >= 0.5": 1213,
+      "tablet >= 0.5": 6030,
+      "printer >= 0.5": 1872,
+      "banana >= 0.5": 0,
+      "text IoU": 0.7754247725009918,
+      "text capture": 0.5454553633928299
+    },
+    "+monitor": {
+      "laptop AP": 0.5237914098572914,
+      "notebook computer AP": 0.5489942055780923,
+      "television >= 0.5": 2,
+      "smartphone >= 0.5": 1175,
+      "tablet >= 0.5": 5649,
+      "printer >= 0.5": 910,
+      "banana >= 0.5": 0,
+      "text IoU": 0.7752837061882019,
+      "text capture": 0.5421235412359238
+    },
+    "+monitor,screen": {
+      "laptop AP": 0.5271882027866754,
+      "notebook computer AP": 0.5509005204321301,
+      "television >= 0.5": 1,
+      "smartphone >= 0.5": 638,
+      "tablet >= 0.5": 5141,
+      "printer >= 0.5": 872,
+      "banana >= 0.5": 0,
+      "text IoU": 0.775302392244339,
+      "text capture": 0.5420898348093033
+    }
+  },
+  "ablation/control_w1e-3_s2": {
+    "default": {
+      "laptop AP": 0.4344783641581845,
+      "notebook computer AP": 0.39847311313773986,
+      "television >= 0.5": 70,
+      "smartphone >= 0.5": 1527,
+      "tablet >= 0.5": 10633,
+      "printer >= 0.5": 4994,
+      "banana >= 0.5": 0,
+      "text IoU": 0.74852534532547,
+      "text capture": 0.5435451924800873
+    },
+    "+monitor": {
+      "laptop AP": 0.44607812192637664,
+      "notebook computer AP": 0.41305333818136425,
+      "television >= 0.5": 0,
+      "smartphone >= 0.5": 1404,
+      "tablet >= 0.5": 9570,
+      "printer >= 0.5": 3098,
+      "banana >= 0.5": 0,
+      "text IoU": 0.7487108767032623,
+      "text capture": 0.5404769361019135
+    },
+    "+monitor,screen": {
+      "laptop AP": 0.4483519238835644,
+      "notebook computer AP": 0.41524727950097773,
+      "television >= 0.5": 0,
+      "smartphone >= 0.5": 670,
+      "tablet >= 0.5": 9101,
+      "printer >= 0.5": 2920,
+      "banana >= 0.5": 0,
+      "text IoU": 0.7487073481082916,
+      "text capture": 0.5404276460409164
+    }
+  },
+  "ablation/control_w1e-3_s42": {
+    "default": {
+      "laptop AP": 0.33988064346022623,
+      "notebook computer AP": 0.31751395592360665,
+      "television >= 0.5": 57,
+      "smartphone >= 0.5": 1539,
+      "tablet >= 0.5": 10900,
+      "printer >= 0.5": 7573,
+      "banana >= 0.5": 1,
+      "text IoU": 0.7425679683685302,
+      "text capture": 0.5979968190193177
+    },
+    "+monitor": {
+      "laptop AP": 0.34204939374627,
+      "notebook computer AP": 0.3104814651712322,
+      "television >= 0.5": 8,
+      "smartphone >= 0.5": 1362,
+      "tablet >= 0.5": 10306,
+      "printer >= 0.5": 5772,
+      "banana >= 0.5": 1,
+      "text IoU": 0.7427634835243225,
+      "text capture": 0.5955093294382096
+    },
+    "+monitor,screen": {
+      "laptop AP": 0.34604599736231456,
+      "notebook computer AP": 0.31253829630225816,
+      "television >= 0.5": 4,
+      "smartphone >= 0.5": 901,
+      "tablet >= 0.5": 9639,
+      "printer >= 0.5": 5370,
+      "banana >= 0.5": 1,
+      "text IoU": 0.7427493512630463,
+      "text capture": 0.5948105841875077
+    }
+  },
+  "ablation/original_september": {
+    "default": {
+      "laptop AP": 0.49116048538245144,
+      "notebook computer AP": 0.4822369965983111,
+      "television >= 0.5": 16,
+      "smartphone >= 0.5": 1785,
+      "tablet >= 0.5": 6478,
+      "printer >= 0.5": 3177,
+      "banana >= 0.5": 0,
+      "text IoU": 0.7746751368045807,
+      "text capture": 0.5485301077365875
+    },
+    "+monitor": {
+      "laptop AP": 0.4854059108245999,
+      "notebook computer AP": 0.4774768613531051,
+      "television >= 0.5": 0,
+      "smartphone >= 0.5": 1737,
+      "tablet >= 0.5": 6171,
+      "printer >= 0.5": 2207,
+      "banana >= 0.5": 0,
+      "text IoU": 0.7735534608364105,
+      "text capture": 0.5425351917743683
+    },
+    "+monitor,screen": {
+      "laptop AP": 0.4865180414287944,
+      "notebook computer AP": 0.47861548425256234,
+      "television >= 0.5": 0,
+      "smartphone >= 0.5": 814,
+      "tablet >= 0.5": 5421,
+      "printer >= 0.5": 2193,
+      "banana >= 0.5": 0,
+      "text IoU": 0.7735453963279724,
+      "text capture": 0.5425301045179367
+    }
+  },
+  "ablation/scalereg_w1e-2_s1": {
+    "default": {
+      "laptop AP": 0.5249244264056718,
+      "notebook computer AP": 0.5297856021659568,
+      "television >= 0.5": 17,
+      "smartphone >= 0.5": 1923,
+      "tablet >= 0.5": 5431,
+      "printer >= 0.5": 4392,
+      "banana >= 0.5": 0,
+      "text IoU": 0.7698431789875031,
+      "text capture": 0.5680156469345092
+    },
+    "+monitor": {
+      "laptop AP": 0.5365773389800345,
+      "notebook computer AP": 0.5497488943072211,
+      "television >= 0.5": 2,
+      "smartphone >= 0.5": 1736,
+      "tablet >= 0.5": 4752,
+      "printer >= 0.5": 2031,
+      "banana >= 0.5": 0,
+      "text IoU": 0.7658285439014435,
+      "text capture": 0.5477444976568222
+    },
+    "+monitor,screen": {
+      "laptop AP": 0.5434897883301005,
+      "notebook computer AP": 0.5522024486101024,
+      "television >= 0.5": 2,
+      "smartphone >= 0.5": 865,
+      "tablet >= 0.5": 4264,
+      "printer >= 0.5": 1880,
+      "banana >= 0.5": 0,
+      "text IoU": 0.7658431828022003,
+      "text capture": 0.5470319002866745
+    }
+  },
+  "ablation/scalereg_w1e-2_s2": {
+    "default": {
+      "laptop AP": 0.5240934915250808,
+      "notebook computer AP": 0.4529335328665287,
+      "television >= 0.5": 40,
+      "smartphone >= 0.5": 1513,
+      "tablet >= 0.5": 8531,
+      "printer >= 0.5": 2874,
+      "banana >= 0.5": 0,
+      "text IoU": 0.7787827134132386,
+      "text capture": 0.6441090047359467
+    },
+    "+monitor": {
+      "laptop AP": 0.530209250684392,
+      "notebook computer AP": 0.4552675866107895,
+      "television >= 0.5": 4,
+      "smartphone >= 0.5": 1439,
+      "tablet >= 0.5": 7999,
+      "printer >= 0.5": 1667,
+      "banana >= 0.5": 0,
+      "text IoU": 0.7787827134132386,
+      "text capture": 0.6440246164798736
+    },
+    "+monitor,screen": {
+      "laptop AP": 0.5354454949093672,
+      "notebook computer AP": 0.4581419992785852,
+      "television >= 0.5": 4,
+      "smartphone >= 0.5": 1195,
+      "tablet >= 0.5": 7282,
+      "printer >= 0.5": 1540,
+      "banana >= 0.5": 0,
+      "text IoU": 0.7787650048732757,
+      "text capture": 0.6440067291259766
+    }
+  },
+  "ablation/scalereg_w1e-2_s42": {
+    "default": {
+      "laptop AP": 0.4236817713489045,
+      "notebook computer AP": 0.4184292454009541,
+      "television >= 0.5": 48,
+      "smartphone >= 0.5": 1332,
+      "tablet >= 0.5": 8317,
+      "printer >= 0.5": 5039,
+      "banana >= 0.5": 0,
+      "text IoU": 0.7953892409801483,
+      "text capture": 0.6780973196029663
+    },
+    "+monitor": {
+      "laptop AP": 0.4195472426297844,
+      "notebook computer AP": 0.40957153293070364,
+      "television >= 0.5": 9,
+      "smartphone >= 0.5": 1138,
+      "tablet >= 0.5": 7830,
+      "printer >= 0.5": 3131,
+      "banana >= 0.5": 0,
+      "text IoU": 0.7954375565052032,
+      "text capture": 0.666297334432602
+    },
+    "+monitor,screen": {
+      "laptop AP": 0.42600080433217224,
+      "notebook computer AP": 0.41258150031519447,
+      "television >= 0.5": 8,
+      "smartphone >= 0.5": 878,
+      "tablet >= 0.5": 7561,
+      "printer >= 0.5": 3022,
+      "banana >= 0.5": 0,
+      "text IoU": 0.7954319715499878,
+      "text capture": 0.6662745416164398
+    }
+  },
+  "ablation/scalereg_w1e-3_s1": {
+    "default": {
+      "laptop AP": 0.6091630250285033,
+      "notebook computer AP": 0.6005351599059641,
+      "television >= 0.5": 1,
+      "smartphone >= 0.5": 647,
+      "tablet >= 0.5": 4768,
+      "printer >= 0.5": 2140,
+      "banana >= 0.5": 1,
+      "text IoU": 0.7748162508010864,
+      "text capture": 0.6052424967288971
+    },
+    "+monitor": {
+      "laptop AP": 0.6109602350848217,
+      "notebook computer AP": 0.6076247771198787,
+      "television >= 0.5": 1,
+      "smartphone >= 0.5": 567,
+      "tablet >= 0.5": 4313,
+      "printer >= 0.5": 1165,
+      "banana >= 0.5": 0,
+      "text IoU": 0.7747841358184815,
+      "text capture": 0.6043465852737426
+    },
+    "+monitor,screen": {
+      "laptop AP": 0.6123351726556682,
+      "notebook computer AP": 0.6080713727795507,
+      "television >= 0.5": 0,
+      "smartphone >= 0.5": 453,
+      "tablet >= 0.5": 4159,
+      "printer >= 0.5": 1105,
+      "banana >= 0.5": 0,
+      "text IoU": 0.7747375190258026,
+      "text capture": 0.6040839493274689
+    }
+  },
+  "ablation/scalereg_w1e-3_s2": {
+    "default": {
+      "laptop AP": 0.541853314467043,
+      "notebook computer AP": 0.5333024037922551,
+      "television >= 0.5": 4,
+      "smartphone >= 0.5": 405,
+      "tablet >= 0.5": 2979,
+      "printer >= 0.5": 2232,
+      "banana >= 0.5": 0,
+      "text IoU": 0.7778342366218567,
+      "text capture": 0.7133100211620331
+    },
+    "+monitor": {
+      "laptop AP": 0.5423872794650587,
+      "notebook computer AP": 0.5340681520813014,
+      "television >= 0.5": 1,
+      "smartphone >= 0.5": 371,
+      "tablet >= 0.5": 2830,
+      "printer >= 0.5": 1739,
+      "banana >= 0.5": 0,
+      "text IoU": 0.777795934677124,
+      "text capture": 0.7130818426609039
+    },
+    "+monitor,screen": {
+      "laptop AP": 0.5438829361388527,
+      "notebook computer AP": 0.5351100690078562,
+      "television >= 0.5": 1,
+      "smartphone >= 0.5": 336,
+      "tablet >= 0.5": 2769,
+      "printer >= 0.5": 1703,
+      "banana >= 0.5": 0,
+      "text IoU": 0.7777884304523468,
+      "text capture": 0.7130767047405243
+    }
+  },
+  "ablation/scalereg_w1e-3_s42": {
+    "default": {
+      "laptop AP": 0.32776461029505255,
+      "notebook computer AP": 0.3391846936186579,
+      "television >= 0.5": 3,
+      "smartphone >= 0.5": 1321,
+      "tablet >= 0.5": 13433,
+      "printer >= 0.5": 6642,
+      "banana >= 0.5": 0,
+      "text IoU": 0.7569758474826813,
+      "text capture": 0.5423212498426437
+    },
+    "+monitor": {
+      "laptop AP": 0.3476629202797757,
+      "notebook computer AP": 0.34798592040482385,
+      "television >= 0.5": 0,
+      "smartphone >= 0.5": 1265,
+      "tablet >= 0.5": 11734,
+      "printer >= 0.5": 3099,
+      "banana >= 0.5": 0,
+      "text IoU": 0.7541325032711029,
+      "text capture": 0.4916402608156204
+    },
+    "+monitor,screen": {
+      "laptop AP": 0.35182841905618095,
+      "notebook computer AP": 0.34987755708912394,
+      "television >= 0.5": 0,
+      "smartphone >= 0.5": 1004,
+      "tablet >= 0.5": 11263,
+      "printer >= 0.5": 2872,
+      "banana >= 0.5": 0,
+      "text IoU": 0.7541433036327362,
+      "text capture": 0.4915174424648285
+    }
+  },
+  "feat128/control_w1e-3_s1": {
+    "default": {
+      "laptop AP": 0.5758785265480184,
+      "notebook computer AP": 0.5529828368514975,
+      "television >= 0.5": 71,
+      "smartphone >= 0.5": 1396,
+      "tablet >= 0.5": 6700,
+      "printer >= 0.5": 2722,
+      "banana >= 0.5": 0,
+      "text IoU": 0.7718895614147187,
+      "text capture": 0.6599982619285584
+    },
+    "+monitor": {
+      "laptop AP": 0.5784834397359604,
+      "notebook computer AP": 0.5553102264183887,
+      "television >= 0.5": 23,
+      "smartphone >= 0.5": 1239,
+      "tablet >= 0.5": 6320,
+      "printer >= 0.5": 1550,
+      "banana >= 0.5": 0,
+      "text IoU": 0.771838116645813,
+      "text capture": 0.6588846266269683
+    },
+    "+monitor,screen": {
+      "laptop AP": 0.5828343575492839,
+      "notebook computer AP": 0.5577797319026232,
+      "television >= 0.5": 16,
+      "smartphone >= 0.5": 945,
+      "tablet >= 0.5": 6136,
+      "printer >= 0.5": 1453,
+      "banana >= 0.5": 0,
+      "text IoU": 0.771838116645813,
+      "text capture": 0.6589247167110444
+    }
+  },
+  "feat128/control_w1e-3_s2": {
+    "default": {
+      "laptop AP": 0.4851762732012572,
+      "notebook computer AP": 0.44017059358329635,
+      "television >= 0.5": 5,
+      "smartphone >= 0.5": 882,
+      "tablet >= 0.5": 8106,
+      "printer >= 0.5": 3674,
+      "banana >= 0.5": 0,
+      "text IoU": 0.7784868955612183,
+      "text capture": 0.7075830698013306
+    },
+    "+monitor": {
+      "laptop AP": 0.485405585506937,
+      "notebook computer AP": 0.43691961431781573,
+      "television >= 0.5": 1,
+      "smartphone >= 0.5": 824,
+      "tablet >= 0.5": 7596,
+      "printer >= 0.5": 2365,
+      "banana >= 0.5": 0,
+      "text IoU": 0.7784868955612183,
+      "text capture": 0.7089150309562683
+    },
+    "+monitor,screen": {
+      "laptop AP": 0.4883904303002321,
+      "notebook computer AP": 0.43797082057984804,
+      "television >= 0.5": 1,
+      "smartphone >= 0.5": 758,
+      "tablet >= 0.5": 7379,
+      "printer >= 0.5": 2216,
+      "banana >= 0.5": 0,
+      "text IoU": 0.7784868955612183,
+      "text capture": 0.708924013376236
+    }
+  },
+  "feat128/control_w1e-3_s42": {
+    "default": {
+      "laptop AP": 0.43740814015661383,
+      "notebook computer AP": 0.398680350161294,
+      "television >= 0.5": 76,
+      "smartphone >= 0.5": 4517,
+      "tablet >= 0.5": 14173,
+      "printer >= 0.5": 8603,
+      "banana >= 0.5": 0,
+      "text IoU": 0.7713868021965027,
+      "text capture": 0.6498627364635468
+    },
+    "+monitor": {
+      "laptop AP": 0.4354497769170789,
+      "notebook computer AP": 0.39946694186652754,
+      "television >= 0.5": 4,
+      "smartphone >= 0.5": 4200,
+      "tablet >= 0.5": 12643,
+      "printer >= 0.5": 3510,
+      "banana >= 0.5": 0,
+      "text IoU": 0.7689301311969757,
+      "text capture": 0.5687261879444122
+    },
+    "+monitor,screen": {
+      "laptop AP": 0.4423892960761602,
+      "notebook computer AP": 0.40289415866432937,
+      "television >= 0.5": 2,
+      "smartphone >= 0.5": 3153,
+      "tablet >= 0.5": 11788,
+      "printer >= 0.5": 3124,
+      "banana >= 0.5": 0,
+      "text IoU": 0.7689301311969757,
+      "text capture": 0.5687302976846695
+    }
+  },
+  "feat128/scalereg_w1e-3_s1": {
+    "default": {
+      "laptop AP": 0.552576677650363,
+      "notebook computer AP": 0.5189382518901757,
+      "television >= 0.5": 97,
+      "smartphone >= 0.5": 1793,
+      "tablet >= 0.5": 8384,
+      "printer >= 0.5": 3804,
+      "banana >= 0.5": 0,
+      "text IoU": 0.8111998081207276,
+      "text capture": 0.6520254254341126
+    },
+    "+monitor": {
+      "laptop AP": 0.5570613556945501,
+      "notebook computer AP": 0.5196365516954314,
+      "television >= 0.5": 49,
+      "smartphone >= 0.5": 1655,
+      "tablet >= 0.5": 7841,
+      "printer >= 0.5": 2302,
+      "banana >= 0.5": 0,
+      "text IoU": 0.8104434370994568,
+      "text capture": 0.6340304553508759
+    },
+    "+monitor,screen": {
+      "laptop AP": 0.5668447442209055,
+      "notebook computer AP": 0.5263164951049746,
+      "television >= 0.5": 23,
+      "smartphone >= 0.5": 1256,
+      "tablet >= 0.5": 7282,
+      "printer >= 0.5": 2143,
+      "banana >= 0.5": 0,
+      "text IoU": 0.8103592813014984,
+      "text capture": 0.6339570701122283
+    }
+  },
+  "feat128/scalereg_w1e-3_s2": {
+    "default": {
+      "laptop AP": 0.5199620980972279,
+      "notebook computer AP": 0.5076963627630798,
+      "television >= 0.5": 77,
+      "smartphone >= 0.5": 2834,
+      "tablet >= 0.5": 10655,
+      "printer >= 0.5": 4350,
+      "banana >= 0.5": 0,
+      "text IoU": 0.779016089439392,
+      "text capture": 0.5704028725624084
+    },
+    "+monitor": {
+      "laptop AP": 0.5222756466284437,
+      "notebook computer AP": 0.5113991749137652,
+      "television >= 0.5": 24,
+      "smartphone >= 0.5": 2653,
+      "tablet >= 0.5": 10108,
+      "printer >= 0.5": 2893,
+      "banana >= 0.5": 0,
+      "text IoU": 0.7790100276470184,
+      "text capture": 0.5698010414838791
+    },
+    "+monitor,screen": {
+      "laptop AP": 0.5254340245579284,
+      "notebook computer AP": 0.5133500581574937,
+      "television >= 0.5": 20,
+      "smartphone >= 0.5": 2460,
+      "tablet >= 0.5": 9889,
+      "printer >= 0.5": 2726,
+      "banana >= 0.5": 0,
+      "text IoU": 0.7790123581886291,
+      "text capture": 0.5697071880102158
+    }
+  },
+  "feat128/scalereg_w1e-3_s42": {
+    "default": {
+      "laptop AP": 0.4167737498930879,
+      "notebook computer AP": 0.41809563706370834,
+      "television >= 0.5": 185,
+      "smartphone >= 0.5": 1978,
+      "tablet >= 0.5": 13583,
+      "printer >= 0.5": 5860,
+      "banana >= 0.5": 5,
+      "text IoU": 0.7771315515041352,
+      "text capture": 0.6029430449008941
+    },
+    "+monitor": {
+      "laptop AP": 0.4164534265531159,
+      "notebook computer AP": 0.41566416769601655,
+      "television >= 0.5": 21,
+      "smartphone >= 0.5": 1749,
+      "tablet >= 0.5": 11999,
+      "printer >= 0.5": 2393,
+      "banana >= 0.5": 5,
+      "text IoU": 0.7698033928871155,
+      "text capture": 0.5357412755489349
+    },
+    "+monitor,screen": {
+      "laptop AP": 0.4208596670894375,
+      "notebook computer AP": 0.41762051708447423,
+      "television >= 0.5": 0,
+      "smartphone >= 0.5": 1415,
+      "tablet >= 0.5": 11243,
+      "printer >= 0.5": 2245,
+      "banana >= 0.5": 5,
+      "text IoU": 0.7697490274906158,
+      "text capture": 0.5353178203105926
+    }
+  }
+}
