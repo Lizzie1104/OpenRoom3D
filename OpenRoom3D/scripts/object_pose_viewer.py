@@ -75,6 +75,7 @@ class PoseViewer:
                 pose = pca_pose(data["xyz"], data["xyz"][support])
             self.objects[label] = (path, data, pose)
         self.covariances = gaussian_covariances(self.raw["scale"], self.raw["quat"])
+        self.object_states = {label: ObjectState(data, pose) for label, (_, data, pose) in self.objects.items()}
         # Viser serializes covariance through a Cholesky factor and float16.
         # Some trained Gaussians are almost flat. Stabilize only this preview's
         # encoding; exported source/rigid parameters are never regularized.
@@ -119,7 +120,7 @@ class PoseViewer:
         self.server.gui.add_markdown("Coordinates use reconstruction units. PCA axes can differ from canonical object axes. Multiview selections can retain artifacts. Only original Gaussians are selected. This Gaussian preview can differ from the CUDA reference.")
         # Build the scene first: callbacks and client connects read its state.
         self.select(self.selector.value)
-        self.selector.on_update(lambda _: self.select(self.selector.value))
+        self.selector.on_update(lambda event: self.select(self.selector.value) if event.client is not None else None)
         self.isolate.on_update(lambda _: self.apply_visibility())
         self.show_axes.on_update(lambda _: self.apply_visibility())
         self.show_box.on_update(lambda _: self.apply_visibility())
@@ -137,6 +138,8 @@ class PoseViewer:
         self.focus_button.on_click(lambda _: self.focus_all())
         self.save_button.on_click(lambda _: self.export())
         self.server.on_client_connect(lambda client: self.focus(client))
+        from openroom3d.language_agent import attach_agent
+        attach_agent(self)
 
     def select(self, label):
         with self.lock:
@@ -148,13 +151,24 @@ class PoseViewer:
             compatible = self.presentation.get("compatible_object_sources", [self.presentation.get("object_source"), self.presentation.get("prepared_object_source")]) if self.presentation else []
             self.presentation_active = bool(self.presentation and str(path.resolve()) in compatible)
             self.object_path = path
-            self.state = ObjectState(data, pose)
+            self.state = self.object_states[label]
             pivot = np.array(pose["centroid"])
             axes = np.array(pose["rotation_matrix_columns"])
             self.axes_original = axes
             ids = data["gaussian_index"]
             remaining = np.ones(len(self.raw["xyz"]), dtype=bool)
             remaining[ids] = False
+            # Other edited objects remain visible when the Agent selects its next target.
+            background_xyz = self.raw["xyz"].copy()
+            background_covariances = self.preview_covariances.copy()
+            for other, state in self.object_states.items():
+                if other == label or not object_has_moved(state.rotation, state.translation):
+                    continue
+                other_ids = state.original["gaussian_index"]
+                if np.intersect1d(ids, other_ids).size:
+                    continue  # Alternative masks of the selected object are not independent objects.
+                background_xyz[other_ids] = state.arrays()["xyz"]
+                background_covariances[other_ids] = state.rotation @ self.preview_covariances[other_ids] @ state.rotation.T
             self.nodes = []
             scores = self.raw.get("similarity", np.zeros(len(self.raw["xyz"])))
             from matplotlib import pyplot
@@ -164,14 +178,14 @@ class PoseViewer:
                 rgbs=heat_colors, opacities=self.raw["opacity"][:, None], visible=False)
             self.nodes.append(self.heatmap_node)
             self.background = self.server.scene._add_gaussian_splats(
-                "/background", centers=self.raw["xyz"][remaining], covariances=self.preview_covariances[remaining],
+                "/background", centers=background_xyz[remaining], covariances=background_covariances[remaining],
                 rgbs=self.raw["rgb"][remaining], opacities=self.raw["opacity"][remaining, None])
             self.nodes.append(self.background)
             if self.presentation_active:
                 clean_remaining = remaining & self.background_clean_mask
                 self.cleaned_background = self.server.scene._add_gaussian_splats(
-                    "/background_cleaned", centers=self.raw["xyz"][clean_remaining],
-                    covariances=self.preview_covariances[clean_remaining], rgbs=self.raw["rgb"][clean_remaining],
+                    "/background_cleaned", centers=background_xyz[clean_remaining],
+                    covariances=background_covariances[clean_remaining], rgbs=self.raw["rgb"][clean_remaining],
                     opacities=self.raw["opacity"][clean_remaining, None], visible=False)
                 self.nodes.append(self.cleaned_background)
             # The layer only pairs with objects it was built for: their Gaussians are all cleared.
@@ -180,8 +194,8 @@ class PoseViewer:
                 cleared_remaining = remaining.copy()
                 cleared_remaining[self.inferred["scene_cleared_index"]] = False
                 self.inferred_scene = self.server.scene._add_gaussian_splats(
-                    "/background_inferred_scene", centers=self.raw["xyz"][cleared_remaining],
-                    covariances=self.preview_covariances[cleared_remaining], rgbs=self.raw["rgb"][cleared_remaining],
+                    "/background_inferred_scene", centers=background_xyz[cleared_remaining],
+                    covariances=background_covariances[cleared_remaining], rgbs=self.raw["rgb"][cleared_remaining],
                     opacities=self.raw["opacity"][cleared_remaining, None], visible=False)
                 self.inferred_table = self.server.scene._add_gaussian_splats(
                     "/background_inferred_table", centers=self.inferred["xyz"], covariances=self.inferred_covariances,
@@ -213,7 +227,7 @@ class PoseViewer:
                 self.box_nodes.append(node)
                 self.nodes.append(node)
             self.control.on_update(lambda _: self.from_gizmo())
-            self.reset()
+            self.sync_controls()
             self.apply_visibility()
 
     def inferred_visible(self):
@@ -282,15 +296,19 @@ class PoseViewer:
             if self.plane_normal is not None and self.on_table.value:
                 rotation, translation = constrain_to_plane(rotation, translation, self.plane_normal)
             self.state.set_transform(rotation, translation)
-            self.syncing = True
-            try:
-                for item, value in zip(self.positions, self.state.translation):
-                    item.value = float(value)
-                for item, value in zip(self.angles, Rotation.from_matrix(self.state.rotation).as_euler("xyz", degrees=True)):
-                    item.value = float(value)
-            finally:
-                self.syncing = False
+            self.sync_controls()
+
+    def sync_controls(self):
+        """Reflect a stored transform without projecting it again on selection."""
+        self.syncing = True
+        try:
+            for item, value in zip(self.positions, self.state.translation):
+                item.value = float(value)
+            for item, value in zip(self.angles, Rotation.from_matrix(self.state.rotation).as_euler("xyz", degrees=True)):
+                item.value = float(value)
             self.update_scene()
+        finally:
+            self.syncing = False
 
     def from_numbers(self):
         with self.lock:
@@ -363,6 +381,33 @@ class PoseViewer:
                             "synthetic_background_in_object_export": False}
                 output.with_suffix(".inferred_background.json").write_text(json.dumps(snapshot, indent=2), encoding="utf-8")
             self.details.content += f"\n\nExported: `{output}`"
+            return output
+
+    def export_scene(self):
+        """Write all independent rigid edits into a new scene; never replace sources."""
+        with self.lock:
+            arrays = {key: value.copy() for key, value in self.raw.items()}
+            used = np.zeros(len(arrays["xyz"]), dtype=bool)
+            poses = {}
+            for label, state in self.object_states.items():
+                if not object_has_moved(state.rotation, state.translation):
+                    continue
+                ids = state.original["gaussian_index"]
+                if used[ids].any():
+                    raise ValueError("Edited object selections overlap. Reset one candidate before saving the scene.")
+                used[ids] = True
+                transformed = state.arrays()
+                for key in ("xyz", "quat"):
+                    arrays[key][ids] = transformed[key]
+                poses[label] = state.pose()
+            self.args.export_dir.mkdir(parents=True, exist_ok=True)
+            output = self.args.export_dir / f"scene_{time.time_ns()}_edited.npz"
+            np.savez_compressed(output, **arrays)
+            output.with_suffix(".json").write_text(json.dumps({
+                "scene_source": str(self.args.scene.resolve()), "objects": poses,
+                "units": "reconstruction units, not meters", "checkpoint_modified": False,
+                "inferred_background_included": False,
+            }, ensure_ascii=False, indent=2), encoding="utf-8")
             return output
 
 
